@@ -1,0 +1,58 @@
+#footer
+    display: flex
+    width: 100%
+    justify-content: start
+    align-items: center
+    font-size: 16px
+    padding: 0.625em 1.25em
+    bottom: 0
+    background: $degradado-tema
+    & > img
+        width: 12.5em
+        height: 6.25em
+        margin-right: 1.25em
+
+    .footer-main
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        width: 70%
+        a
+            display: inline-block
+            padding: 0 0.3125em
+            transition: .3s all ease
+            &:hover
+                transform: scale(1.5)
+        .footer-social
+            .icon
+                display: inline-block
+                font-size: 1.25em
+                transition: .3s all ease
+                cursor: pointer
+                margin-right: 0.3125em
+                &:hover
+                    transform: scale(1.5)
+            .icon-facebook
+                color: #3b5998
+            .icon-instagram
+                color: #3f729b
+            .icon-twitter
+                color: #00acee
+            .icon-whatsapp
+                color: #00bb2d
+            .icon-youtube
+                color: #c4302b
+
+        .footer-texto
+            p
+                font-weight: 600
+
+@media screen and (max-width: 750px)
+    #footer
+        flex-direction: column
+
+    .footer-social
+        margin: auto
+
+
+

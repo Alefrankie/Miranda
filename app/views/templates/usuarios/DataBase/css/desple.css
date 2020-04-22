@@ -1,0 +1,95 @@
+ .spoiler a{
+                            display: table-cell;
+                            text-decoration: none;
+                            color: #555555;
+                            font-size: 12pt;
+                          }
+                          
+                          .spoiler a:hover{
+                            opacity: .4;
+                          }
+                          
+                          input [type="checkbox"input]:hover{
+                            opacity: .4;
+                          }
+                          
+                        /* Ocultar botón radio */
+                        input[id^="spoiler"]{
+                        display: none;
+                        }
+                        /* Estilo botón clicable */
+                        input[id^="spoiler"] + label {
+                        display: block;
+                        width: 100%;
+                        margin: 0 auto;
+                        padding: 5px 20px;
+                       
+                        cursor: pointer;
+                        }
+                        /* Estilo botón cuando su INPUT está seleccionado */
+                        input[id^="spoiler"]:checked + label {
+                        color: #000;
+                       
+                        }
+                        /* Estilo caja SPOILER (inicialmente oculto) */
+                        input[id^="spoiler"] ~ .spoiler {
+                        width: 90%;
+                        height: 0;
+                        overflow: hidden;
+                        opacity: 0;
+                        margin: 10px auto 0; 
+                        }
+                        /* Estilo caja SPOILER cuando su INPUT está seleccionado */
+                        input[id^="spoiler"]:checked + label + .spoiler{
+                        height: auto;
+                        opacity: 1;
+                        }
+                        
+                        label{
+                          font-size: 14pt;
+                          text-align: justify;
+                          color: #555555;
+                        }
+                        
+                        label span.justify{
+                           text-align: justify;
+                           color: #000;
+                           font-size: 10pt;
+                        }
+                        
+                        label span.button-a{
+                        padding:8px 8px;
+						border-radius: 3px;
+  						width: auto;
+  						background: #5f6d7e;
+  						color: white;
+  						text-transform: uppercase;
+  						border: 0;
+ 						margin-left:30%;
+ 						font-size:14px;
+                        }
+
+                         label span.justify strong{
+                           font-size: 15pt;
+                           padding: 5px;
+                         }
+                         
+                         h4{
+                           text-align: left;
+                         }
+                         
+                         /*estilo de la tabla*/
+                           
+                           #keywords tbody tr th  { /* separacion entre celdas*/
+                             text-align: left;
+                             padding: 20px 140px;
+                             border-bottom: solid 2px #000;
+                             border-top: solid 2px #000;
+                           
+                           }
+                           
+                           #keywords tbody tr th span  {
+                           font-family: arial;
+                           font-size: 20px;
+                             
+                           }

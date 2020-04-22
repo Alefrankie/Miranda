@@ -1,0 +1,53 @@
+// SECCIÓN INSTITUTOS AUTÓNOMOS*/
+#institutos
+    font-size: 16px
+    min-height: 37.5em
+    background: var(--degradado-oscuro), url(../img/fondos/portada-institutos.jpg)
+    background-size: cover
+    background-position: center center
+    background-attachment: fixed
+    background-repeat: no-repeat
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    align-content: center
+    flex-wrap: wrap
+    margin: auto
+    position: relative
+
+#clients
+    padding: 5em 0
+
+    .item
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+        height: 100%
+        width: 100%
+
+    a
+        font-weight: 600
+        color: #fff
+
+    img
+        width: 7.5em
+        height: 7.5em
+        border-radius: 30%
+        border: 3px solid gray
+        box-shadow: 0 0 10px 0
+        margin-bottom: 0.3125
+        transition: all 1s
+        &:hover
+            transform: rotate(15deg)
+            cursor: pointer
+
+@media screen and (max-width: 700px)
+    #institutos .item
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+

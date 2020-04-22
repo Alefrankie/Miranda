@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Noticias</title>
+	<link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
+</head>
+
+<body>
+	<!-- ===== NAVEGACIÓN ================================================== -->
+	<header>
+		<nav id="nav">
+			<div class="logo">
+				<a href="#""><strong>RIF G-20000169-0</strong></a>
+			</div>
+			<div class=" enlaces">
+					<a href="/miranda" class="page-scroll">Inicio</a>
+					<a href="#footer" class="page-scroll">Contact us</a>
+			</div>
+		</nav>
+	</header>
+	<!--===== INICIO =====-->
+	<div class="inicio-noticias">
+
+		<div class="contenedor-carousel">
+			<a href="">HOLA</a>
+		</div>
+
+		<div class="svg-hero" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+				<path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+			</svg></div>
+	</div>
+
+	<!--===== SECCIÓN PRINCIPAL =============-->
+	<section id="sección-principal">
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img loading="lazy" src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia1.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img loading="lazy" src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia2.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img loading="lazy" src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia3.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img loading="lazy" src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia4.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia5.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img loading="lazy" src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia6.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img loading="lazy" src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia7.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<article class="articulo">
+			<div class="cabecera-articulo">
+				<img loading="lazy" src="" alt="X">
+				<a href="">Administrador</a>
+			</div>
+			<div class="gallery">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia8.jpg" alt="" class="imagen" />
+			</div>
+			<div class="footer-article">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
+			</div>
+		</article>
+
+		<div class="botón-volver">
+			<a href="#" role="button" ><i class="fas fa-angle-up"></i></a>
+		</div>
+	</section>
+
+	<?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
+
+	<!--===== Javascript ===================================== -->
+	<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
+	<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
+	<script src="<?php echo RUTA_URL ?>/js/SmoothScroll.js"></script>
+	<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
+
+</body>
+
+</html>
