@@ -107,66 +107,22 @@
 	</div>
 	<!--===== NOTICIAS MUNICIPALES ============================================-->
 
-	<div id="noticias" class="contenedor">
-		<div class="contenido-noticias-textos">
-			<h2>Conoce la Gestión Municipal <strong>Noticias</strong></h2>
-			<small><em>Visita las noticias de ultimo momento acerca de la gestión de desarrollo de nuestro municipio en el trabajo por la soberanía nacional..</em></small>
-		</div>
+	<div class="section-news contenedor">
+		<h2>Conoce la Gestión Municipal <strong>Noticias</strong></h2>
+		<small><em>Visita las noticias de ultimo momento acerca de la gestión de desarrollo de nuestro municipio en el trabajo por la soberanía nacional..</em></small>
 
-		<div class="noticias-sección-principal">
-			<div class="contenido-noticias-imágenes">
-				<div>
-					<a href="<?php echo RUTA_URL; ?>/noticias/">
-						<img loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag1.jpg#data-id=2" alt="" />
-					</a>
-				</div>
+		<div class="section-news__main">
+			<div class="section-news__left-frame">
+				<img class="section-news__thumbnail-img" loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag1.jpg" />
 
-				<div>
-					<a href="<?php echo RUTA_URL; ?>/noticias/">
-						<img loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag2.jpg" alt="" />
-					</a>
-				</div>
+				<img class="section-news__thumbnail-img" loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag2.jpg" />
 			</div>
-			<div class="contenido-noticias-video">
-				<iframe src="https://www.youtube.com/embed/FC_yhKPAG9E"></iframe>
+
+			<div class="section-news__right-frame">
+				<iframe src="https://www.youtube.com/embed/FC_yhKPAG9E" class="section-news__thumbnail-video"></iframe>
 			</div>
 		</div>
-
-
-		<div class="contentWrap inner">
-			<div class="col-md-3 col-sm-6 service">
-				<article class="blox bloxPopup" data-src="" data-id="1">
-					<div class="featured">
-						<img loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag2.jpg" width=250px height=250px alt="" />
-					</div>
-					<div class="content">
-						<p>Video en vimeo</p>
-					</div>
-				</article>
-			</div>
-
-			<div class="col-md-3 col-sm-6 service">
-				<article class="blox bloxPopup" data-src="" data-id="1">
-					<div class="featured">
-						<img loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag3.jpg" width=250px height=250px alt="" />
-					</div>
-					<div class="content">
-						<p>Video en vimeo</p>
-					</div>
-				</article>
-			</div>
-
-			<div class="col-md-3 col-sm-6 service">
-				<article class="blox bloxPopup" data-src="" data-id="1">
-					<div class="featured">
-						<img loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag4.jpg" width=250px height=250px alt="" />
-					</div>
-					<div class="content">
-						<p>Video en vimeo</p>
-					</div>
-				</article>
-			</div>
-		</div>
+		<a class="section-news__button" href="href="<?php echo RUTA_URL; ?>/noticias/"">Ver Más</a>
 	</div>
 
 	<!--===== INSTITUTOS AUTÓNOMOS ==========================================-->

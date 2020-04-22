@@ -46,14 +46,14 @@
     </form> -->
 
 
-    <div class="titular-pagina">
+    <div class="page-tittle">
         <h1>ALCALDÍA BOLIVARIANA DEL MUNICIPIO MIRANDA</h1>
         <h2>UN MUNICIPIO HECHO ALCALDE, <strong>VIVE LA EXPERIENCIA</strong> DE UN <strong>EXTRAORDINARIO PAISAJE</strong></h2>
     </div>
     <hr>
 
     <div class="admin-privileges">
-        <h2>Usted es identificado como Administrador General por lo que el sistema le permite iterar los siguientes privilegios:</h2>
+        <h3>Usted es identificado como Administrador General por lo que el sistema le permite iterar los siguientes privilegios:</h3>
         <p>Actualiza sus Datos de Sesión y Foto de administrador.</p>
         <p>Realizar una búsqueda de empleados por su documento de identidad.</p>
         <p>Consultar los departamentos Adscritos a la Dirección de Despacho.</p>

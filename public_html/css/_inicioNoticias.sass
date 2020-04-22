@@ -1,65 +1,55 @@
 // ***** SECCIÓN DE NOTICIAS *****/
-#noticias
+@import _mixins
+
+.section-news
     display: flex
+    width: 90%
+    height: 700px
     overflow: hidden
     flex-direction: column
-    align-content: center
-    margin: auto
-    padding: 0 0 50px 0
+    justify-content: space-evenly
+    align-items: center
+    text-align: center
+    font-size: 16px
+    padding: 30px 0
 
-    h2, h6
-        padding: 10px 15px
-
-    .contenido-noticias-textos
-        width: 100%
-        text-align: center
-
-    .noticias-sección-principal
+    .section-news__main
         display: flex
         width: 100%
-        justify-content: space-evenly
-        align-items: center
-        height: 700px
-        padding: 0px 15px
+        justify-content: center
+        align-items: start
 
-    .contenido-noticias-imágenes
-        display: flex
-        flex-direction: column
-        align-items: center
-        width: 20%
-        height: 60%
-        img
-            margin: 10px 0
-            width: 250px
-            height: 220px
-            border-radius: 10%
-            border: $border-gray
-
-    .contenido-noticias-video
-        width: 70%
-        height: 470px
-        iframe
-            width: 100%
-            height: 100%
-            border-radius: 2%
-
-@media screen and (max-width: 700px)
-    #noticias
-        .noticias-sección-principal
+        .section-news__left-frame
             display: flex
-            flex-direction: column
-
-        .contenido-noticias-video
+            justify-content: center
             align-items: center
-            width: 100%
-            height: 370px
-            iframe
-                width: 100%
-                height: 90%
-                border-radius: 2%
+            flex-direction: column
+            width: 350px
+            height: 550px
 
-        .contenido-noticias-imágenes
-            width: 90%
-            height: 100%
+            .section-news__thumbnail-img
+                width: 245px
+                height: 245px
+                border: $border-gray
+                border-radius: 5px
+                margin: 5px 0
 
+        .section-news__right-frame
+            display: flex
+            justify-content: center
+            align-items: start
+            flex-direction: column
+            width: 850px
+            height: 550px
 
+            .section-news__thumbnail-video
+                width: 800px
+                height: 500px
+                border: $border-gray
+                border-radius: 5px
+                margin: 5px 0
+
+    .section-news__button
+        +button-degrade
+        width: 150px
+        height: 100px

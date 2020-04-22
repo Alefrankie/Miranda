@@ -2,7 +2,7 @@
 #institutos
     font-size: 16px
     min-height: 37.5em
-    background: var(--degradado-oscuro), url(../img/fondos/portada-institutos.jpg)
+    background: $degradado-oscuro , url(../img/fondos/portada-institutos.jpg)
     background-size: cover
     background-position: center center
     background-attachment: fixed
@@ -45,9 +45,8 @@
             cursor: pointer
 
 @media screen and (max-width: 700px)
-    #institutos .item
-        flex-direction: column
-        justify-content: center
-        align-items: center
-
-
+    #institutos
+        .item
+            flex-direction: column
+            justify-content: center
+            align-items: center
