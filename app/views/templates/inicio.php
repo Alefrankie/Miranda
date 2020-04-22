@@ -122,7 +122,7 @@
 				<iframe src="https://www.youtube.com/embed/FC_yhKPAG9E" class="section-news__thumbnail-video"></iframe>
 			</div>
 		</div>
-		<a class="section-news__button" href="href="<?php echo RUTA_URL; ?>/noticias/"">Ver Más</a>
+		<a class="section-news__button" href="<?php echo RUTA_URL; ?>/noticias/"">Ver Más</a>
 	</div>
 
 	<!--===== INSTITUTOS AUTÓNOMOS ==========================================-->

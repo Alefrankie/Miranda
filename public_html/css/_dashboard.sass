@@ -1,8 +1,123 @@
+@import _mixins
+
+body 
+    
+
 .page-tittle
+    background: url(../img/fondos/portada1.jpg)
+    +propieades-basicas-fondo
     text-align: center
 
 .admin-privileges
     display: flex
-    justify-content: start
+    flex-direction: column
+    justify-content: space-evenly
+
+.data-update
+    position: relative
+    display: flex
+    width: 100%
+    min-height: 100vh
+    font-size: 16px
+    text-align: center
+    justify-content: space-evenly
     align-items: center
-    text-align: justify
+    flex-wrap: wrap
+    background: $color-white
+    +degrade-2
+    
+    h2
+        width: 100%
+        color: $color-white
+        margin-bottom: 20px
+
+    & > img
+        width: 31.25em
+        height: 31.25em
+
+    .data-update__form
+        display: flex
+        width: 21.875em
+        height: 32.5em
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        margin: 0 10px
+        border-radius: 5px
+        background: $color-white
+        margin-bottom: 100px
+
+        & > img
+            width: 12.5em
+            height: 12.5em
+            border: 1px solid $color-green
+            border-radius: 5px
+            padding: 10px
+            margin: 10px 0
+
+        input , label
+            width: 200px
+            height: 50px
+            margin: 5px 0
+            border: none
+            &:focus
+                border: 3px solid $color-green
+
+.form-button
+    +button-degrade
+    width: 200px
+    height: 30px
+    border-color: $color-green
+
+.data-base-users
+    display: flex
+    width: 100%
+    margin: auto
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    padding: 200px 0
+    position: relative
+    +degrade-2
+
+    & > h2
+        width: 100%
+        color: $color-white
+
+    form
+        display: flex
+        align-items: center
+        justify-content: space-evenly
+        width: 60%
+        background: $color-white
+        padding: 10px 10px
+        border-radius: 5px
+
+        input
+            border: none
+            margin: 0 10px
+            &:focus
+                border: 3px solid $color-green
+
+
+
+    .table
+        width: 100%
+
+.personal-card
+    position: relative
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    padding: 40px 0 
+    flex-wrap: wrap
+
+    & > h2
+        width: 100%
+
+    form
+        width: 100%
+
+        
+
+    

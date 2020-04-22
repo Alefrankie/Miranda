@@ -14,9 +14,9 @@
 			</div>
 			<div class=" enlaces">
                 <a href="<?php echo RUTA_URL; ?>/"><i class="fa fa-home"></i> INICIO</a>
-                <a href="#"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
+                <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
                 <a href="#"><i class="fas fa-search"></i></i> BUSCAR EMPLEADO</a>
-                <a href="#"><i class="fa fa-link"></i> FICHAS DE EMPLEADOS</a></<a>
+                <a href="#"><i class="fa fa-link"></i> FICHA DE EMPLEADO</a></<a>
         </div>
     </nav>
 </header>
@@ -44,96 +44,84 @@
     <form action="../db/close.php" method="post" class="close-session">
         <input type="submit" class="button" value="SALIR" />
     </form> -->
-
-
-    <div class="page-tittle">
-        <h1>ALCALDÍA BOLIVARIANA DEL MUNICIPIO MIRANDA</h1>
-        <h2>UN MUNICIPIO HECHO ALCALDE, <strong>VIVE LA EXPERIENCIA</strong> DE UN <strong>EXTRAORDINARIO PAISAJE</strong></h2>
-    </div>
-    <hr>
-
-    <div class="admin-privileges">
-        <h3>Usted es identificado como Administrador General por lo que el sistema le permite iterar los siguientes privilegios:</h3>
-        <p>Actualiza sus Datos de Sesión y Foto de administrador.</p>
-        <p>Realizar una búsqueda de empleados por su documento de identidad.</p>
-        <p>Consultar los departamentos Adscritos a la Dirección de Despacho.</p>
-        <p>Consultar los departamentos Adscritos a la Dirección General</p>
-        <p>Registrar Nuevo Empleado a las Dependencias Adscritas.</p>
-
-    </div>
-    <hr>
-
     <!-- PERFIL -->
 
-    <div class="data-update">
-        <h4>Actualizar Datos de Sesión</h4>
-        <form method="POST" action="../fotos/recibir.php" enctype="multipart/form-data" autocomplete="off" class="fotos">
-            <h2>FOTO DE PERFIL:</h2>
-            <img src="<?php echo RUTA_URL; ?>/img/usuarios/profile.png" alt="user">
-            <input readonly="readonly" type="text" name="cedula" value="" />
-            <input type="file" name="foto" accept="image/*" value="examinar">
-            <input type="submit" class="button" name="enviar" value="Actualizar">
+    <div class="data-update contenedor" id="data-update">
+        <h2>Bienvenido NOMBRE DEL USUARIO</h2>
+        <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user">
+        <form class="data-update__form" action="../fotos/recibir.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+            <h3>Actualiza tus Datos</h3>
+            <img class="form-img" src="<?php echo RUTA_URL; ?>/img/usuarios/profile.png" alt="user">
+
+            <input type="file" name="photo" accept="image/*" value="Examinar">
+
+            <label for="user">Usuario: </label>
+            <input REQUIRED type="user" name="user" class="form-control" id="user" placeholder="Indique su usuario">
+
+            <label for="pass">Contraseña: </label>
+            <input REQUIRED type="password" name="pass" class="form-control" id="pass" placeholder="Indique su clave">
+
+            <input class="form-button" type="submit" class="button" name="enviar" value="Actualizar">
         </form>
 
-        <form action="" method="POST">
-            <h3>DATOS DE SESIÓN:</h3>
-            <input type="text" REQUIRED placeholder="Usuario..." name="user" value="" />
-            <input type="password" REQUIRED placeholder="Contraseña..." name="pass" value="" />
-        </form>
+        <div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg></div>
     </div>
-    <hr>
 
-    <!-- BUSCAR EMPLEADOS SOLO ES VISIBLE SI ERES ADMINISTRADOR - ARREGLAR CON JS-->
-    <div class="search-employees">
-        <h2>BUSCAR EMPLEADO</h2>
-        <form action="../admin/buscar/p_buscar.php" method="post" class="buscar" target="_blank">
-            <input type="text" REQUIRED placeholder="CÉDULA..." name="cedula" />
-            <input type="submit" class="button" value="BUSCAR" />
-        </form>
-    </div>
-    <hr>
     <!-- BASE DE DATOS SOLO ES VISIBLE SI ERES ADMINISTRADOR - ARREGLAR CON JS-->
     <div class="data-base-users">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Cedula</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>Correo</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
-                </tr>
-            </thead>
-            <?php foreach ($datos['usuarios'] as $usuario) : ?>
-                <tbody>
-                    <tr>
-                        <td><?php echo $usuario->id; ?></td>
-                        <td><?php echo $usuario->cedula; ?></td>
-                        <td><?php echo $usuario->nombre; ?></td>
-                        <td><?php echo $usuario->apellido; ?></td>
-                        <td><?php echo $usuario->telefono; ?></td>
-                        <td><?php echo $usuario->correo; ?></td>
-                        <td><?php echo $usuario->user; ?></td>
-                        <td><?php echo $usuario->password; ?></td>
-                        <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
-                        <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
-                    </tr>
-                <?php endforeach ?>
-                </tbody>
-        </table>
-    </div>
-    <hr>
+        <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg></div>
+        <h2>BUSCAR EMPLEADO</h2>
+        <form action="../admin/buscar/p_buscar.php" method="post" target="_blank">
+            <label for="cedula">Cédula:</label>
+            <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula" />
+            <input class="form-button" type="submit" class="button" value="BUSCAR" />
+            <input class="form-button" type="submit" class="button" value="TODOS" />
+        </form>
 
-    <!-- REGISTRAR EMPLEADOS SOLO ES VISIBLE SI ERES ADMINISTRADOR - ARREGLAR CON JS-->
-    <div class="data-personal">
+        <a href="#">
+            <table class="table">
+        </a>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+            </tr>
+        </thead>
+        <?php foreach ($datos['usuarios'] as $usuario) : ?>
+            <tbody>
+                <tr>
+                    <td><?php echo $usuario->id; ?></td>
+                    <td><?php echo $usuario->cedula; ?></td>
+                    <td><?php echo $usuario->nombre; ?></td>
+                    <td><?php echo $usuario->apellido; ?></td>
+                    <td><?php echo $usuario->telefono; ?></td>
+                    <td><?php echo $usuario->correo; ?></td>
+                    <td><?php echo $usuario->user; ?></td>
+                    <td><?php echo $usuario->password; ?></td>
+                    <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
+                    <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+            </table>
+            <div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+                </svg></div>
+    </div>
+
+    <div class="personal-card">
         <h2>Ficha del Empleado</h2>
         <form action="../empleados/guardar.php" method="post" class="contact-form">
-            <h3>DATOS DE SESIÓN:</h3>
-            <input type="text" REQUIRED placeholder="USUARIO..." name="user" />
-            <input type="password" REQUIRED placeholder="CONTRASEÑA..." name="pass" />
 
             <h3>DATOS PERSONALES: </h3>
             <input type="number" REQUIRED placeholder="CEDULA..." name="cedula" />
@@ -193,6 +181,19 @@
             <input type="submit" class="button" value="Actualizar Datos" />
             <hr>
         </form>
+    </div>
+
+
+    <div class="admin-privileges contenedor">
+        <h3>Usted es identificado como Administrador General por lo que el sistema le permite iterar los siguientes privilegios:</h3>
+        <div class="admin-privileges__text">
+            <p><span class="far fa-dot-circle"></span> Actualiza sus Datos de Sesión y Foto de administrador.</p>
+            <p><span class="far fa-dot-circle"></span> Realizar una búsqueda de empleados por su documento de identidad.</p>
+            <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección de Despacho.</p>
+            <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección General</p>
+            <p><span class="far fa-dot-circle"></span> Registrar Nuevo Empleado a las Dependencias Adscritas.</p>
+        </div>
+
     </div>
 
     <?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
