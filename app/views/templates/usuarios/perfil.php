@@ -185,6 +185,9 @@
 
 
     <div class="admin-privileges contenedor">
+        <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg></div>
         <h3>Usted es identificado como Administrador General por lo que el sistema le permite iterar los siguientes privilegios:</h3>
         <div class="admin-privileges__text">
             <p><span class="far fa-dot-circle"></span> Actualiza sus Datos de Sesión y Foto de administrador.</p>
@@ -193,7 +196,6 @@
             <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección General</p>
             <p><span class="far fa-dot-circle"></span> Registrar Nuevo Empleado a las Dependencias Adscritas.</p>
         </div>
-
     </div>
 
     <?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
