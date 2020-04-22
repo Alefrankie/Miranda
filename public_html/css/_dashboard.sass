@@ -129,8 +129,56 @@ body
             margin: 10px 0
 
 .admin-privileges
+    position: relative
+    display: flex
+    justify-content: center
     width: 100%
-    +degrade-2
+    padding: 0 20px
+    background: $degradado-tema
+
+    & > h3
+        padding-top: 100px
+        width: 100%
+
+    p
+        width: 100%
+        text-align: justify
+
+    .admin-privileges-footer
+        display: flex
+        width: 100%
+        bottom: 0
+        margin: 10px
+        
+        a
+            display: inline-block
+            transition: .3s all ease
+            cursor: pointer
+            margin: 0 5px
+            &:hover
+                transform: scale(1.3)
+            &.icon-facebook
+                color: #3b5998
+                font-size: 20px
+            &.icon-instagram
+                color: #3f729b
+                font-size: 20px
+            &.icon-twitter
+                color: #00acee
+                font-size: 20px
+            &.icon-whatsapp
+                color: #00bb2d
+                font-size: 20px
+            &.icon-youtube
+                color: #c4302b
+                font-size: 20px
+            
+        p
+            font-weight: 600
+            
+
+
+
 
 
         

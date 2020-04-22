@@ -84,39 +84,40 @@
 
         <a href="#">
             <table class="table">
-        </a>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Cedula</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Teléfono</th>
-                <th>Correo</th>
-                <th>Usuario</th>
-                <th>Contraseña</th>
-            </tr>
-        </thead>
-        <?php foreach ($datos['usuarios'] as $usuario) : ?>
-            <tbody>
-                <tr>
-                    <td><?php echo $usuario->id; ?></td>
-                    <td><?php echo $usuario->cedula; ?></td>
-                    <td><?php echo $usuario->nombre; ?></td>
-                    <td><?php echo $usuario->apellido; ?></td>
-                    <td><?php echo $usuario->telefono; ?></td>
-                    <td><?php echo $usuario->correo; ?></td>
-                    <td><?php echo $usuario->user; ?></td>
-                    <td><?php echo $usuario->password; ?></td>
-                    <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
-                    <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
-                </tr>
-            <?php endforeach ?>
-            </tbody>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Cedula</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                    </tr>
+                </thead>
+                <?php foreach ($datos['usuarios'] as $usuario) : ?>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $usuario->id; ?></td>
+                            <td><?php echo $usuario->cedula; ?></td>
+                            <td><?php echo $usuario->nombre; ?></td>
+                            <td><?php echo $usuario->apellido; ?></td>
+                            <td><?php echo $usuario->telefono; ?></td>
+                            <td><?php echo $usuario->correo; ?></td>
+                            <td><?php echo $usuario->user; ?></td>
+                            <td><?php echo $usuario->password; ?></td>
+                            <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
+                            <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
+                        </tr>
+                    <?php endforeach ?>
+                    </tbody>
             </table>
-            <div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                    <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
-                </svg></div>
+        </a>
+
+        <div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg></div>
     </div>
 
     <div class="personal-card contenedor">
@@ -184,21 +185,32 @@
     </div>
 
 
-    <div class="admin-privileges contenedor">
+    <div class="admin-privileges">
         <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
             </svg></div>
+
         <h3>Usted es identificado como Administrador General por lo que el sistema le permite iterar los siguientes privilegios:</h3>
-        <div class="admin-privileges__text">
-            <p><span class="far fa-dot-circle"></span> Actualiza sus Datos de Sesión y Foto de administrador.</p>
-            <p><span class="far fa-dot-circle"></span> Realizar una búsqueda de empleados por su documento de identidad.</p>
-            <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección de Despacho.</p>
-            <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección General</p>
-            <p><span class="far fa-dot-circle"></span> Registrar Nuevo Empleado a las Dependencias Adscritas.</p>
+
+        <p><span class="far fa-dot-circle"></span> Actualiza sus Datos de Sesión y Foto de administrador.</p>
+        <p><span class="far fa-dot-circle"></span> Realizar una búsqueda de empleados por su documento de identidad.</p>
+        <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección de Despacho.</p>
+        <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección General</p>
+        <p><span class="far fa-dot-circle"></span> Registrar Nuevo Empleado a las Dependencias Adscritas.</p>
+
+
+        <div class="admin-privileges-footer">
+            <a class="icon icon-facebook"><i class="fab fa-facebook"></i></a>
+            <a class="icon icon-instagram "><i class="fab fa-instagram"></i></a>
+            <a class="icon icon-twitter"><i class="fab fa-twitter"></i></a>
+            <a class="icon icon-whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a class="icon icon-youtube"><i class="fab fa-youtube"></i></a>
+
+            <p>Copyright © 2019-2020. Developed by <a href="#">JGBM/AJMA</a></p>
         </div>
     </div>
 
-    <?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
+
 
     <!--===== Javascript ===================================== -->
     <script src="<?php echo RUTA_URL ?>/js/usuario.js"></script>

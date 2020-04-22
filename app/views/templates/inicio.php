@@ -59,14 +59,18 @@
 			<h2><strong>Pablo Acosta</strong></h2>
 			<h5></h5>
 			<p>Mirandino de Corazón, trabajando por el bienestar de las parroquias del municipio Miranda.</p>
-			<p><span class="far fa-dot-circle"></span><strong> Alcalde</strong> - del Municipio Miranda el dia -- del Mes -- en el año ----</p>
-			<p><span class="far fa-dot-circle"></span><strong> Su Gestión</strong> - Trabajar por proteger nuestra soberanía nacional</p>
+			<p><span class="far fa-dot-circle"></span><strong> Alcalde</strong> del Municipio Miranda desde 2011 por el Partido Socialista Unido de Venezuela (PSUV)</p>
+			<p><span class="far fa-dot-circle"></span><strong> Su Gestión</strong> - Trabajar por proteger nuestra soberanía nacional.</p>
 			<p><span class="far fa-dot-circle"></span><strong> Su Meta</strong> - proteger el legado de nuestro comandante Chavez.</p>
 		</div>
+		<a href="https://twitter.com/pito_acosta?lang=es">Twiter Pito Acosta</a>
 	</section>
 
 	<!--===== Sitios Turísticos =======================================-->
 	<div id="turismo">
+		<div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+				<path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+			</svg></div>
 		<div class="contenido-turismo contenedor">
 			<h2 class="color-letras">Sítios <strong>Turísticos Municipales</strong></h2>
 
@@ -103,7 +107,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<!--===== NOTICIAS MUNICIPALES ============================================-->
 
@@ -122,97 +125,91 @@
 				<iframe src="https://www.youtube.com/embed/FC_yhKPAG9E" class="section-news__thumbnail-video"></iframe>
 			</div>
 		</div>
-		<a class="section-news__button" href="<?php echo RUTA_URL; ?>/noticias/"">Ver Más</a>
 	</div>
 
 	<!--===== INSTITUTOS AUTÓNOMOS ==========================================-->
 
 	<!-- Re ubicar los institutos Autónomos -->
+	<div class="institutos contenedor">
+		<h2 class="color-letras">Institutos <strong>Autónomos</strong></h2>
+		<div id="clients" class="owl-carousel owl-theme">
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/HaciendaMunicipal.jpeg" alt="" />
+				<a><strong>Hacienda Municipal</strong></a>
+			</div>
 
-	<div id="institutos">
-		<div class="contenedor">
-			<h2 class="color-letras">Institutos <strong>Autónomos</strong></h2>
-			<div id="clients" class="owl-carousel owl-theme">
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaMunicipal.jpeg" alt="" />
+				<a><strong>Oficina Municipal</strong></a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/HaciendaMunicipal.jpeg" alt="" />
-					<a><strong>Hacienda Municipal</strong></a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/SecretariaDeAmbiente.jpeg" alt="" />
+				<a><strong>Secretaria De Ambiente</strong></a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaMunicipal.jpeg" alt="" />
-					<a><strong>Oficina Municipal</strong></a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaDeProyecto.jpeg" alt="" />
+				<a><strong>Oficina De Proyecto</strong></a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/SecretariaDeAmbiente.jpeg" alt="" />
-					<a><strong>Secretaria De Ambiente</strong></a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/IMUM.jpeg" alt="" />
+				<a><strong>Instituto de la mujer</strong></a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaDeProyecto.jpeg" alt="" />
-					<a><strong>Oficina De Proyecto</strong></a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/bomberos.php">Cuerpo de Bomberos</a>
+			</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/fondesmiranda.php">FONDES Miranda</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/IMUM.jpeg" alt="" />
-					<a><strong>Instituto de la mujer</strong></a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-matadero-municipal.jpg">
+				<a href="secciones/institutos/matadero-municipal.php">Matadero Municipal</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/src=" <?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/bomberos.php">Cuerpo de Bomberos</a>
-				</div>
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/src=" <?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/fondesmiranda.php">FONDES Miranda</a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/patrimonio.php">Patrimonio Municipal</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-matadero-municipal.jpg">
-					<a href="secciones/institutos/matadero-municipal.php">Matadero Municipal</a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/terminal.php">Terminal Pasajeros</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/patrimonio.php">Patrimonio Municipal</a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/mercado.php">Mercados Municipales</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/terminal.php">Terminal Pasajeros</a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/imtt.php">IMTT</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/mercado.php">Mercados Municipales</a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/imaud.php">IMAUD</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/imtt.php">IMTT</a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/imudemi.php">IMUDEMI</a>
+			</div>
 
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/imaud.php">IMAUD</a>
-				</div>
-
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/imudemi.php">IMUDEMI</a>
-				</div>
-
-				<div class="item">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-					<a href="secciones/institutos/inhamir.php">INHAMIR</a>
-				</div>
+			<div class="item">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<a href="secciones/institutos/inhamir.php">INHAMIR</a>
 			</div>
 		</div>
 		<div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
 				<path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
 			</svg></div>
-	</div>
 	</div>
 	<!--===== DIRECCIÓN DE LA ALCALDíA =================================================-->
 	<div id="tf-testimonials">

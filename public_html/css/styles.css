@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(institutos_style.css);
 @import url(bootstrap.css);
 @import url(../fonts/font-awesome/css/font-awesome.css);
 @import url(owl.carousel.css);
@@ -296,6 +295,8 @@ header nav a:hover {
   background-attachment: fixed;
   background-repeat: no-repeat;
   font-size: 16px;
+  position: relative;
+  padding-top: 100px;
 }
 
 #turismo .contenido-turismo {
@@ -464,9 +465,10 @@ header nav a:hover {
   height: 100px;
 }
 
-#institutos {
+.institutos {
   font-size: 16px;
-  min-height: 37.5em;
+  width: 100%;
+  height: 600px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.65))), url(../img/fondos/portada-institutos.jpg);
   background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.65) 100%), url(../img/fondos/portada-institutos.jpg);
   background-size: cover;
@@ -594,7 +596,7 @@ header nav a:hover {
   color: #d1d1d1;
 }
 
-#footer {
+.footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -606,18 +608,20 @@ header nav a:hover {
       -ms-flex-align: center;
           align-items: center;
   font-size: 16px;
-  padding: 0.625em 1.25em;
+  padding: 0 20px;
+  padding-top: 60px;
   bottom: 0;
   background: linear-gradient(45deg, rgba(175, 255, 144, 0.99) 1%, rgba(112, 249, 147, 0.89) 5%, rgba(45, 249, 160, 0.99) 30%, #3c0c78 99%, #4a0c96 99%, #4a0c96 100%);
+  position: relative;
 }
 
-#footer > img {
+.footer > img {
   width: 200px;
   height: 100px;
-  margin-right: 1.25em;
+  margin: 50px 20px;
 }
 
-#footer .footer-main {
+.footer .footer-main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -625,25 +629,22 @@ header nav a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   width: 70%;
 }
 
-#footer .footer-main a {
+.footer .footer-main a {
   display: inline-block;
   padding: 0 0.3125em;
   -webkit-transition: .3s all ease;
   transition: .3s all ease;
 }
 
-#footer .footer-main a:hover {
+.footer .footer-main a:hover {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
 
-#footer .footer-main .footer-social .icon {
+.footer .footer-main .footer-social .icon {
   display: inline-block;
   font-size: 1.25em;
   -webkit-transition: .3s all ease;
@@ -652,37 +653,37 @@ header nav a:hover {
   margin-right: 0.3125em;
 }
 
-#footer .footer-main .footer-social .icon:hover {
+.footer .footer-main .footer-social .icon:hover {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
 
-#footer .footer-main .footer-social .icon-facebook {
+.footer .footer-main .footer-social .icon-facebook {
   color: #3b5998;
 }
 
-#footer .footer-main .footer-social .icon-instagram {
+.footer .footer-main .footer-social .icon-instagram {
   color: #3f729b;
 }
 
-#footer .footer-main .footer-social .icon-twitter {
+.footer .footer-main .footer-social .icon-twitter {
   color: #00acee;
 }
 
-#footer .footer-main .footer-social .icon-whatsapp {
+.footer .footer-main .footer-social .icon-whatsapp {
   color: #00bb2d;
 }
 
-#footer .footer-main .footer-social .icon-youtube {
+.footer .footer-main .footer-social .icon-youtube {
   color: #c4302b;
 }
 
-#footer .footer-main .footer-texto p {
+.footer .footer-main .footer-texto p {
   font-weight: 600;
 }
 
 @media screen and (max-width: 750px) {
-  #footer {
+  .footer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1066,7 +1067,90 @@ header nav a:hover {
 }
 
 .admin-privileges {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
+  padding: 0 20px;
+  background: linear-gradient(45deg, rgba(175, 255, 144, 0.99) 1%, rgba(112, 249, 147, 0.89) 5%, rgba(45, 249, 160, 0.99) 30%, #3c0c78 99%, #4a0c96 99%, #4a0c96 100%);
+}
+
+.admin-privileges > h3 {
+  padding-top: 100px;
+  width: 100%;
+}
+
+.admin-privileges p {
+  width: 100%;
+  text-align: justify;
+}
+
+.admin-privileges .admin-privileges-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  margin: 10px;
+}
+
+.admin-privileges .admin-privileges-footer a {
+  display: inline-block;
+  -webkit-transition: .3s all ease;
+  transition: .3s all ease;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.admin-privileges .admin-privileges-footer a:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+.admin-privileges .admin-privileges-footer a.icon-facebook {
+  color: #3b5998;
+  font-size: 20px;
+}
+
+.admin-privileges .admin-privileges-footer a.icon-instagram {
+  color: #3f729b;
+  font-size: 20px;
+}
+
+.admin-privileges .admin-privileges-footer a.icon-twitter {
+  color: #00acee;
+  font-size: 20px;
+}
+
+.admin-privileges .admin-privileges-footer a.icon-whatsapp {
+  color: #00bb2d;
+  font-size: 20px;
+}
+
+.admin-privileges .admin-privileges-footer a.icon-youtube {
+  color: #c4302b;
+  font-size: 20px;
+}
+
+.admin-privileges .admin-privileges-footer p {
+  font-weight: 600;
+}
+
+.usuarios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: gray;
+  padding: 100px 0;
   background: #0cebeb;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -1075,18 +1159,18 @@ header nav a:hover {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.usuarios {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: gray;
-  padding: 100px 0;
-  background: rgba(128, 128, 128, 0.2);
+.usuarios .admin-privileges {
+  position: absolute;
+  bottom: 0;
+}
+
+.usuarios .admin-privileges p {
+  color: #000;
+  text-align: center;
+}
+
+.usuarios .admin-privileges a {
+  text-align: center;
 }
 
 .usuarios > img {

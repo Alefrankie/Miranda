@@ -1,5 +1,3 @@
-
-
 /*===== ANUNCIO EMERGENTE AL INICIO =====*/
 const anuncio = document.getElementsByClassName("anuncio-abierto")[0];
 const img = document.getElementsByTagName("img")[0];
@@ -20,13 +18,13 @@ window.addEventListener("click", (e) => {
 });
 
 /*===== ROTACIÓN DE IMÁGENES DE FONDO =====*/
-document.addEventListener("DOMContentLoaded", () => {
-  setInterval(() => {
-    const fondo = document.getElementById("inicio");
-    fondo.classList.toggle("init");
-    fondo.classList.toggle("inicio");
-  }, 4000);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   setInterval(() => {
+//     const fondo = document.getElementById("inicio");
+//     fondo.classList.toggle("init");
+//     fondo.classList.toggle("inicio");
+//   }, 4000);
+// });
 
 /*===== SCRIPT ANIMACIÓN DE IMAGEN ALCALDE =====*/
 
