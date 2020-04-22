@@ -119,7 +119,7 @@
                 </svg></div>
     </div>
 
-    <div class="personal-card">
+    <div class="personal-card contenedor">
         <h2>Ficha del Empleado</h2>
         <form action="../empleados/guardar.php" method="post" class="contact-form">
 
