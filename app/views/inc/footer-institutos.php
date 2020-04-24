@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" id="footer">
     <img src="<?php echo RUTA_URL ?>/img/logo-footer2.png">
     <div class="footer-main">
         <div class="footer-social">

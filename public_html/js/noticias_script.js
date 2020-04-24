@@ -54,7 +54,7 @@ const amp = document.getElementsByClassName("imagen");
 
 for (const i of amp) {
   i.onclick = function () {
-    if (i.style.transform = "scale(1)") {
+    if ((i.style.transform = "scale(1)") == true ) {
       i.style.transform = "scale(1.5)";
     } else {
       i.style.transform = "scale(1)";

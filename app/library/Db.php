@@ -20,13 +20,13 @@ class Db{
 		);
 
 		//Crear una instancia PDO
-		try {
-			$this->dbh = new PDO($dsn, $this->usuario, $this->password, $opciones);
-			$this->dbh->exec('set names utf8');
-		} catch (PDOException $e) {
-			$this->error = $e->getMessage();
-			echo $this->error;
-		}
+		// try {
+		// 	$this->dbh = new PDO($dsn, $this->usuario, $this->password, $opciones);
+		// 	$this->dbh->exec('set names utf8');
+		// } catch (PDOException $e) {
+		// 	$this->error = $e->getMessage();
+		// 	echo $this->error;
+		// }
 	}
 		//Preparamos la consulta
 	public function query($sql){

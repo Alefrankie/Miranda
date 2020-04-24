@@ -35,9 +35,7 @@ h1 strong {
 
 h2 {
   text-transform: uppercase;
-  margin: 0;
   font-weight: 600;
-  margin-bottom: 0.625rem;
   text-align: center;
 }
 
@@ -466,15 +464,18 @@ header nav a:hover {
 }
 
 .institutos {
-  font-size: 16px;
-  width: 100%;
-  height: 600px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.65))), url(../img/fondos/portada-institutos.jpg);
   background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.65) 100%), url(../img/fondos/portada-institutos.jpg);
+  -webkit-transition: all 1000ms ease;
+  transition: all 1000ms ease;
+  width: 100%;
+  height: 100vh;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  position: relative;
+  font-size: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -482,22 +483,24 @@ header nav a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: auto;
-  position: relative;
+  height: 600px;
+}
+
+.institutos > h2 {
+  width: 100%;
+  color: #ffd700;
 }
 
 #clients {
-  padding: 5em 0;
+  width: 100%;
+  height: 200px;
+  padding: 20px 0;
 }
 
 #clients .item {
@@ -514,18 +517,15 @@ header nav a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  height: 100%;
-  width: 100%;
+  padding: 40px 0;
 }
 
-#clients a {
+#clients .item a {
   font-weight: 600;
   color: #fff;
 }
 
-#clients img {
+#clients .item img {
   width: 7.5em;
   height: 7.5em;
   border-radius: 30%;
@@ -537,9 +537,9 @@ header nav a:hover {
   transition: all 1s;
 }
 
-#clients img:hover {
-  -webkit-transform: rotate(15deg);
-          transform: rotate(15deg);
+#clients .item img:hover {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
   cursor: pointer;
 }
 
@@ -729,7 +729,7 @@ header nav a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 37.5em;
+  min-height: 39.5em;
   width: 34.375em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -766,6 +766,7 @@ header nav a:hover {
   border-radius: 50%;
   border: 1px solid gray;
   margin-right: 1.875em;
+  padding: 10px 10px;
 }
 
 #sección-principal .cabecera-articulo > a {
@@ -798,7 +799,7 @@ header nav a:hover {
   display: -ms-flexbox;
   display: flex;
   width: 95%;
-  height: 3.125em;
+  height: 100%;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;

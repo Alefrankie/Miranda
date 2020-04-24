@@ -39,7 +39,7 @@
 					<li><a href="#noticias" class="page-scroll">Noticias</a></li>
 					<li><a href="#institutos" class="page-scroll">Institutos</a></li>
 					<li><a href="#tf-testimonials" class="page-scroll">Dirección General</a></li>
-					<li><a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a></li>
+					<!-- <li><a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a></li> -->
 				</ul>
 			</div>
 		</div>
@@ -63,7 +63,6 @@
 			<p><span class="far fa-dot-circle"></span><strong> Su Gestión</strong> - Trabajar por proteger nuestra soberanía nacional.</p>
 			<p><span class="far fa-dot-circle"></span><strong> Su Meta</strong> - proteger el legado de nuestro comandante Chavez.</p>
 		</div>
-		<a href="https://twitter.com/pito_acosta?lang=es">Twiter Pito Acosta</a>
 	</section>
 
 	<!--===== Sitios Turísticos =======================================-->
@@ -110,7 +109,7 @@
 	</div>
 	<!--===== NOTICIAS MUNICIPALES ============================================-->
 
-	<div class="section-news contenedor">
+	<div class="section-news contenedor" id="noticias">
 		<h2>Conoce la Gestión Municipal <strong>Noticias</strong></h2>
 		<small><em>Visita las noticias de ultimo momento acerca de la gestión de desarrollo de nuestro municipio en el trabajo por la soberanía nacional..</em></small>
 
@@ -125,13 +124,12 @@
 				<iframe src="https://www.youtube.com/embed/FC_yhKPAG9E" class="section-news__thumbnail-video"></iframe>
 			</div>
 		</div>
+		<a class="btn btn-primary" href="<?php echo RUTA_URL; ?>/Noticias">Ver Mas</a>
 	</div>
 
 	<!--===== INSTITUTOS AUTÓNOMOS ==========================================-->
-
-	<!-- Re ubicar los institutos Autónomos -->
-	<div class="institutos contenedor">
-		<h2 class="color-letras">Institutos <strong>Autónomos</strong></h2>
+	<div class="institutos contenedor" id="institutos">
+		<h2>Institutos <strong>Autónomos</strong></h2>
 		<div id="clients" class="owl-carousel owl-theme">
 			<div class="item">
 				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/HaciendaMunicipal.jpeg" alt="" />
