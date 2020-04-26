@@ -19,20 +19,12 @@
 		</div>
 	</div>
 	<!--===== NAVEGACIÓN ==================================================-->
-	<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.php">RIF G-20000169-0</a>
+	<header>
+		<nav id="nav">
+			<div class="logo">
+				<a href="#""><strong>RIF G-20000169-0</strong></a>
 			</div>
-
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
+			<div class=" enlaces">
 					<li><a href="#"><i class="fa fa-home page-scroll"></i> INICIO</a></li>
 					<li><a href="#alcalde" class="page-scroll">Alcalde</a></li>
 					<li><a href="#turismo" class="page-scroll">Turismo</a></li>
@@ -40,10 +32,13 @@
 					<li><a href="#institutos" class="page-scroll">Institutos</a></li>
 					<li><a href="#tf-testimonials" class="page-scroll">Dirección General</a></li>
 					<!-- <li><a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a></li> -->
-				</ul>
 			</div>
-		</div>
-	</nav>
+
+			<div class="icon-bar" id="icon-bar">
+				<span><i class="fas fa-bars"></i></span>
+			</div>
+		</nav>
+	</header>
 
 	<!--===== FONDO ===========================================-->
 	<div class="inicio" id="inicio">
@@ -210,50 +205,44 @@
 			</svg></div>
 	</div>
 	<!--===== DIRECCIÓN DE LA ALCALDíA =================================================-->
-	<div id="tf-testimonials">
-		<div class="contenido-dirección contenedor">
+	<div id="tf-testimonials" class="contenedor">
+		<div class="contenido-dirección">
 			<h2 class="color-letras"><strong></strong> Dirección de la Alcaldía de Miranda</h2>
 			<div id="testimonial" class="owl-carousel owl-theme">
 				<div class="item">
-					<a href="#">
 						<h1> <strong><span class="color2">Dirección de Despacho</span></strong></h1>
-					</a>
 					<p>Esta sede se encuentra ubicada en la <strong>Avenida Miranda con calle Urdaneta, edificio Ayuntamiento</strong> Coro, estado Falcón</p>
 				</div>
 
 				<div class="item">
-					<a href="#" !--Dir/s_hacienda.php--> <h1> <strong><span class="color2"> Secretaria de Hacienda Municipal</span></strong></h1></a>
+					<h1> <strong><span class="color2"> Secretaria de Hacienda Municipal</span></strong></h1>
 					<p>Esta sede de la alcaldía de Miranda se encuentra ubicada en la <strong> Calle Norte, con Avenida Los Médanos</strong> de Coro, estado Falcón.</p>
 				</div>
 
 				<div class="item">
-					<a href="#">
 						<h1> <strong><span class="color2">Secretaria de Desarrollo Económico</span></strong></h1>
-					</a>
 					<p>Información <strong>de Interés</strong> a los usuarios acerca de esta dirección de la Alcaldía Bolivariana del municipio Miranda</p>
 				</div>
 
 				<div class="item">
-					<a href="#">
-						<h1> <strong><span class="color2">Secretaria de Turismo, Educación y Cultura </span></strong></h1>
-					</a>
+					<h1> <strong><span class="color2">Secretaria de Turismo, Educación y Cultura </span></strong></h1>
 					<p>Información <strong>de Interés</strong> a los usuarios acerca de esta dirección de la Alcaldía Bolivariana del municipio Miranda</p>
 				</div>
 
 				<div class="item">
-					<a href="#" !--Dir/s_territorial.php--> <h1> <strong><span class="color2"> Secretaria Territorial Municipal</span></strong></h1></a>
+					<h1> <strong><span class="color2"> Secretaria Territorial Municipal</span></strong></h1>
 					<p>Información <strong>de Interés</strong> a los usuarios acerca de esta dirección de la Alcaldía Bolivariana del municipio Miranda</p>
 				</div>
 				<div class="item">
-					<a href="#" !--Dir/s_política.php--> <h1> <strong><span class="color2"> Secretaria Política Municipal</span></strong></h1></a>
+					<h1> <strong><span class="color2"> Secretaria Política Municipal</span></strong></h1>
 					<p>Información <strong>de Interés</strong> a los usuarios acerca de esta dirección de la Alcaldía Bolivariana del municipio Miranda</p>
 				</div>
 				<div class="item">
-					<a href="#" !--Dir/s_social.php--> <h1> <strong><span class="color2"> Secretaria Social Municipal</span></strong></h1></a>
+					<h1> <strong><span class="color2"> Secretaria Social Municipal</span></strong></h1>
 					<p>Información <strong>de Interés</strong> a los usuarios acerca de esta dirección de la Alcaldía Bolivariana del municipio Miranda</p>
 				</div>
 				<div class="item">
-					<a href="#" !--Dir/s_ambiente.php--> <h1> <strong><span class="color2"> Secretaria de Ambiente Municipal</span></strong></h1></a>
+					<h1> <strong><span class="color2"> Secretaria de Ambiente Municipal</span></strong></h1>
 					<p>Información <strong>de Interés</strong> a los usuarios acerca de esta dirección de la Alcaldía Bolivariana del municipio Miranda</p>
 				</div>
 			</div>
