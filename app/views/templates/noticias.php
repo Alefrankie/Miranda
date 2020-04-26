@@ -16,7 +16,7 @@
 				<a href="#""><strong>RIF G-20000169-0</strong></a>
 			</div>
 			<div class=" enlaces">
-					<a href="/miranda" class="page-scroll">Inicio</a>
+					<a href="/Miranda" class="page-scroll">Inicio</a>
 					<a href="#footer" class="page-scroll">Contact us</a>
 			</div>
 		</nav>

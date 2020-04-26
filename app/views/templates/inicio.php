@@ -162,7 +162,7 @@
 			</div>
 			<div class="item">
 				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
-				<a href="secciones/institutos/fondesmiranda.php">FONDES Miranda</a>
+				<a href="secciones/institutos/fondesMiranda.php">FONDES Miranda</a>
 			</div>
 
 			<div class="item">
@@ -223,7 +223,7 @@
 
 				<div class="item">
 					<a href="#" !--Dir/s_hacienda.php--> <h1> <strong><span class="color2"> Secretaria de Hacienda Municipal</span></strong></h1></a>
-					<p>Esta sede de la alcaldía de miranda se encuentra ubicada en la <strong> Calle Norte, con Avenida Los Médanos</strong> de Coro, estado Falcón.</p>
+					<p>Esta sede de la alcaldía de Miranda se encuentra ubicada en la <strong> Calle Norte, con Avenida Los Médanos</strong> de Coro, estado Falcón.</p>
 				</div>
 
 				<div class="item">
@@ -296,13 +296,14 @@
 	<?php require RUTA_APP . '/views/inc/footer.php'; ?>
 
 	<!--===== Javascripts ================================================== -->
-	<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/jquery.1.11.1.js"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/bootstrap.js"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/SmoothScroll.js"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/owl.carousel.js"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/main.js"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/all.min.js"></script>
+
+	<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
+	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/jquery.1.11.1.js"></script>
+	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/SmoothScroll.js"></script>
+	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/owl.carousel.js"></script>
+	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/bootstrap.js"></script>
+	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/main.js"></script>
+	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/all.min.js"></script>
 </body>
 
 </html>

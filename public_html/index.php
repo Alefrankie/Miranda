@@ -4,5 +4,3 @@ require_once '../app/home.php';
 
 	//Instancias la clase controlador
 $iniciar = new Core;
-
-?>

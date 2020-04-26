@@ -14,7 +14,7 @@
             <a href="#""><strong>RIF G-20000169-0</strong></a>
 			</div>
 			<div class=" enlaces">
-                <a href="/miranda" class="page-scroll">Inicio</a>
+                <a href="/Miranda" class="page-scroll">Inicio</a>
                 <a href="#footer" class="page-scroll">Contact us</a>
         </div>
     </nav>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="no-account">
-                <a href="/miranda/usuarios/login">¿Ya tienes Cuenta? Inicia Sesión</a>
+                <a href="/Miranda/usuarios/login">¿Ya tienes Cuenta? Inicia Sesión</a>
             </div>
         </div>
     </section>

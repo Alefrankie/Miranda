@@ -42,7 +42,7 @@
                 </form>
             </div>
             <div class="no-account">
-                <a href="/miranda/usuarios/register/<?php echo $datos ?>">¿No tienes Cuenta? Registrate</a>
+                <a href="/Miranda/usuarios/register/<?php echo $datos ?>">¿No tienes Cuenta? Registrate</a>
             </div>
         </div>
         <div class="admin-privileges">
