@@ -13,11 +13,17 @@
 	<header>
 		<nav id="nav">
 			<div class="logo">
-				<a href="#""><strong>RIF G-20000169-0</strong></a>
+				<a href="#"><strong>RIF G-20000169-0</strong></a>
 			</div>
-			<div class=" enlaces">
-					<a href="/Miranda" class="page-scroll">Inicio</a>
-					<a href="#footer" class="page-scroll">Contact us</a>
+
+			<div class="enlaces" id="enlaces">
+				<a href="/Miranda"><i class="fa fa-home page-scroll"></i> Inicio</a>
+				<a href="#footer" class="page-scroll">Contact us</a>
+				<!-- <a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a> -->
+			</div>
+
+			<div class="icon-burger" id="icon-burger">
+				<span><i class="fas fa-bars"></i></span>
 			</div>
 		</nav>
 	</header>
@@ -192,6 +198,7 @@
 	<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
 	<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
 	<script src="<?php echo RUTA_URL ?>/js/SmoothScroll.js"></script>
+	<script src="<?php echo RUTA_URL ?>/js/main.js"></script>
 	<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 
 </body>

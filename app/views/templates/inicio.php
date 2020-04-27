@@ -24,17 +24,18 @@
 			<div class="logo">
 				<a href="#""><strong>RIF G-20000169-0</strong></a>
 			</div>
-			<div class=" enlaces">
-					<li><a href="#"><i class="fa fa-home page-scroll"></i> INICIO</a></li>
-					<li><a href="#alcalde" class="page-scroll">Alcalde</a></li>
-					<li><a href="#turismo" class="page-scroll">Turismo</a></li>
-					<li><a href="#noticias" class="page-scroll">Noticias</a></li>
-					<li><a href="#institutos" class="page-scroll">Institutos</a></li>
-					<li><a href="#tf-testimonials" class="page-scroll">Dirección General</a></li>
-					<!-- <li><a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a></li> -->
+
+			<div class="enlaces" id="enlaces">
+					<a href="#"><i class="fa fa-home page-scroll"></i> Inicio</a>
+					<a href="#alcalde" class="page-scroll">Alcalde</a>
+					<a href="#turismo" class="page-scroll">Turismo</a>
+					<a href="#noticias" class="page-scroll">Noticias</a>
+					<a href="#institutos" class="page-scroll">Institutos</a>
+					<a href="#tf-testimonials" class="page-scroll">Dirección General</a>
+					<!-- <a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a> -->
 			</div>
 
-			<div class="icon-bar" id="icon-bar">
+			<div class="icon-burger" id="icon-burger">
 				<span><i class="fas fa-bars"></i></span>
 			</div>
 		</nav>
@@ -46,6 +47,7 @@
 				<path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
 			</svg></div>
 	</div>
+
 	<!--===== ALCALDE =========================================-->
 	<section id="alcalde" class="contenedor">
 		<img loading="lazy" src="<?php echo RUTA_URL ?>/img/Alcalde/Pablo Acosta ORIG.png" id="alcalde-animado">
@@ -210,7 +212,7 @@
 			<h2 class="color-letras"><strong></strong> Dirección de la Alcaldía de Miranda</h2>
 			<div id="testimonial" class="owl-carousel owl-theme">
 				<div class="item">
-						<h1> <strong><span class="color2">Dirección de Despacho</span></strong></h1>
+					<h1> <strong><span class="color2">Dirección de Despacho</span></strong></h1>
 					<p>Esta sede se encuentra ubicada en la <strong>Avenida Miranda con calle Urdaneta, edificio Ayuntamiento</strong> Coro, estado Falcón</p>
 				</div>
 
@@ -220,7 +222,7 @@
 				</div>
 
 				<div class="item">
-						<h1> <strong><span class="color2">Secretaria de Desarrollo Económico</span></strong></h1>
+					<h1> <strong><span class="color2">Secretaria de Desarrollo Económico</span></strong></h1>
 					<p>Información <strong>de Interés</strong> a los usuarios acerca de esta dirección de la Alcaldía Bolivariana del municipio Miranda</p>
 				</div>
 

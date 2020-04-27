@@ -1,147 +1,90 @@
-// #tf-menu
-// 	display: flex
-// 	padding: 20px
-// 	transition: all 0.5s
-// 	&.navbar-default
-// 		background-color: rgba(76, 26, 47, 0)
-// 		border-color: rgba(112, 74, 74, 0)
-// 		.navbar-nav>li>a
-// 			text-transform: uppercase
-// 			color: #fff
-// 			font-size: 12px
-// 			letter-spacing: 1px
-// 		& .navbar-nav>.active>a,
-// 		& .navbar-nav>.active>a:hover,
-// 		& .navbar-nav>.active>a:focus
-// 			color: #4c3d0e !important
-// 			background-color: transparent
-// 			font-weight: 700
-
-// 	a.navbar-brand
-// 		text-transform: uppercase
-// 		font-size: 22px
-// 		color: #fff
-// 		font-weight: 900
-
-// .on
-// 	background: rgba(61, 186, 255, 0.99)
-// 	background: -moz-linear-gradient(45deg, rgba(175, 255, 144, 0.99) 0%, rgba(112, 249, 147, 0.89) 5%, rgba(255, 130, 70, 0.99) 30%, rgba(60, 12, 120, 1) 99%, rgba(74, 12, 150, 1) 99%, rgba(74, 12, 150, 1) 100%)
-// 	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255, 146, 10, 0.99)), color-stop(7%, rgba(255, 146, 10, 0.99)), color-stop(34%, rgba(173, 14, 30, 0.99)), color-stop(64%, rgba(82, 150, 63, 1)), color-stop(99%, rgba(74, 12, 150, 1)), color-stop(100%, rgba(74, 12, 150, 1)))
-// 	background: -webkit-linear-gradient(45deg, rgba(175, 255, 144, 0.99) 0%, rgba(112, 249, 147, 0.89) 5%, rgba(255, 130, 70, 0.99) 30%, rgba(60, 12, 120, 1) 99%, rgba(74, 12, 150, 1) 99%, rgba(74, 12, 150, 1) 100%)
-// 	background: -o-linear-gradient(45deg, rgba(175, 255, 144, 0.99) 0%, rgba(112, 249, 147, 0.89) 5%, rgba(255, 130, 70, 0.99) 30%, rgba(60, 12, 120, 1) 99%, rgba(74, 12, 150, 1) 99%, rgba(74, 12, 150, 1) 100%)
-// 	background: -ms-linear-gradient(45deg, rgba(175, 255, 144, 0.99) 0%, rgba(112, 249, 147, 0.89) 5%, rgba(255, 130, 70, 0.99) 30%, rgba(60, 12, 120, 1) 99%, rgba(74, 12, 150, 1) 99%, rgba(74, 12, 150, 1) 100%)
-// 	background: linear-gradient(45deg, rgba(175, 255, 144, 0.99) 1%, rgba(112, 249, 147, 0.89) 5%, rgba(45, 249, 160, 0.99) 30%, rgba(60, 12, 120, 1) 99%, rgba(74, 12, 150, 1) 99%, rgba(74, 12, 150, 1) 100%)
-// 	filter: progid:dximagetransform.microsoft.gradient(startcolorstr='#fff', endcolorstr='#4a0c96', gradienttype=1)
-// 	padding: 0 !important
-
-// .navbar
-// 	display: none
-
-// .navbar
-// 	position: relative
-// 	min-height: 50px
-// 	margin-bottom: 20px
-// 	border: 1px solid transparent
-
-// @media (min-width: 768px)
-// 	.navbar
-// 		border-radius: 4px
-
-// .navbar-default
-// 	background-color: #f8f8f8
-// 	border-color: #e7e7e7
-
-// .navbar-fixed-top,
-// .navbar-fixed-bottom
-// 	position: fixed
-// 	right: 0
-// 	left: 0
-// 	z-index: 1030
-
-// @media (min-width: 768px)
-// 	.navbar-fixed-top,
-// 	.navbar-fixed-bottom
-// 		border-radius: 0
-
-// .navbar-fixed-top
-// 	top: 0
-// 	border-width: 0 0 1px
-
-
-// .container
-// 	padding-right: 15px
-// 	padding-left: 15px
-// 	margin-right: auto
-// 	margin-left: auto
-
-// @media (min-width: 768px)
-// 	.container
-// 		width: 750px
-
-// @media (min-width: 992px)
-// 	.container
-// 		width: 970px
-
-
-// @media (min-width: 1200px)
-// 	.container
-// 		width: 1170px
-
-// .collapse
-// 	display: none
-// 	visibility: hidden
-
-
-// .navbar-toggle
-// 	border-radius: 0
-
-
-// .navbar-default .navbar-toggle:hover,
-// .navbar-default .navbar-toggle:focus
-// 	background-color: #66770f
-// 	border-color: #869dd6
-
-// .navbar-default .navbar-toggle:hover>.icon-bar
-// 	background-color: #fff
-
-
-// @media (max-width: 600px)
-// 	#tf-menu.navbar-default
-// 		background-color: rgba(0, 0, 0, 0.79)
-
-
-// 	#tf-works li.pull-right,
-// 	#tf-works li.pull-left
-// 		margin-top: 10px
-// 		float: none !important
-// 		text-align: center
-// 		display: block
-
-//NAVIGATION BAR 2
 header
-	font-size: 16px
-	width: 100%
-	height: 2.77em
+	display: flex
+	justify-content: center
+	align-items: center
 	position: fixed
+	width: 100%
+	height: 50px
 	z-index: 100
 	nav
 		display: flex
-		width: 90%
-		height: 2.77em
 		justify-content: space-between
 		align-items: center
-		margin: auto
-		a
-			display: inline-block
-			padding: 0 0.277em
-			font-weight: 500
-			color: #fff
-			transform: scale(1)
+		width: 90%
+		height: 100%
+
+		.logo
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 20%
+			height: 100%
+			a
+				color: $color-white
+
+		.enlaces
+			display: flex
+			justify-content: center
+			align-items: center
+
+			a
+				display: inline-block
+				padding: 0 0.277em
+				font-weight: 500
+				color: #fff
+				&:hover
+					background: linear-gradient(45deg, rgba(189, 189, 227, 1) 0%, rgba(189, 189, 227, 1) 22%, rgba(41, 217, 44, 1) 48%, rgba(179, 131, 134, 1) 77%, rgba(179, 131, 134, 1) 100%)
+					-webkit-background-clip: text
+					color: #FFD700
+					transform: scale(1.15)
+					transition: all 1s
+					transform-origin: center
+
+		.icon-burger
+			display: none
+			color: $color-white
+			font-size: 24px
+			padding: 20px 20px
 			&:hover
-				background: darkorange
-				background: linear-gradient(45deg, rgba(189, 189, 227, 1) 0%, rgba(189, 189, 227, 1) 22%, rgba(41, 217, 44, 1) 48%, rgba(179, 131, 134, 1) 77%, rgba(179, 131, 134, 1) 100%)
-				-webkit-background-clip: text
-				color: #FFD700
-				transform: scale(1.15)
-				transition: all 0.5s
-				transform-origin: center
+				cursor: pointer
+
+@media screen and (max-width: 800px)
+	header
+		nav
+			flex-direction: column
+			.logo
+				width: 100%
+
+@media screen and (max-width: 600px)
+	header
+		nav
+			flex-direction: row
+			.enlaces
+				display: flex
+				flex-direction: column
+				justify-content: start
+				align-items: center
+				position: fixed
+				padding: 10px 0
+				top: 50px
+				left: 0px
+				width: 0%
+				height: 100%
+				transition: 1s
+				background: $degradado-oscuro
+				overflow: hidden
+				a
+					display: flex
+					align-items: center
+					justify-content: center
+					width: 100%
+					padding: 20px 0
+					&:hover
+						background: $color-light-gray
+						transform: scale(1.15)
+						transition: all 1s
+						transform-origin: center
+						color: $color-black
+
+			.icon-burger
+				display: flex
