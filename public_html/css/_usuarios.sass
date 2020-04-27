@@ -1,0 +1,53 @@
+@import _mixins
+//===== SECCIÓN LOGIN=====
+.usuarios
+    display: flex
+    width: 100%
+    height: 100vh
+    justify-content: center
+    color: gray
+    padding: 100px 0
+    +degrade-2
+
+    .admin-privileges
+        position: absolute
+        bottom: 0
+        p
+            color: $color-black
+            text-align: center
+        a
+            text-align: center
+    
+    & > img
+        width: 40%
+        height: 500px
+        margin-right: 10px
+    .register-contenedor-formulario
+        +card-form-main(450px)
+        .no-account
+            +no-account
+
+    .usuarios-contenedor-formulario
+        +card-form-main(300px)
+        .no-account
+            +no-account
+
+#formulario
+    display: flex
+    flex-direction: column
+    align-items: center
+    input
+        margin: 5px 0
+    button
+        +button-degrade
+
+@media screen and (max-width: 800px)
+    .usuarios
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+    .usuarios > img
+        width: 350px
+        height: 300px
+        margin-bottom: 10px

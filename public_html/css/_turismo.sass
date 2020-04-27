@@ -1,0 +1,45 @@
+//  SECCIÓN DEL TURISMO
+#turismo
+    background: $degradado-oscuro , url(../img/fondos/portada-turismo.png)
+    background-size: cover
+    background-position: center
+    background-attachment: fixed
+    background-repeat: no-repeat
+    font-size: 16px
+    position: relative
+    padding-top: 100px
+
+    .contenido-turismo
+        display: flex
+        justify-content: space-around
+        flex-wrap: wrap
+        padding: 5em 0.9375em
+        overflow: hidden
+        align-items: center
+
+        .item
+            text-align: center
+
+            img
+                width: 11.25em
+                height: 11.25em
+                border-radius: 50%
+                box-shadow: 0 0 0.625em 0
+                margin-top: 1.25em
+                transform: scale(1)
+                transition: transform 0.3s
+                &:hover
+                    transform: scale(1.2)
+                    cursor: pointer
+
+            p
+                font-weight: 300
+                margin-bottom: 2.5em
+                text-align: justify
+
+    .thumbnail
+        background: transparent
+
+    .caption
+        padding: 0.5625em
+        color: #f2f2f2

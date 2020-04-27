@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document Objetct Model</title>
+	<style type="text/css">
+		.thumb{
+			width: 200px;
+			transition: 1000ms all ease;
+		}
+
+		.grande{
+			width: 400px;
+		}
+
+	</style>
+</head>
+<body>
+	<form>
+
+		<input type="button" value="Cambio de Tamanio" onclick="zom();">
+
+	</form>
+	<img id="thumb" class="thumb" src="img/juliannee.jpg" width="400">
+
+	<script type="text/javascript">
+		var zom = function () {
+			var thumb = document.getElementById("thumb");
+			if (thumb.className == "thumb") {
+				thumb.className = "thumb grande";
+			} else {
+				thumb.className = "thumb";
+			}
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+//===== ANUNCIO =====
+.anuncio-container
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    z-index: 3000
+    width: 100%
+    height: 100vh
+    top: 0
+    left: 0
+    opacity: 1
+    visibility: visible
+    background: $degradado-oscuro
+    transition: all 1s ease
+    font-size: 16px
+    .anuncio-abierto
+        width: 34.375em
+        height: 40.625em
+        background: #fff
+        border-radius: 5%
+        overflow: hidden
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 0.625em 0
+        transform: translateY(0%)
+        img
+            width: 100%
+            height: 100%
+
+    .anuncio-cerrado
+        transition: all 2s ease
+        transform: translateY(-200%)
+
+@media screen and (max-width: 900px)
+    .anuncio-abierto
+        width: 80%
+        height: 100%
+
