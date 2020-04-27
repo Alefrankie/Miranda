@@ -6,49 +6,59 @@
     +propieades-basicas-fondo()
 
 //*===== SECCIÓN PRINCIPAL =====*
-#sección-principal
+.main-section
     +propieades-basicas-seccion-principal()
+    justify-content: space-evenly
+    font-size: 16px
     .articulo
         display: flex
-        min-height: 37.5em
+        height: 100%
         width: 34.375em
         flex-direction: column
-        justify-content: center
+        justify-content: space-between
         align-items: center
-        padding: 0.625em 0
-        margin: 2.125em 0
-        border-radius: 0.3125px
+        padding: 5px 0
+        border-radius: 5px
         border: 1px solid rgba(128, 128, 128, 0.5)
         box-shadow: -10px 15px 20px -10px rgba(0, 0, 0, 0.5)
-    .cabecera-articulo
-        display: flex
-        width: 95%
-        height: 3.125em
-        justify-content: start
-        &>img
-            width: 2.5em
-            height: 2.5em
-            border-radius: 50%
-            border: 1px solid gray
-            margin-right: 1.875em
-        &>a
+        margin: 20px 0
+        .cabecera-articulo
             display: flex
-            width: 2.5em
-            height: 2.5em
-            align-items: center
-            justify-content: center
-    .gallery > img
-        width: 100%
-        height: 100%
-        margin-bottom: 1.875em
-        cursor: pointer
-        transition: all 1s
-        transform: scale(1)
-    .footer-article
-        display: flex
-        width: 95%
-        height: 3.125em
-        justify-content: start
+            width: 95%
+            height: 3.125em
+            justify-content: flex-start
+            .thumbnail
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 2.5em
+                height: 2.5em
+                margin-right: 1.875em
+                & > img
+                    width: 100%
+                    height: 100%
+                    padding: 5px
+                    border-radius: 50%
+                    border: 1px solid $color-light-gray
+            & > a
+                display: flex
+                width: 2.5em
+                height: 2.5em
+                align-items: center
+                justify-content: center
+        .gallery > img
+            width: 100%
+            height: 100%
+            cursor: pointer
+            transition: all 1s
+            transform: scale(1)
+        .footer-article
+            display: flex
+            width: 95%
+            height: 100%
+            justify-content: flex-start
+            p
+                font-size: 1em
     //Button Styles Back
     .botón-volver
         display: flex
@@ -64,8 +74,11 @@
                 transform-origin: center
                 cursor: pointer
 
-@media screen and (max-width: 900px)
-    #sección-principal .articulo
-        width: 25em
+@media screen and (max-width: 600px)
+    .main-section
+        font-size: 14px
+        .articulo
+            width: 90%
+
 
 //*===== Botón Volver =====*

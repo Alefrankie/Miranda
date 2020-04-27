@@ -69,7 +69,7 @@
 		<div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
 				<path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
 			</svg></div>
-		<h2>Sítios<strong>Turísticos Municipales</strong></h2>
+		<h2>Sítios<strong> Turísticos Municipales</strong></h2>
 		<div class="team owl-carousel owl-theme row">
 			<div class="item">
 				<div class="turismo-imagen">
@@ -166,7 +166,7 @@
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/patrimonio.jpg" alt="">
 				<a href="secciones/institutos/patrimonio.php">Patrimonio Municipal</a>
 			</div>
 

@@ -1,15 +1,25 @@
-<footer class="footer" id="footer">
-    <img src="<?php echo RUTA_URL ?>/img/logo-footer2.png">
+<footer>
+    <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+        </svg>
+    </div>
     <div class="footer-main">
-        <div class="footer-social">
-            <a class="icon icon-facebook fab fa-facebook"></a></a>
-            <a class="icon icon-instagram fab fa-instagram"></a>
-            <a class="icon icon-twitter fab fa-twitter"></a>
-            <a class="icon icon-whatsapp fab fa-whatsapp"></a>
-            <a class="icon icon-youtube fab fa-youtube"></a>
+        <div class="footer-img">
+            <img src="<?php echo RUTA_URL ?>/img/logo-footer2.png">
         </div>
-        <div class="footer-texto">
-            <p>Copyright © 2019-2020. Developed with <a href="#">JGBM/AJMA</a></p>
+
+        <div class="footer-body">
+            <div class="footer-social">
+                <a class="icon icon-facebook fab fa-facebook"></a>
+                <a class="icon icon-instagram fab fa-instagram"></a>
+                <a class="icon icon-twitter fab fa-twitter"></a>
+                <a class="icon icon-whatsapp fab fa-whatsapp"></a>
+                <a class="icon icon-youtube fab fa-youtube"></a>
+            </div>
+
+            <div class="footer-texto">
+                <p>Copyright © 2019-2020. Developed with <a href="#">JGBM/AJMA</a></p>
+            </div>
         </div>
     </div>
 </footer>

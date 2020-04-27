@@ -36,10 +36,12 @@
 	</div>
 
 	<!--===== SECCIÓN PRINCIPAL =============-->
-	<section id="sección-principal">
+	<section class="main-section" id="sección-principal">
 		<article class="articulo">
 			<div class="cabecera-articulo">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+				<div class="thumbnail">
+					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+				</div>
 				<!-- <a href="">Administrador</a> -->
 			</div>
 			<div class="gallery">
@@ -52,7 +54,9 @@
 
 		<article class="articulo">
 			<div class="cabecera-articulo">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+				<div class="thumbnail">
+					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+				</div>
 				<!-- <a href="">Administrador</a> -->
 			</div>
 			<div class="gallery">
@@ -65,7 +69,9 @@
 
 		<article class="articulo">
 			<div class="cabecera-articulo">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+				<div class="thumbnail">
+					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+				</div>
 				<!-- <a href="">Administrador</a> -->
 			</div>
 			<div class="gallery">
