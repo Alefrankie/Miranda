@@ -1,0 +1,51 @@
+// SECCIÓN INSTITUTOS AUTÓNOMOS*/
+@import _mixins
+
+.institutos
+    background: $degradado-oscuro, url(../img/fondos/portada-institutos.jpg)
+    +propieades-basicas-fondo
+    font-size: 16px
+    display: flex
+    flex-direction: column
+    justify-content: start
+    align-items: center
+    height: 600px
+
+    & > h2
+        width: 100%
+        color: $color-letter
+
+#clients
+    width: 100%
+    height: 200px
+    padding: 20px 0
+
+    .item
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        padding: 40px 0
+
+        a
+            font-weight: 600
+            color: #fff
+
+        img
+            width: 7.5em
+            height: 7.5em
+            border-radius: 30%
+            border: 3px solid gray
+            box-shadow: 0 0 10px 0
+            margin-bottom: 0.3125
+            transition: all 1s
+            &:hover
+                transform: rotate(20deg)
+                cursor: pointer
+
+@media screen and (max-width: 700px)
+    #institutos
+        .item
+            flex-direction: column
+            justify-content: center
+            align-items: center
