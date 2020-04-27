@@ -2,7 +2,7 @@
 
 RewriteEngine On
 
-RewriteRule ^$ public_html/ [L]
+RewriteRule ^$ public_html/Paginas [L]
 
 RewriteRule (.*) public_html/$1 [L]
 
