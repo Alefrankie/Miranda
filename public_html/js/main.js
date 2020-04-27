@@ -94,7 +94,7 @@ function main() {
     });
 
     $(document).ready(function () {
-      $("#team").owlCarousel({
+      $(".team").owlCarousel({
         navigation: false, // Show next and prev buttons
         slideSpeed: 300,
         paginationSpeed: 400,

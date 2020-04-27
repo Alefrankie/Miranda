@@ -1,22 +1,18 @@
 // ***** SECCIÓN DE NOTICIAS *****/
 @import _mixins
-
 .section-news
     display: flex
     font-size: 16px
-    width: 90%
-    height: 43.75em
+    height: 100%
     overflow: hidden
     flex-direction: column
     justify-content: space-evenly
     align-items: center
-    text-align: center
-    padding: 30px 0
 
     .section-news__main
         display: flex
         width: 100%
-        justify-content: center
+        justify-content: space-evenly
         align-items: start
 
         .section-news__left-frame
@@ -24,32 +20,64 @@
             justify-content: center
             align-items: center
             flex-direction: column
-            width: 21.875em
-            height: 34.375em
+            width: 30%
+            height: 550px
 
-            .section-news__thumbnail-img
-                width: 15.3125em
-                height: 15.3125em
+            img
+                width: 98%
+                height: 49%
                 border: $border-gray
                 border-radius: 5px
-                margin: 0.3125em 0
+                margin: 3px 0
 
         .section-news__right-frame
             display: flex
             justify-content: center
-            align-items: start
-            flex-direction: column
-            width: 53.125em
-            height: 34.375em
+            align-items: center
+            width: 70%
+            height: 550px
 
-            .section-news__thumbnail-video
-                width: 50em
-                height: 31.25em
+            iframe
+                width: 100%
+                height: 100%
                 border: $border-gray
                 border-radius: 5px
-                margin: 0.3125em 0
+                margin: 5px 0
 
     .section-news__button
         +button-degrade
-        width: 150px
-        height: 100px
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 100px
+
+@media screen and ( max-width: 900px )
+    .section-news
+        .section-news__main
+            flex-direction: column-reverse
+            .section-news__left-frame
+                flex-direction: row
+                width: 100%
+                height: 300px
+                img
+                    height: 100%
+                    width: 50%
+                    padding: 10px 10px
+            .section-news__right-frame
+                width: 100%
+                height: 300px
+                margin: 10px 0
+
+@media screen and ( max-width: 450px )
+    .section-news
+        .section-news__main
+            .section-news__left-frame
+                flex-direction: column
+                height: 100%
+                img
+                    width: 100%            
+            .section-news__right-frame
+                height: 100%
+                iframe
+                    height: 300px
+              

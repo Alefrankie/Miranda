@@ -13,11 +13,11 @@
 
 <body>
 	<!--===== ANUNCIO ==================================================-->
-	<div class="anuncio-container">
+	<!-- <div class="anuncio-container">
 		<div class="anuncio-abierto">
 			<img loading="lazy" src="img/anuncios/anuncio.jpg" alt="">
 		</div>
-	</div>
+	</div> -->
 	<!--===== NAVEGACIÓN ==================================================-->
 	<header>
 		<nav id="nav">
@@ -65,44 +65,41 @@
 	</section>
 
 	<!--===== Sitios Turísticos =======================================-->
-	<div id="turismo">
+	<div class="turismo contenedor" id="turismo">
 		<div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
 				<path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
 			</svg></div>
-		<div class="contenido-turismo contenedor">
-			<h2 class="color-letras">Sítios <strong>Turísticos Municipales</strong></h2>
+		<h2>Sítios<strong>Turísticos Municipales</strong></h2>
+		<div class="team owl-carousel owl-theme row">
+			<div class="item">
+				<div class="turismo-imagen">
+					<a href="https://www.flickr.com/photos/gigigonzalez/3507759920" target="_blank"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/ventanas.jpg"></a>
+				</div>
+				<h3>Casa de las 100 Ventanas</h3>
+				<p>En la ciudad de Santa Ana de Coro, una de las mas antiguas del continente americano fundada en 1527 por el colono español Juan de Ampíes.</p>
+			</div>
+			<div class="item">
+				<div class="turismo-imagen">
+					<a href="https://venezuelatuya.com/occidente/medanos.htm" target="_blank"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/medanos.png"></a>
+				</div>
+				<h3>Parque Médanos de Coro</h3>
+				<p>Forman parte de un parque nacional, establecido para protegerlos. Es una parada obligada para todos los turistas, que se divierten ascendiéndolos y revolcándose por sus laderas.</p>
+			</div>
 
-			<div id="team" class="owl-carousel owl-theme row">
-				<div class="item">
-					<a href="https://www.flickr.com/photos/gigigonzalez/3507759920"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/ventanas.jpg" alt="..." target="_blank"></a>
-					<div class="caption">
-						<h3>Casa de las 100 Ventanas</h3>
-						<p>En la ciudad de Santa Ana de Coro, una de las mas antiguas del continente americano fundada en 1527 por el colono español Juan de Ampíes.</p>
-					</div>
+			<div class="item">
+				<div class="turismo-imagen">
+					<a href="https://iamvenezuela.com/2017/02/iglesia-de-san-clemente/" target="_blank"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/IglesiaSan-Clemente.jpg"></a>
 				</div>
-				<div class="item">
-					<a href="https://venezuelatuya.com/occidente/medanos.htm"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/medanos.png" alt="..." width=330px height=330px target="_blank"></a>
-					<div class="caption">
-						<h3>Parque Médanos de Coro</h3>
-						<p>Forman parte de un parque nacional, establecido para protegerlos. Es una parada obligada para todos los turistas, que se divierten ascendiéndolos y revolcándose por sus laderas.</p>
-					</div>
-				</div>
+				<h3>Iglesia San Clemente</h3>
+				<p>Patrimonio de la Humanidad por la Unesco (1993). Su arquitectura sobria y monumental, narra la historia de un país modesto durante la colonia y profundamente religioso.</p>
+			</div>
 
-				<div class="item">
-					<a href="https://iamvenezuela.com/2017/02/iglesia-de-san-clemente/"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/IglesiaSan-Clemente.jpg" alt="..." width=330px height=330px></a>
-					<div class="caption">
-						<h3>Iglesia San Clemente</h3>
-						<p>Patrimonio de la Humanidad por la Unesco (1993). Su arquitectura sobria y monumental, narra la historia de un país modesto durante la colonia y profundamente religioso.</p>
-					</div>
+			<div class="item">
+				<div class="turismo-imagen">
+					<a href="https://iglesiasdevenezuela.wordpress.com/2011/10/15/catedral-de-coro/" target="_blank"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/catedral.jpg"></a>
 				</div>
-
-				<div class="item">
-					<a href="https://iglesiasdevenezuela.wordpress.com/2011/10/15/catedral-de-coro/"><img loading="lazy" src="<?php echo RUTA_URL ?>/img/team/catedral.jpg" alt="..." width=330px height=330px></a>
-					<div class="caption">
-						<h3>Iglesia Catedral</h3>
-						<p>Fue la primera diócesis del continente (por bula papal de 1531), territorio donde ejerce funciones un obispo, por lo cual su templo tiene categoría de catedral. Su construcción se inició en 1583 y se extendió por lo menos unos 50 años más.</p>
-					</div>
-				</div>
+				<h3>Iglesia Catedral</h3>
+				<p>Fue la primera diócesis del continente (por bula papal de 1531), territorio donde ejerce funciones un obispo, por lo cual su templo tiene categoría de catedral. Su construcción se inició en 1583 y se extendió por lo menos unos 50 años más.</p>
 			</div>
 		</div>
 	</div>
@@ -114,16 +111,15 @@
 
 		<div class="section-news__main">
 			<div class="section-news__left-frame">
-				<img class="section-news__thumbnail-img" loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag1.jpg" />
-
-				<img class="section-news__thumbnail-img" loading="lazy" src="<?php echo RUTA_URL ?>/img/new/pag2.jpg" />
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia2.jpg" />
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia3.jpg" />
 			</div>
 
 			<div class="section-news__right-frame">
-				<iframe src="https://www.youtube.com/embed/FC_yhKPAG9E" class="section-news__thumbnail-video"></iframe>
+				<iframe src="https://www.youtube.com/embed/FC_yhKPAG9E"></iframe>
 			</div>
 		</div>
-		<a class="btn btn-primary" href="<?php echo RUTA_URL; ?>/Noticias">Ver Mas</a>
+		<a class="section-news__button" href="<?php echo RUTA_URL; ?>/Noticias">Ver Mas</a>
 	</div>
 
 	<!--===== INSTITUTOS AUTÓNOMOS ==========================================-->
