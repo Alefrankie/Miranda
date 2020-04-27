@@ -28,25 +28,6 @@
 //     };
 // });
 
-/*===== SCRIPT MENU DE NAVEGACIÓN =====*/
-const header = document.getElementsByTagName("header")[0];
-const section = document.getElementById("sección-principal");
-const positionSection = section.getBoundingClientRect().top;
-const x = document.getElementsByClassName("inicio");
-const xs = window.innerHeight;
-
-document.addEventListener("DOMContentLoaded", () => {
-  header.classList.remove("fondo-gradiente");
-  window.onscroll = function () {
-    if (window.pageYOffset > positionSection || header > xs - xs) {
-      header.classList.add("fondo-gradiente");
-      header.style.background = "";
-    } else {
-      header.classList.remove("fondo-gradiente");
-      header.style.background = "transparent";
-    }
-  };
-});
 
 /*===== SCRIPT AMPLIACIÓN DE IMÁGENES =====*/
 const contenedor = document.getElementsByClassName("gallery");

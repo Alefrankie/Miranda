@@ -336,7 +336,7 @@ header nav .icon-burger:hover {
   width: 100%;
 }
 
-#alcalde {
+.alcalde {
   font-size: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -344,25 +344,31 @@ header nav .icon-burger:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 3.75em 0.975em;
-  width: 80%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
 }
 
-#alcalde img {
-  width: 50%;
+.alcalde .imagen-alcalde {
+  width: 31.25em;
+  height: 28.125em;
+}
+
+.alcalde .imagen-alcalde img {
+  width: 100%;
   height: 100%;
   -webkit-transition: all 2s;
   transition: all 2s;
 }
 
-#alcalde .alcalde-texto {
-  width: 45%;
+.alcalde .alcalde-texto {
+  width: 31.25em;
+  height: 100%;
   text-align: justify;
 }
 
-#alcalde .alcalde-texto h5 {
+.alcalde .alcalde-texto h5 {
   display: inline-block;
   background: #686363;
   width: 7.1875em;
@@ -370,41 +376,36 @@ header nav .icon-burger:hover {
   font-weight: 600;
 }
 
-#alcalde .alcalde-texto h2 {
+.alcalde .alcalde-texto h2 {
   text-align: justify;
   font-weight: 600;
   font-size: 2.1875em;
 }
 
-#alcalde .alcalde-texto span {
+.alcalde .alcalde-texto span {
   margin-right: 0.2857em;
 }
 
-#alcalde .alcalde-texto p {
+.alcalde .alcalde-texto p {
   margin-top: 0.2857em;
 }
 
 @media screen and (max-width: 900px) {
-  .titulo {
-    font-size: 35px;
-  }
-  #alcalde {
+  .alcalde {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
-  #alcalde img {
+}
+
+@media screen and (max-width: 600px) {
+  .alcalde .imagen-alcalde {
     width: 100%;
+    height: 25em;
   }
-  #alcalde .alcalde-texto {
-    width: 100%;
+  .alcalde .alcalde-texto {
+    width: 95%;
   }
 }
 

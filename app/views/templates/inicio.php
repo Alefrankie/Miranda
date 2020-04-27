@@ -25,7 +25,7 @@
 				<a href="#""><strong>RIF G-20000169-0</strong></a>
 			</div>
 
-			<div class="enlaces" id="enlaces">
+			<div class=" enlaces" id="enlaces">
 					<a href="#"><i class="fa fa-home page-scroll"></i> Inicio</a>
 					<a href="#alcalde" class="page-scroll">Alcalde</a>
 					<a href="#turismo" class="page-scroll">Turismo</a>
@@ -49,8 +49,10 @@
 	</div>
 
 	<!--===== ALCALDE =========================================-->
-	<section id="alcalde" class="contenedor">
-		<img loading="lazy" src="<?php echo RUTA_URL ?>/img/Alcalde/Pablo Acosta ORIG.png" id="alcalde-animado">
+	<section class="alcalde contenedor" id="alcalde">
+		<div class="imagen-alcalde">
+			<img loading="lazy" src="<?php echo RUTA_URL ?>/img/Alcalde/Pablo Acosta ORIG.png" id="alcalde-animado">
+		</div>
 		<div class="alcalde-texto">
 			<h4>Alcalde Mirandino</h4>
 			<h2><strong>Pablo Acosta</strong></h2>
