@@ -26,19 +26,20 @@
         <div class="usuarios-contenedor-formulario">
             <div class="card">
                 <h1> <strong><span>Alcaldía Miranda</span></strong></h1>
-                <form action="<?php echo RUTA_URL; ?>/usuarios/dashboard" method="POST" id="formulario">
-                    <input REQUIRED type="user" name="user" class="form-control" placeholder="Indique su usuario">
+                <form action="<?php echo RUTA_URL; ?>/usuarios/dashboard" method="POST" id="form">
+                    <input REQUIRED type="user" name="user" class="form-control" placeholder="Indique su usuario" id="user">
 
-                    <input REQUIRED type="password" name="pass" class="form-control" placeholder="Indique su clave">
+                    <input REQUIRED type="password" name="pass" class="form-control" placeholder="Indique su clave" id="password">
 
                     <div class="radio-buttons">
-                        <input REQUIRED type="radio" name="t_user" value="ADMINISTRADOR" id="admin" />
+                        <input REQUIRED type="radio" name="t_user" value="ADMINISTRADOR" id="admin" id="t_user_admin" />
                         <p><strong>Administrador </strong></p>
 
-                        <input REQUIRED type="radio" name="t_user" value="EMPLEADO" id="empleado" />
+                        <input REQUIRED type="radio" name="t_user" value="EMPLEADO" id="empleado" id="t_user_empleado" />
                         <p><strong>Empleado</strong></p>
                     </div>
                     <button type="submit" value="Iniciar">Iniciar Sesión</button>
+                    <p class="warnings" id="warnings"></p>
                 </form>
             </div>
             <div class="no-account">
@@ -53,7 +54,7 @@
     </section>
 
     <!--===== Javascript ===================================== -->
-    <script src="<?php echo RUTA_URL ?>/js/usuario.js"></script>
+    <script src="<?php echo RUTA_URL ?>/js/login-validate.js"></script>
     <script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 </body>
 

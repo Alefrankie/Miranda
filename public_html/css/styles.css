@@ -1664,8 +1664,8 @@ footer .footer-main .footer-body .footer-texto p {
             align-items: center;
   }
   .usuarios > img {
-    width: 350px;
-    height: 300px;
+    width: 21.875em;
+    height: 18.75em;
     margin-bottom: 10px;
   }
 }
