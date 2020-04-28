@@ -32,7 +32,7 @@
 					<a href="#noticias" class="page-scroll">Noticias</a>
 					<a href="#institutos" class="page-scroll">Institutos</a>
 					<a href="#tf-testimonials" class="page-scroll">Dirección General</a>
-					<!-- <a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a> -->
+					<a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a>
 			</div>
 
 			<div class="icon-burger" id="icon-burger">

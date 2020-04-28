@@ -8,50 +8,47 @@
     <link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
 </head>
-<header class="fondo-gradiente">
-    <nav id="nav">
-        <div class="logo ">
-            <a href="#""><strong>RIF G-20000169-0</strong></a>
-			</div>
-			<div class=" enlaces">
-                <a href="<?php echo RUTA_URL; ?>/" class="page-scroll">Inicio</a>
-                <a href="#footer" class="page-scroll">Contact us</a>
-        </div>
-    </nav>
+<header class="home-img">
+    <a href="/Miranda">
+        <img src="<?php echo RUTA_URL ?>/img/home.png">
+    </a>
 </header>
 
 <body>
-    <section class="usuarios">
-        <img src="<?php echo RUTA_URL ?>/img/usuarios/login.svg">
-        <div class="usuarios-contenedor-formulario">
-            <div class="card">
-                <h1> <strong><span>Alcaldía Miranda</span></strong></h1>
-                <form action="<?php echo RUTA_URL; ?>/usuarios/dashboard" method="POST" id="form">
-                    <input REQUIRED type="user" name="user" class="form-control" placeholder="Indique su usuario" id="user">
-
-                    <input REQUIRED type="password" name="pass" class="form-control" placeholder="Indique su clave" id="password">
-
-                    <div class="radio-buttons">
-                        <input REQUIRED type="radio" name="t_user" value="ADMINISTRADOR" id="admin" id="t_user_admin" />
-                        <p><strong>Administrador </strong></p>
-
-                        <input REQUIRED type="radio" name="t_user" value="EMPLEADO" id="empleado" id="t_user_empleado" />
-                        <p><strong>Empleado</strong></p>
+    <div class="body-login">
+        <div class="wave">
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/wave.png">
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/bg.svg">
+        </div>
+        <div class="usuarios">
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
+            <form action="<?php echo RUTA_URL; ?>/usuarios/dashboard" method="POST" id="form">
+                <p>Bienvenido</p>
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-user"></i>
+                        <h3 id="h3-usuario">Usuario</h3>
                     </div>
-                    <button type="submit" value="Iniciar">Iniciar Sesión</button>
-                    <p class="warnings" id="warnings"></p>
-                </form>
-            </div>
-            <div class="no-account">
-                <a href="/Miranda/usuarios/register/<?php echo $datos ?>">¿No tienes Cuenta? Registrate</a>
-            </div>
+                    <input REQUIRED type="user" name="user" id="user" class="input">
+                </div>
+
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-lock"></i>
+                        <h3 id="h3-contraseña">Contraseña</h3>
+                    </div>
+                    <input REQUIRED type="password" name="pass" id="password" class="input">
+                </div>
+
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" value="Iniciar">Iniciar Sesión</button>
+                <p class="warnings" id="warnings"></p>
+            </form>
         </div>
-        <div class="admin-privileges">
-            <div class="admin-privileges-footer">
-                <p>Copyright © 2019-2020.</p>
-            </div>
-        </div>
-    </section>
+    </div>
+
 
     <!--===== Javascript ===================================== -->
     <script src="<?php echo RUTA_URL ?>/js/login-validate.js"></script>

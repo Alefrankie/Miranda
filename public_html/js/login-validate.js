@@ -10,7 +10,7 @@ form.addEventListener("submit", (e) => {
     let entrar = false;
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     parrafo.innerHTML = "";
-    if(nombre.value.length <=6){
+    if (nombre.value.length <= 6) {
         warnings += `El nombre no es Válido <br>`;
         entrar = true
     };
@@ -19,15 +19,48 @@ form.addEventListener("submit", (e) => {
     //     entrar = true
     // };
 
-    if(password.value.length <=6){
+    if (password.value.length <= 6) {
         warnings += `La Contraseña no es Válida <br>`;
         entrar = true
     };
 
-    if(entrar){
+    if (entrar) {
         parrafo.innerHTML = warnings;
-    }else{
+    } else {
         parrafo.innerHTML = "Inicio Exitoso";
 
     }
 })
+
+/*===== ANIMACIONES DE LOS INPUTS */
+const inputUser = document.getElementById("user");
+const inputPass = document.getElementById("password");
+const h3usuario = document.getElementById("h3-usuario");
+const h3contraseña = document.getElementById("h3-contraseña");
+
+inputUser.addEventListener("focus", () => {
+    h3usuario.style.top = "-30px";
+});
+inputUser.addEventListener("blur", () => {
+    h3usuario.style.top = "";
+    if (inputUser.value.length > 0) {
+        h3usuario.style.display = "none"
+    }else{
+        h3usuario.style.display = "flex"
+    }
+});
+
+inputPass.addEventListener("focus", () => {
+    h3contraseña.style.top = "-30px";
+});
+inputPass.addEventListener("blur", () => {
+    h3contraseña.style.top = "";
+    if (inputPass.value.length > 0) {
+        h3contraseña.style.display = "none"
+    }else{
+        h3contraseña.style.display = "flex"
+    }
+});
+
+
+
