@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-
+    <link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
 </head>
 <header class="fondo-gradiente">
