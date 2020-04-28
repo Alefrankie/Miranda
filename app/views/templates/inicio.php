@@ -102,6 +102,9 @@
 				<p>Fue la primera diócesis del continente (por bula papal de 1531), territorio donde ejerce funciones un obispo, por lo cual su templo tiene categoría de catedral. Su construcción se inició en 1583 y se extendió por lo menos unos 50 años más.</p>
 			</div>
 		</div>
+		<div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+				<path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+			</svg></div>
 	</div>
 	<!--===== NOTICIAS MUNICIPALES ============================================-->
 
@@ -124,6 +127,9 @@
 
 	<!--===== INSTITUTOS AUTÓNOMOS ==========================================-->
 	<div class="institutos contenedor" id="institutos">
+		<div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+				<path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+			</svg></div>
 		<h2>Institutos <strong>Autónomos</strong></h2>
 		<div id="clients" class="owl-carousel owl-theme">
 			<div class="item">
