@@ -12,12 +12,12 @@
 </head>
 
 <body>
-	<!--===== ANUNCIO ==================================================-->
-	<!-- <div class="anuncio-container">
+	<!-- ===== ANUNCIO ==================================================-->
+	<div class="anuncio-container">
 		<div class="anuncio-abierto">
 			<img loading="lazy" src="img/anuncios/anuncio.jpg" alt="">
 		</div>
-	</div> -->
+	</div>
 	<!--===== NAVEGACIÓN ==================================================-->
 	<header>
 		<nav id="nav">
