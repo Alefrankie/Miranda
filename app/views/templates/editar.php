@@ -14,7 +14,7 @@
     <div class="card card-body bg-light mt-5">
         <h2>Editar usuario</h2>
 
-        <form action="<?php echo RUTA_URL; ?>/paginas/editar" method="POST">
+        <form action="<?php echo RUTA_URL ?>/paginas/editar/<?php echo $datos['id']?>" method="POST">
             <div class="form-group">
                 <label for="Id">ID: <sup>*</sup></label>
                 <input type="text" class="form-control form-control-lg" name="nombre" id="" value="<?php echo $datos['id']?>">

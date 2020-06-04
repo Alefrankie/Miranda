@@ -12,6 +12,7 @@
     <a href="/Miranda">
         <img src="<?php echo RUTA_URL ?>/img/home.png">
     </a>
+
 </header>
 
 <body>
@@ -44,7 +45,7 @@
                     <a href="#">Forgot Password?</a>
                 </div>
                 <button type="submit" value="Iniciar">Iniciar Sesión</button>
-                <p class="warnings" id="warnings"></p>
+                <h5 class="warnings" id="warnings"></h5>
             </form>
         </div>
     </div>

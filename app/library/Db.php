@@ -47,6 +47,10 @@ class Db{
 				case is_null($valor):
 				$tipo = PDO::PARAM_NULL;
 				break;
+				
+				case is_file($valor):
+				$tipo = PDO::PARAM_LOB;
+				break;
 
 				default:
 				$tipo = PDO::PARAM_STR;
@@ -68,6 +72,10 @@ class Db{
 
 		//Obtener un solo registro
 	public function registro(){
+		$this->execute();
+		return $this->stmt->fetch(PDO::FETCH_OBJ);
+	}
+	public function imagen(){
 		$this->execute();
 		return $this->stmt->fetch(PDO::FETCH_OBJ);
 	}

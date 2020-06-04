@@ -1,4 +1,4 @@
- <?php
+<?php
 /*
 Mapear la url ingresada en el navegador,
 1 - Controlador

@@ -5,13 +5,13 @@ const form = document.getElementById("form");
 const parrafo = document.getElementById("warnings");
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
     let warnings = "";
     let entrar = false;
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     parrafo.innerHTML = "";
     if (nombre.value.length <= 6) {
-        warnings += `El nombre no es Válido <br>`;
+        warnings += `El Nombre no es Válido <br>`;
+        e.preventDefault()
         entrar = true
     };
     // if(regexEmail.test(email.value)){
@@ -21,6 +21,7 @@ form.addEventListener("submit", (e) => {
 
     if (password.value.length <= 6) {
         warnings += `La Contraseña no es Válida <br>`;
+        e.preventDefault()
         entrar = true
     };
 
@@ -28,7 +29,6 @@ form.addEventListener("submit", (e) => {
         parrafo.innerHTML = warnings;
     } else {
         parrafo.innerHTML = "Inicio Exitoso";
-
     }
 })
 

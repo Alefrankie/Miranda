@@ -10,13 +10,13 @@
 <header class="fondo-gradiente">
     <nav id="nav">
         <div class="logo ">
-            <a href="#""><strong><?php echo $datos['t_user']; ?></strong></a>
-			</div>
-			<div class=" enlaces">
-                <a href="<?php echo RUTA_URL; ?>/"><i class="fa fa-home"></i> INICIO</a>
-                <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
-                <a href="#"><i class="fas fa-search"></i></i> BUSCAR EMPLEADO</a>
-                <a href="#"><i class="fa fa-link"></i> FICHA DE EMPLEADO</a></<a>
+            <a href="#" style="text-transform:uppercase;"><strong id="t_user"><?php echo $datos['t_user']; ?></strong></a>
+        </div>
+        <div class=" enlaces">
+            <a href="<?php echo RUTA_URL; ?>/"><i class="fa fa-home"></i> INICIO</a>
+            <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
+            <a href="#"><i class="fas fa-search"></i></i> BUSCAR EMPLEADO</a>
+            <a href="#"><i class="fa fa-link"></i> FICHA DE EMPLEADO</a></<a>
         </div>
     </nav>
 </header>
@@ -25,6 +25,22 @@
 </form>
 
 <body>
+    <!-- <div class="preloader">
+        <div class="lds-default">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div> -->
     <!-- Datos a colocar en la barra de navegación
     Si es administrador colocar el "general" pero desde el controlador
     Cedula
@@ -47,19 +63,21 @@
     <!-- PERFIL -->
 
     <div class="data-update contenedor" id="data-update">
-        <h2>Bienvenido NOMBRE DEL USUARIO</h2>
+        
+        <h2>Bienvenido <?php echo $datos['usuario'] ?></h2>
         <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user">
-        <form class="data-update__form" action="../fotos/recibir.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/saveDataProccess" method="POST" enctype="multipart/form-data" autocomplete="off">
             <h3>Actualiza tus Datos</h3>
-            <img class="form-img" src="<?php echo RUTA_URL; ?>/img/usuarios/profile.png" alt="user">
-
-            <input type="file" name="photo" accept="image/*" value="Examinar">
+            <img src="data:image/png;base64,<?php echo base64_encode(stripslashes($datos['imagen'])); ?>" alt="user">
+            <!-- <img class="form-img" src="<?php echo RUTA_URL; ?>/img/usuarios/profile.png" alt="user"> -->
+            
+            <input type="file" name="photo" accept="image/*" value="Examinar" >
 
             <label for="user">Usuario: </label>
-            <input REQUIRED type="user" name="user" class="form-control" id="user" placeholder="Indique su usuario">
+            <input REQUIRED name="user" class="form-control" id="user" placeholder="Indique su usuario" value="<?php echo $datos['nombre']; ?>">
 
             <label for="pass">Contraseña: </label>
-            <input REQUIRED type="password" name="pass" class="form-control" id="pass" placeholder="Indique su clave">
+            <input REQUIRED name="pass" class="form-control" id="pass" placeholder="Indique su clave" value="<?php echo $datos['password']; ?>">
 
             <input class="form-button" type="submit" class="button" name="enviar" value="Actualizar">
         </form>
@@ -70,7 +88,7 @@
     </div>
 
     <!-- BASE DE DATOS SOLO ES VISIBLE SI ERES ADMINISTRADOR - ARREGLAR CON JS-->
-    <div class="data-base-users">
+    <div class="data-base-users" id="data-base">
         <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
             </svg></div>
@@ -87,26 +105,20 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Cedula</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Teléfono</th>
-                        <th>Correo</th>
                         <th>Usuario</th>
                         <th>Contraseña</th>
                     </tr>
                 </thead>
-                <?php foreach ($datos['usuarios'] as $usuario) : ?>
                     <tbody>
+                <?php foreach ($datos['usuarios'] as $usuario) : ?>
                         <tr>
                             <td><?php echo $usuario->id; ?></td>
-                            <td><?php echo $usuario->cedula; ?></td>
                             <td><?php echo $usuario->nombre; ?></td>
                             <td><?php echo $usuario->apellido; ?></td>
-                            <td><?php echo $usuario->telefono; ?></td>
-                            <td><?php echo $usuario->correo; ?></td>
                             <td><?php echo $usuario->user; ?></td>
-                            <td><?php echo $usuario->password; ?></td>
+                            <td><?php echo $usuario->pass; ?></td>
                             <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
                             <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
                         </tr>
@@ -213,7 +225,7 @@
 
 
     <!--===== Javascript ===================================== -->
-    <script src="<?php echo RUTA_URL ?>/js/usuario.js"></script>
+    <script src="<?php echo RUTA_URL ?>/js/dashboard.js"></script>
     <script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 </body>
 

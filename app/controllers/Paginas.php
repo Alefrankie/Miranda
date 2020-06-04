@@ -49,7 +49,6 @@ class Paginas extends AppController
 				'nombre' => trim($_POST['nombre']),
 				'apellido' => trim($_POST['apellido'])
 			];
-
 			if ($this->usuarioModelo->actualizarUsuario($datos)) {
 				//redireccionar('templates/paginas');
 				$this->view('templates/editar');
@@ -78,7 +77,6 @@ class Paginas extends AppController
 
 		$datos = [
 			'id' => $usuario->id,
-			'cedula' => $usuario->cedula,
 			'nombre' => $usuario->nombre,
 			'apellido' => $usuario->apellido
 		];
