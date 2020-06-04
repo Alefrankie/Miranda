@@ -19,6 +19,10 @@
                 <label for="nombre">Nombre: <sup>*</sup></label>
                 <input type="text" class="form-control form-control-lg" name="nombre" id="">
             </div>
+            <div class="form-group">
+                <label for="apellido">Apellido: <sup>*</sup></label>
+                <input type="text" class="form-control form-control-lg" name="apellido" id="">
+            </div>
             <input type="submit" value="Enviar Datos" class="btn btn-success">
         </form>
     </div>

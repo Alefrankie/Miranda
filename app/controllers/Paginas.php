@@ -25,6 +25,7 @@ class Paginas extends AppController
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$datos = [
 				'nombre' => trim($_POST['nombre']),
+				'apellido' => trim($_POST['apellido'])
 			];
 
 			if ($this->usuarioModelo->agregarUsuario($datos)) {
@@ -34,24 +35,19 @@ class Paginas extends AppController
 			}
 		} else {
 			$datos = [
-				'nombre' => ''
+				'nombre' => '',
+				'apellido' => ''
 			];
 			$this->view('templates/agregar', $datos);
 		}
 	}
 	public function editar($id)
 	{
-
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$datos = [
 				'id' => $id,
-				'cedula' => trim($_POST['cedula']),
 				'nombre' => trim($_POST['nombre']),
 				'apellido' => trim($_POST['apellido'])
-				// 'telefono' => trim($_POST['telefono']),
-				// 'correo' => trim($_POST['correo']),
-				// 'correo' => trim($_POST['user']),
-				// 'correo' => trim($_POST['password'])
 			];
 
 			if ($this->usuarioModelo->actualizarUsuario($datos)) {
@@ -68,7 +64,6 @@ class Paginas extends AppController
 
 			$datos = [
 				'id' => $usuario->id,
-				'cedula' => $usuario->cedula,
 				'nombre' => $usuario->nombre,
 				'apellido' => $usuario->apellido
 			];

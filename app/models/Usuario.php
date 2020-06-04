@@ -21,11 +21,12 @@ class Usuario{
 
 
     public function agregarUsuario($datos){
-        $this->db->query('INSERT INTO Usuarios (nombre) values (:nombre)');
+        $this->db->query('INSERT INTO Usuarios (nombre, apellido) values (:nombre, :apellido)');
 
         //Vincular valores
 
         $this->db->bind(':nombre', $datos ['nombre']);
+        $this->db->bind(':apellido', $datos ['apellido']);
 
         //Ejecutar insercion
 
@@ -37,21 +38,20 @@ class Usuario{
     }
 
     public function obtenerUsuarioID($id){
-        $this->db->query('SELECT * FROM usuarios WHERE id = :id');
+        $this->db->query('SELECT * FROM Usuarios WHERE id = :id');
         $this->db->bind(':id', $id);
         $fila = $this->db->registro();
         return $fila;
     }
 
     public function actualizarUsuario($datos){
-        $this->db->query('UPDATE usuarios SET cedula = :cedula, nombre = :nombre, apellido = :apellido WHERE id = :id ');
+        $this->db->query('UPDATE Usuarios SET nombre = :nombre, apellido = :apellido WHERE id = :id');
 
         //Vincular valores
         $this->db->bind(':id', $datos['id']);
-        $this->db->bind(':cedula', $datos['cedula']);
         $this->db->bind(':nombre', $datos['nombre']);
         $this->db->bind(':apellido', $datos['apellido']);
-
+        
         //Ejecutar
         if ($this->db->execute()) {
            return true;
@@ -61,7 +61,7 @@ class Usuario{
     }
 
     public function borrarUsuario($datos){
-        $this->db->query('DELETE FROM usuarios WHERE id = :id');
+        $this->db->query('DELETE FROM Usuarios WHERE id = :id');
 
         //Vincular valores
         $this->db->bind(':id', $datos['id']);

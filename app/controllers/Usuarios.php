@@ -28,6 +28,6 @@ class Usuarios extends AppController
             't_user' => trim($_POST['t_user'])
         ];
 
-        $this->view('templates/usuarios/perfil', $datos);
+        $this->view('templates/usuarios/dashboard', $datos);
     }
 }

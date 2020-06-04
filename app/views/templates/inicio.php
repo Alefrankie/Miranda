@@ -268,6 +268,7 @@
 				<tr>
 					<td><?php echo $usuario->id; ?></td>
 					<td><?php echo $usuario->nombre; ?></td>
+					<td><?php echo $usuario->apellido; ?></td>
 					<td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
 					<td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
 				</tr>
