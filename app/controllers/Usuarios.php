@@ -18,8 +18,6 @@ class Usuarios extends AppController
         $this->view('templates/usuarios/register');
     }
 
-
-
     public function dashboard()
     {
         $usuarios = $this->usuarioModelo->obtenerUsuarios();

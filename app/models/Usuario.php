@@ -8,26 +8,24 @@ class Usuario{
 	}
 
     public function obtenerUsuarios(){
-        $this->db->query('SELECT * FROM usuarios');
+        $this->db->query('SELECT * FROM Usuarios');
         $resultados = $this->db->registros();
         return $resultados;
     }
 
     public function obtenerUsuario(){
-        $this->db->query('SELECT * FROM usuarios');
+        $this->db->query('SELECT * FROM Usuarios');
         $resultado = $this->db->registro();
         return $resultado;
     }
 
 
     public function agregarUsuario($datos){
-        $this->db->query('INSERT INTO usuarios (cedula, nombre, apellido) values (:cedula, :nombre, :apellido)');
+        $this->db->query('INSERT INTO Usuarios (nombre) values (:nombre)');
 
         //Vincular valores
 
-        $this->db->bind(':cedula', $datos ['cedula']);
         $this->db->bind(':nombre', $datos ['nombre']);
-        $this->db->bind(':apellido', $datos ['apellido']);
 
         //Ejecutar insercion
 

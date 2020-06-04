@@ -42,3 +42,36 @@ for (const i of amp) {
     }
   }
 }
+
+/*===== SCRIPT MENU DE NAVEGACIÓN =====*/
+const header = document.getElementsByTagName("header")[0];
+const section = document.getElementsByTagName("section")[0];
+const positionSection = section.getBoundingClientRect().top;
+const x = document.getElementsByClassName("inicio");
+
+document.addEventListener("scroll", () => {
+  if (window.pageYOffset > positionSection) {
+    header.classList.add("fondo-gradiente");
+  } else {
+    header.classList.remove("fondo-gradiente");
+  }
+});
+
+
+/*===== MENU DE NAVEGACIÓN RESPONSIVE */
+
+const openMenu = document.getElementById("icon-burger")
+const menu = document.getElementById("enlaces");
+let close = true;
+
+openMenu.addEventListener("click", () => {
+  if (close) {
+    menu.style.width = "100%";
+    close = false;
+  } else {
+    menu.style.width = "0%";
+    menu.style.overflow = "hidden";
+    close = true;
+  }
+
+});

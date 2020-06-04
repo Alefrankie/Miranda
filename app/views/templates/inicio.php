@@ -32,7 +32,7 @@
 					<a href="#noticias" class="page-scroll">Noticias</a>
 					<a href="#institutos" class="page-scroll">Institutos</a>
 					<a href="#tf-testimonials" class="page-scroll">Dirección General</a>
-					<a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a>
+					<a href="<?php echo RUTA_URL; ?>/Usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a>
 			</div>
 
 			<div class="icon-burger" id="icon-burger">
@@ -254,18 +254,12 @@
 			</div>
 		</div>
 	</div>
-	<!-- <table class="data-base-table">
+	<table class="data-base-table">
 		<p><?php echo $datos['titulo']; ?></p>
 		<thead>
 			<tr>
 				<th>Id</th>
-				<th>Cedula</th>
 				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>Teléfono</th>
-				<th>Correo</th>
-				<th>Usuario</th>
-				<th>Contraseña</th>
 				<th><a href="<?php echo RUTA_URL; ?>/paginas/agregar/">Insertar</a></th>
 			</tr>
 		</thead>
@@ -273,20 +267,14 @@
 			<tbody>
 				<tr>
 					<td><?php echo $usuario->id; ?></td>
-					<td><?php echo $usuario->cedula; ?></td>
 					<td><?php echo $usuario->nombre; ?></td>
-					<td><?php echo $usuario->apellido; ?></td>
-					<td><?php echo $usuario->telefono; ?></td>
-					<td><?php echo $usuario->correo; ?></td>
-					<td><?php echo $usuario->user; ?></td>
-					<td><?php echo $usuario->password; ?></td>
 					<td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
 					<td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
 				</tr>
 
 			<?php endforeach ?>
 			</tbody>
-	</table> -->
+	</table> 
 	<!--===== FOOTER =======================================-->
 	<?php require RUTA_APP . '/views/inc/footer.php'; ?>
 
@@ -294,7 +282,6 @@
 
 	<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
 	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/jquery.1.11.1.js"></script>
-	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/SmoothScroll.js"></script>
 	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/owl.carousel.js"></script>
 	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/bootstrap.js"></script>
 	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/main.js"></script>

@@ -11,26 +11,20 @@ class Paginas extends AppController
 	public function index()
 	{
 		//Obtener los usuarios
-		// $usuarios = $this->usuarioModelo->obtenerUsuarios();
+		$usuarios = $this->usuarioModelo->obtenerUsuarios();
 
-		// $datos = [
-		// 	'titulo' => "The Parametrization it is works",
-		// 	'usuarios' => $usuarios
-		// ];
-		$this->view('templates/inicio');
+		$datos = [
+			'titulo' => "The Parametrization it is works",
+			'usuarios' => $usuarios
+		];
+		$this->view('templates/inicio', $datos);
 	}
 
 	public function agregar()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$datos = [
-				'cedula' => trim($_POST['cedula']),
 				'nombre' => trim($_POST['nombre']),
-				'apellido' => trim($_POST['apellido'])
-				// 'telefono' => trim($_POST['telefono']),
-				// 'correo' => trim($_POST['correo']),
-				// 'correo' => trim($_POST['user']),
-				// 'correo' => trim($_POST['password'])
 			];
 
 			if ($this->usuarioModelo->agregarUsuario($datos)) {
@@ -40,9 +34,7 @@ class Paginas extends AppController
 			}
 		} else {
 			$datos = [
-				'cedula' => '',
-				'nombre' => '',
-				'apellido' => ''
+				'nombre' => ''
 			];
 			$this->view('templates/agregar', $datos);
 		}
