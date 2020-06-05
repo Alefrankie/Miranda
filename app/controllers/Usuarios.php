@@ -18,51 +18,50 @@ class Usuarios extends AppController
     {
         $this->view('templates/usuarios/register');
     }
-
-    public function dashboard()
+    public function validate()
     {
-        $user = trim($_POST['user']);
-        $pass = trim($_POST['pass']);
-
-        $autenticated = $this->usuarioModelo->GetUser($user);
-
-        if ($user != $autenticated->user and $pass != $autenticated->pass) {
-
-            $usuarios = $this->usuarioModelo->obtenerUsuarios();
-            $currentUser = $this->usuarioModelo->GetUser($user);
-            $currentUserImage = $this->usuarioModelo->showImage($user);
-            
-            $datos = [
-                'titulo' => "The Parametrization it is works",
-                'usuarios' => $usuarios,
-                'usuario' => $autenticated->user,
-                'id' => $currentUser->id,
-                'nombre' => $currentUser->nombre,
-                'password' => $currentUser->pass,
-                't_user' => $currentUser->t_user,
-                'imagen' => $currentUserImage->imagen
-            ];
-            $this->view('templates/usuarios/dashboard', $datos);
-
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $user = trim($_POST['user']);
+            $pass = trim($_POST['pass']);
+            $autenticated = $this->usuarioModelo->GetUser($user);
+            if ($user == $autenticated->user and $pass == $autenticated->pass) {
+                $this->dashboard($user);
+            } else {
+                $validate = "Usuario/Contraseña Incorrectos";
+                $this->view('templates/usuarios/login', $validate);
+            }
         } else {
-            echo $user, $autenticated->user;
-            echo $pass, $autenticated->pass;
-            $this->view('templates/usuarios/login');
-            die("Algo Salió Mal");
+            die("No se enviaron por POST");
         }
+    }
+    public function dashboard($user)
+    {
+        $usuarios = $this->usuarioModelo->obtenerUsuarios();
+        $currentUser = $this->usuarioModelo->GetUser($user);
+        $currentUserImage = $this->usuarioModelo->showImage($user);
+        $datos = [
+            'titulo' => "The Parametrization it is works",
+            'usuarios' => $usuarios,
+            'usuario' => $currentUser->user,
+            'id' => $currentUser->id,
+            'nombre' => $currentUser->nombre,
+            'password' => $currentUser->pass,
+            't_user' => $currentUser->t_user,
+            'imagen' => $currentUserImage->imagen
+        ];
+        $this->view('templates/usuarios/dashboard', $datos);
     }
 
     public function saveDataProccess()
     {
-        $this->dashboard();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = trim($_POST['user']);
+
             $photo = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
             $datos = [
                 'user' => $user,
                 'imagen' => $photo
             ];
-
             if ($this->usuarioModelo->uploadImage($datos)) {
             } else {
                 die('Algo salió mal');

@@ -109,6 +109,7 @@
                         <th>Apellido</th>
                         <th>Usuario</th>
                         <th>Contraseña</th>
+                        <th><a href="<?php echo RUTA_URL; ?>/paginas/agregar/">Insertar</a></th>
                     </tr>
                 </thead>
                     <tbody>

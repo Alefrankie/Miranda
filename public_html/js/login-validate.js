@@ -11,25 +11,27 @@ form.addEventListener("submit", (e) => {
     parrafo.innerHTML = "";
     if (nombre.value.length <= 6) {
         warnings += `El Nombre no es Válido <br>`;
-        e.preventDefault()
         entrar = true
+    }else{
+        if (password.value.length <= 6) {
+            warnings += `La Contraseña no es Válida <br>`;
+            entrar = true
+        } else {
+            if (entrar == true) {
+                event.preventDefault()
+                parrafo.innerHTML = warnings;
+            } else {
+                parrafo.innerHTML = "Inicio Exitoso";
+            }
+        }
     };
     // if(regexEmail.test(email.value)){
     //     warnings += `El Email no es Válido <br>`;
     //     entrar = true
     // };
 
-    if (password.value.length <= 6) {
-        warnings += `La Contraseña no es Válida <br>`;
-        e.preventDefault()
-        entrar = true
-    };
 
-    if (entrar) {
-        parrafo.innerHTML = warnings;
-    } else {
-        parrafo.innerHTML = "Inicio Exitoso";
-    }
+    
 })
 
 /*===== ANIMACIONES DE LOS INPUTS */

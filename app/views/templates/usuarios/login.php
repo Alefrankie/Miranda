@@ -20,10 +20,11 @@
         <div class="wave">
             <img src="<?php echo RUTA_URL ?>/img/usuarios/wave.png">
             <img src="<?php echo RUTA_URL ?>/img/usuarios/bg.svg">
+            <?php echo $validate ?>
         </div>
         <div class="usuarios">
             <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
-            <form action="<?php echo RUTA_URL; ?>/usuarios/dashboard" method="POST" id="form">
+            <form action="<?php echo RUTA_URL; ?>/usuarios/validate" method="POST" id="form">
                 <p>Bienvenido</p>
                 <div class="input-div">
                     <div class="head-input">
