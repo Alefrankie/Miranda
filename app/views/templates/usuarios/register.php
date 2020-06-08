@@ -27,31 +27,18 @@
         <div class="register-contenedor-formulario">
             <div class="card">
                 <h1> <strong><span>Alcaldía Miranda</span></strong></h1>
-                <form action="" method="POST" id="formulario">
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                <img src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="">
+                <form action="<?php echo RUTA_URL; ?>/usuarios/register" method="POST" id="formulario">
+                    <input id="nombre" type="text" name="nombre" class="form-control" placeholder="Nombre" autocomplete="off">
 
-                    <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                    <input id="apellido" type="text" name="apellido" class="form-control" placeholder="Apellido" autocomplete="off">
 
-                    <input type="text" name="usuario" class="form-control" placeholder="Nombre de Usuario">
+                    <input id="user" type="text" name="user" class="form-control" placeholder="Nombre de Usuario" autocomplete="off">
 
-                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                    <input id="pass" type="password" name="pass" class="form-control" placeholder="Contraseña" autocomplete="off">
 
-                    <input type="email" name="email" class="form-control" placeholder="correo@example.com">
-
-                    <div class="radio-buttons">
-                        <input REQUIRED type="radio" name="t_user" value="admin" />
-                        <p><strong>Administrador </strong></p>
-
-                        <input REQUIRED type="radio" name="t_user" value="usuario" />
-                        <p><strong>Empleado</strong></p>
-                    </div>
-
-                    <button type="submit" value="Iniciar">Registrarse</button>
+                    <button type="submit" value="Iniciar">Registrar</button>
                 </form>
-            </div>
-
-            <div class="no-account">
-                <a href="/Miranda/usuarios/login">¿Ya tienes Cuenta? Inicia Sesión</a>
             </div>
         </div>
     </section>
@@ -60,6 +47,7 @@
     <!--===== Javascript ===================================== -->
     <!-- <script src="<?php echo RUTA_URL ?>/js/usuarios.js"></script> -->
     <script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
+    <script src="<?php echo RUTA_URL ?>/js/register.js"></script>
 </body>
 
 </html>

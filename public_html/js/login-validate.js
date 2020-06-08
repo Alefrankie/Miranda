@@ -1,38 +1,82 @@
-const nombre = document.getElementById("user");
-const password = document.getElementById("password");
-const t_user_admin = document.getElementById("t_user_admin");
-const form = document.getElementById("form");
-const parrafo = document.getElementById("warnings");
+class Login {
+    constructor(user, pass) {
+        this.user = user;
+        this.pass = pass;
+    }
+}
 
-form.addEventListener("submit", (e) => {
-    let warnings = "";
-    let entrar = false;
-    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    parrafo.innerHTML = "";
-    if (nombre.value.length <= 6) {
-        warnings += `El Nombre no es Válido <br>`;
-        entrar = true
-    }else{
-        if (password.value.length <= 6) {
-            warnings += `La Contraseña no es Válida <br>`;
-            entrar = true
+class Interfaz {
+
+    showMessage(mensaje, user) {
+
+        if (mensaje === "<br>Inicio de Sesión Exitoso.<br>") {
+            alert("Funciona");
+            document.location.href = (location.origin + "/Miranda/usuarios/dashboard/" + user);
         } else {
-            if (entrar == true) {
-                event.preventDefault()
-                parrafo.innerHTML = warnings;
-            } else {
-                parrafo.innerHTML = "Inicio Exitoso";
-            }
+            const Warnings = document.getElementById("warnings");
+            const element = document.createElement('div');
+            element.innerHTML = `
+            <div id="warning-message">
+                <h5>Advertencia: ${mensaje}</h5><br>
+            </div>
+            `;
+            Warnings.appendChild(element);
+            this.resetForm();
+            setTimeout(() => {
+                document.getElementById("warning-message").remove();
+            }, 2000)
+
         }
-    };
-    // if(regexEmail.test(email.value)){
-    //     warnings += `El Email no es Válido <br>`;
-    //     entrar = true
-    // };
+    }
 
+    resetForm() {
+        document.getElementById("form").reset();
+    }
+}
 
-    
+// DOM Events
+
+document.getElementById("form").addEventListener("submit", (e) => {
+    //alert("Enviando Formulario")
+    e.preventDefault();
+    const user = document.getElementById("user").value;
+    const password = document.getElementById("password").value;
+
+    const dataLogin = new Login(user, password);
+    const ui = new Interfaz();
+
+    if (user == "" || password == "") {
+        return ui.showMessage("Debe rellenar los campos faltantes.");
+    } else if (user.length <= 6 || password.length <= 6) {
+        return ui.showMessage("Usuario/Contraseña No válido.");
+    } else {
+        (async () => {
+            try {
+                const myRequest = new Request(location.origin + "/Miranda/usuarios/validate");
+                const init = {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataLogin)
+                };
+                const response = await fetch(myRequest, init);
+                if (response.ok) {
+                    const response2 = await response.json();
+                    return ui.showMessage(response2, user);
+                } else {
+                    throw new Error(response.statusText);
+                }
+            } catch (err) {
+                console.log("Error al realizar la petición AJAX: " + err.message);
+            }
+        })();
+    }
+
 })
+//
+
+
 
 /*===== ANIMACIONES DE LOS INPUTS */
 const inputUser = document.getElementById("user");
@@ -47,7 +91,7 @@ inputUser.addEventListener("blur", () => {
     h3usuario.style.top = "";
     if (inputUser.value.length > 0) {
         h3usuario.style.display = "none"
-    }else{
+    } else {
         h3usuario.style.display = "flex"
     }
 });
@@ -59,10 +103,7 @@ inputPass.addEventListener("blur", () => {
     h3contraseña.style.top = "";
     if (inputPass.value.length > 0) {
         h3contraseña.style.display = "none"
-    }else{
+    } else {
         h3contraseña.style.display = "flex"
     }
 });
-
-
-

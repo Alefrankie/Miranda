@@ -23,6 +23,10 @@
                 <label for="apellido">Apellido: <sup>*</sup></label>
                 <input type="text" class="form-control form-control-lg" name="apellido" id="">
             </div>
+            <div class="form-group">
+                <label for="password">Contraseña: <sup>*</sup></label>
+                <input type="password" class="form-control form-control-lg" name="password" id="">
+            </div>
             <input type="submit" value="Enviar Datos" class="btn btn-success">
         </form>
     </div>

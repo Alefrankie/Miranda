@@ -24,8 +24,12 @@
                 <input type="text" class="form-control form-control-lg" name="nombre" id="" value="<?php echo $datos['nombre']?>">
             </div>
             <div class="form-group">
-                <label for="apellido">ID: <sup>*</sup></label>
+                <label for="apellido">Apellido: <sup>*</sup></label>
                 <input type="text" class="form-control form-control-lg" name="apellido" id="" value="<?php echo $datos['apellido']?>">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña: <sup>*</sup></label>
+                <input type="password" class="form-control form-control-lg" name="password" id="" value="<?php echo $datos['pass']?>"">
             </div>
             <input type="submit" value="Actualizar Datos" class="btn btn-success">
         </form>

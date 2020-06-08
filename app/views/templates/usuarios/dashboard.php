@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['usuario'])) {
+    // redireccionar("/usuarios/login");
+}
+?>
+
 <html lang="es">
 
 <head>
@@ -17,12 +24,10 @@
             <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
             <a href="#"><i class="fas fa-search"></i></i> BUSCAR EMPLEADO</a>
             <a href="#"><i class="fa fa-link"></i> FICHA DE EMPLEADO</a></<a>
+            <a href="<?php echo RUTA_URL; ?>/usuarios/closeSession"><i class="fas fa-power-off"></i> CERRAR SESIÓN</a></<a>
         </div>
     </nav>
 </header>
-<form action="../db/close.php" method="post" class="close-session">
-    <input type="submit" class="button" value="SALIR" />
-</form>
 
 <body>
     <!-- <div class="preloader">
@@ -63,22 +68,16 @@
     <!-- PERFIL -->
 
     <div class="data-update contenedor" id="data-update">
-        
-        <h2>Bienvenido <?php echo $datos['usuario'] ?></h2>
+
+        <h2>Bienvenido <?php echo $datos['nombre'] ?></h2>
         <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user">
-        <form class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/saveDataProccess" method="POST" enctype="multipart/form-data" autocomplete="off">
+
+        <form id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/saveDataProcess" method="POST" enctype="multipart/form-data" autocomplete="off">
             <h3>Actualiza tus Datos</h3>
-            <img src="data:image/png;base64,<?php echo base64_encode(stripslashes($datos['imagen'])); ?>" alt="user">
-            <!-- <img class="form-img" src="<?php echo RUTA_URL; ?>/img/usuarios/profile.png" alt="user"> -->
-            
-            <input type="file" name="photo" accept="image/*" value="Examinar" >
-
-            <label for="user">Usuario: </label>
-            <input REQUIRED name="user" class="form-control" id="user" placeholder="Indique su usuario" value="<?php echo $datos['nombre']; ?>">
-
-            <label for="pass">Contraseña: </label>
-            <input REQUIRED name="pass" class="form-control" id="pass" placeholder="Indique su clave" value="<?php echo $datos['password']; ?>">
-
+            <img id="photo" src="data:image/png;base64,<?php echo base64_encode(stripslashes($datos['imagen'])); ?>" alt="user">
+            <input type="file" name="imagen" accept="image/*">
+            <!-- <input type="text" name="user" id="user" class="input">
+            <input type="text" name="pass" id="pass" class="input"> -->
             <input class="form-button" type="submit" class="button" name="enviar" value="Actualizar">
         </form>
 
@@ -109,11 +108,11 @@
                         <th>Apellido</th>
                         <th>Usuario</th>
                         <th>Contraseña</th>
-                        <th><a href="<?php echo RUTA_URL; ?>/paginas/agregar/">Insertar</a></th>
+                        <th><a href="<?php echo RUTA_URL; ?>/usuarios/register">Registrar Usuario</a></th>
                     </tr>
                 </thead>
-                    <tbody>
-                <?php foreach ($datos['usuarios'] as $usuario) : ?>
+                <tbody>
+                    <?php foreach ($datos['usuarios'] as $usuario) : ?>
                         <tr>
                             <td><?php echo $usuario->id; ?></td>
                             <td><?php echo $usuario->nombre; ?></td>
@@ -124,7 +123,7 @@
                             <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
                         </tr>
                     <?php endforeach ?>
-                    </tbody>
+                </tbody>
             </table>
         </a>
 

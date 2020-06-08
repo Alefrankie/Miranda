@@ -22,16 +22,16 @@
             <img src="<?php echo RUTA_URL ?>/img/usuarios/bg.svg">
             <?php echo $validate ?>
         </div>
-        <div class="usuarios">
+        <div class="usuarios" >
             <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
-            <form action="<?php echo RUTA_URL; ?>/usuarios/validate" method="POST" id="form">
+            <form id="form">
                 <p>Bienvenido</p>
                 <div class="input-div">
                     <div class="head-input">
                         <i class="fas fa-user"></i>
                         <h3 id="h3-usuario">Usuario</h3>
                     </div>
-                    <input REQUIRED type="user" name="user" id="user" class="input">
+                    <input type="text" name="user" id="user" class="input">
                 </div>
 
                 <div class="input-div">
@@ -39,14 +39,18 @@
                         <i class="fas fa-lock"></i>
                         <h3 id="h3-contraseña">Contraseña</h3>
                     </div>
-                    <input REQUIRED type="password" name="pass" id="password" class="input">
+                    <input type="password" name="pass" id="password" class="input">
                 </div>
 
                 <div class="forgot-password">
                     <a href="#">Forgot Password?</a>
                 </div>
                 <button type="submit" value="Iniciar">Iniciar Sesión</button>
-                <h5 class="warnings" id="warnings"></h5>
+                <div class="warnings" id="warnings">
+                    <h5>
+                       
+                    </h5>
+                </div>
             </form>
         </div>
     </div>

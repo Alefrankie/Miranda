@@ -1,79 +1,76 @@
 <?php
 
-class Usuario{
+class Usuario
+{
     private $db;
 
-	public function __construct(){
-		$this->db = new Db;
-	}
+    public function __construct()
+    {
+        $this->db = new Db;
+    }
 
-    public function obtenerUsuarios(){
+    public function obtenerUsuarios()
+    {
         $this->db->query('SELECT * FROM Usuarios');
         $resultados = $this->db->registros();
         return $resultados;
     }
 
-    public function obtenerUsuario(){
+    public function obtenerUsuario()
+    {
         $this->db->query('SELECT * FROM Usuarios');
         $resultado = $this->db->registro();
         return $resultado;
     }
 
-    public function agregarUsuario($datos){
-        $this->db->query('INSERT INTO Usuarios (nombre, apellido) values (:nombre, :apellido)');
-
+    public function agregarUsuario($datos)
+    {
+        $this->db->query('INSERT INTO Usuarios (nombre, apellido, user, pass, imagen) values (:nombre, :apellido, :user,:pass, :imagen)');
+        
         //Vincular valores
 
-        $this->db->bind(':nombre', $datos ['nombre']);
-        $this->db->bind(':apellido', $datos ['apellido']);
+        $this->db->bind(':nombre', $datos['nombre']);
+        $this->db->bind(':apellido', $datos['apellido']);
+        $this->db->bind(':user', $datos['user']);
+        $this->db->bind(':pass', $datos['pass']);
+        $this->db->bind(':imagen', $datos['imagen']);
 
-        //Ejecutar insercion
+        //Ejecutar inserción
 
         if ($this->db->execute()) {
             return true;
-        }else{
+        } else {
             return true;
         }
     }
 
-    public function obtenerUsuarioID($id){
+
+    public function obtenerUsuarioID($id)
+    {
         $this->db->query('SELECT * FROM Usuarios WHERE id = :id');
         $this->db->bind(':id', $id);
         $fila = $this->db->registro();
         return $fila;
     }
 
-    public function actualizarUsuario($datos){
-        $this->db->query('UPDATE Usuarios SET nombre = :nombre, apellido = :apellido WHERE id = :id');
+    public function actualizarUsuario($datos)
+    {
+        $this->db->query('INSERT OR UPDATE Usuarios SET nombre = :nombre, apellido = :apellido, pass = :pass WHERE id = :id');
 
         //Vincular valores
         $this->db->bind(':id', $datos['id']);
         $this->db->bind(':nombre', $datos['nombre']);
         $this->db->bind(':apellido', $datos['apellido']);
+        $this->db->bind(':pass', $datos['pass']);
 
         //Ejecutar
         if ($this->db->execute()) {
-           return true;
-        }else{
+            return true;
+        } else {
             return false;
         }
     }
 
-    public function uploadImage($datos){
-        $this->db->query('UPDATE Usuarios SET imagen = :imagen WHERE user = :user');
-
-        //Vincular valores
-        $this->db->bind(':user', $datos['user']);
-        $this->db->bind(':imagen', $datos ['imagen']);
-
-        //Ejecutar insercion
-
-        if ($this->db->execute()) {
-            return true;
-        }else{
-            return true;
-        }
-    }
 
     public function GetUser($user)
     {
@@ -82,15 +79,34 @@ class Usuario{
         $fila = $this->db->registro();
         return $fila;
     }
-    public function showImage($user)
+
+    public function updateImage($datos)
     {
-        $this->db->query('SELECT * FROM Usuarios WHERE user = :user');
-        $this->db->bind(':user', $user);
+        $this->db->query('UPDATE Images SET id_usuario = :id_usuario, imagen = :imagen WHERE id_usuario = :id_usuario');
+
+        //Vincular valores
+        $this->db->bind(':id_usuario', $datos['id_usuario']);
+        $this->db->bind(':imagen', $datos['imagen']);
+
+        //Ejecutar insercion
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    public function showImage($id_usuario)
+    {
+        $this->db->query('SELECT * FROM Images WHERE id_usuario = :id_usuario');
+        $this->db->bind(':id_usuario', $id_usuario);
         $file = $this->db->imagen();
         return $file;
     }
 
-    public function borrarUsuario($datos){
+    public function borrarUsuario($datos)
+    {
         $this->db->query('DELETE FROM Usuarios WHERE id = :id');
 
         //Vincular valores
@@ -98,8 +114,8 @@ class Usuario{
 
         //Ejecutar
         if ($this->db->execute()) {
-           return true;
-        }else{
+            return true;
+        } else {
             return false;
         }
     }
