@@ -20,7 +20,6 @@
         <div class="wave">
             <img src="<?php echo RUTA_URL ?>/img/usuarios/wave.png">
             <img src="<?php echo RUTA_URL ?>/img/usuarios/bg.svg">
-            <?php echo $validate ?>
         </div>
         <div class="usuarios" >
             <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
@@ -43,7 +42,7 @@
                 </div>
 
                 <div class="forgot-password">
-                    <a href="#">Forgot Password?</a>
+                    <a href="#">¿Olvidaste Tu Contraseña?</a>
                 </div>
                 <button type="submit" value="Iniciar">Iniciar Sesión</button>
                 <div class="warnings" id="warnings">

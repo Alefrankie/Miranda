@@ -4,6 +4,7 @@ class Usuarios extends AppController
 {
     public function __construct()
     {
+        session_start();
         $this->usuarioModelo = $this->model('Usuario');
         $this->loginModelo = $this->model('Login');
     }
@@ -30,7 +31,7 @@ class Usuarios extends AppController
             if ($this->usuarioModelo->agregarUsuario($datos)) {
                 echo json_encode("Registro Exitoso.");
             } else {
-                echo json_encode ("Registro Fallido");
+                echo json_encode("Registro Fallido");
             }
         } else {
             $datos = [
@@ -40,7 +41,8 @@ class Usuarios extends AppController
         }
     }
 
-    public function editar(){
+    public function editar()
+    {
         $this->view('templates/usuarios/editar');
     }
 
@@ -54,50 +56,82 @@ class Usuarios extends AppController
             if (empty($dataDB)) {
                 echo json_encode("Usuario no encontrado.");
             } else if (password_verify($dataPOST->pass, $dataDB->pass)) {
-                session_start();
+                $_SESSION['SESSION_USER'] = $dataDB->user;
                 echo json_encode("<br>Inicio de Sesión Exitoso.<br>");
             } else {
                 echo json_encode("<br>Usuario/Contraseña incorrectos.<br>");
             }
         }
     }
-
-    public function dashboard($user)
+    
+    public function dashboard()
     {
         $usuarios = $this->usuarioModelo->obtenerUsuarios();
-        $currentUser = $this->usuarioModelo->GetUser($user);
+        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
         $currentUserImage = $this->usuarioModelo->showImage($currentUser->id);
+        $this->usuarioModelo->updateStatus($currentUser->user, "Online");
         $datos = [
             'usuarios' => $usuarios,
             'id' => $currentUser->id,
             'nombre' => $currentUser->nombre,
             'password' => $currentUser->pass,
             't_user' => $currentUser->t_user,
-            'imagen' => $currentUserImage
+            'imagen' => $currentUserImage->imagen
         ];
-
+        
+		$file = RUTA_ORIGIN . '/public_html/json/data.json';
+		$json_string = json_encode($usuarios);
+        file_put_contents($file, $json_string);
+        
         $this->view('templates/usuarios/dashboard', $datos);
     }
 
     public function closeSession()
     {
-        unset($_SESSION['usuario']);
+        $this->usuarioModelo->updateStatus($_SESSION['SESSION_USER'], "Offline");
+        unset($_SESSION['SESSION_USER']);
         session_destroy();
         redireccionar("/usuarios/login");
     }
 
     public function saveDataProcess()
     {
-        $currentUser = $this->usuarioModelo->GetUser("Alefrank");
+        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
         $photo = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
         $datos = [
-            'id_usuario' => $currentUser->id,
+            'id' => $currentUser->id,
             'imagen' => $photo
         ];
         $this->usuarioModelo->updateImage($datos);
         $photoDecode = base64_encode(stripslashes($datos['imagen']));
         echo json_encode($photoDecode);
     }
+
+    public function delete($id)
+	{
+		//Obtener informacion de usuario desde el modelo
+		$usuario = $this->usuarioModelo->obtenerUsuarioID($id);
+
+		$datos = [
+			'id' => $usuario->id,
+			'nombre' => $usuario->nombre,
+			'apellido' => $usuario->apellido
+		];
+
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$datos = [
+				'id' => $id
+			];
+
+			if ($this->usuarioModelo->borrarUsuario($datos)) {
+				$this->view('templates/usuarios/borrar');
+			} else {
+				die('Algo salió mal');
+			}
+		}
+		$this->view('templates/borrar', $datos);
+	}
 
     public function importJson()
 

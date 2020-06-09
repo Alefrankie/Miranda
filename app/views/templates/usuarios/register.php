@@ -1,3 +1,8 @@
+<?php
+if (empty($_SESSION['SESSION_USER'])) {
+    redireccionar("/usuarios/login");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,7 +19,7 @@
             <a href="#""><strong>RIF G-20000169-0</strong></a>
 			</div>
 			<div class=" enlaces">
-                <a href="/Miranda" class="page-scroll">Inicio</a>
+                <a href="/Miranda/usuarios/dashboard/" class="page-scroll">Inicio</a>
                 <a href="#footer" class="page-scroll">Contact us</a>
         </div>
     </nav>
@@ -26,6 +31,7 @@
         <img src="<?php echo RUTA_URL ?>/img/usuarios/register.svg">
         <div class="register-contenedor-formulario">
             <div class="card">
+
                 <h1> <strong><span>Alcaldía Miranda</span></strong></h1>
                 <img src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="">
                 <form action="<?php echo RUTA_URL; ?>/usuarios/register" method="POST" id="formulario">

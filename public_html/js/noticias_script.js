@@ -1,32 +1,52 @@
-/* FUNCIÓN AUTO LLAMADA
-(function NOMBRE FUNCIÓN(){ ...  })();
-*/
+// FUNCIÓN OCULTACIÓN DE OPCIONES
 
-// const cerrar = document.querySelectorAll(".close")[0];
-// const abrir = document.querySelectorAll(".abrir-modal")[0];
-// const modal = document.querySelectorAll("#modals")[0];
-// const modalContainer = document.querySelectorAll("#anuncio1")[0];
+class NewsInterface {
 
-// abrir.addEventListener("click", function (e) {;
-//     e.preventDefault();
-//     modalContainer.style.opacity = "1";
-//     modalContainer.style.visibility = "visible";
-//     modalContainer.classList.toggle("anuncio");
-//     modal.classList.toggle("modals");
-// });
+  showImagesNews(table) {
+    const seccionPrincipal = document.getElementById("sección-principal");
+    for (let valor of table) {
+      seccionPrincipal.innerHTML += `
+      <article class="articulo">
+			    <div class="cabecera-articulo">
+			          <div class="thumbnail">
+			              <img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+			          </div>
+			            <a href="">${valor.user}</a>
+          </div>
+          
+			    <div class="gallery">
+			          <img loading="lazy" src="data:image/png;base64,${valor.imagen}" alt="" class="imagen" />
+			    </div>
+          
+          <div class="footer-article">
+			          <p>"${valor.description_image}".</p>
+          </div>
+          
+		  </article>
+        `;
+    }
+  }
+}
 
-// window.addEventListener("click", function (e) {
-//     console.log(e.target);
-
-//     if (e.target == modalContainer) {;
-//         setTimeout(function () {;
-//             modal.classList.toggle("modal-close");
-//             modalContainer.style.opacity = "0";
-//             modalContainer.style.visibility = "hidden";
-//         }, 1000);
-
-//     };
-// });
+//DOM EVENTS
+//------------ CHARGE NEWS
+(() => {
+  const myRequest = new Request(location.origin + "/Miranda/noticias/updateNews");
+  (async (e) => {
+    const ui = new NewsInterface();
+    try {
+      const response = await fetch(myRequest);
+      if (response.ok) {
+        const images = await response.json();
+        ui.showImagesNews(images);
+      } else {
+        throw new error(response.statusText);
+      }
+    } catch (error) {
+      alert("Error al enviar el formulario: " + error.message);
+    }
+  })();
+})();
 
 
 /*===== SCRIPT AMPLIACIÓN DE IMÁGENES =====*/
@@ -35,7 +55,7 @@ const amp = document.getElementsByClassName("imagen");
 
 for (const i of amp) {
   i.onclick = function () {
-    if ((i.style.transform = "scale(1)") == true ) {
+    if ((i.style.transform = "scale(1)") == true) {
       i.style.transform = "scale(1.5)";
     } else {
       i.style.transform = "scale(1)";

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <a href="<?php echo RUTA_URL; ?>/" class="btn btn-light">Volver</a>
+    <a href="<?php echo RUTA_URL; ?>/usuarios/dashboard" class="btn btn-light">Volver</a>
 
     <div class="card card-body bg-light mt-5">
         <h2>Editar usuario</h2>

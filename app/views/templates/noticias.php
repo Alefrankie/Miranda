@@ -1,3 +1,13 @@
+<?php
+if (empty($_SESSION['SESSION_USER'])) {
+	$dataSession = " Iniciar Sesión";
+	$destino = RUTA_URL . "/Usuarios/login/";
+}else{
+	$dataSession = $_SESSION['SESSION_USER'];
+	$destino = RUTA_URL . "/Usuarios/dashboard/";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,8 +28,10 @@
 
 			<div class="enlaces" id="enlaces">
 				<a href="/Miranda"><i class="fa fa-home page-scroll"></i> Inicio</a>
-				<a href="#footer" class="page-scroll">Contact us</a>
-				<!-- <a href="<?php echo RUTA_URL; ?>/usuarios/login/" class="page-scroll"><i class="fa fa-user"></i> Iniciar Sesión</a> -->
+				<a href="<?php echo RUTA_URL ?>/noticias/postNews/"><i class="fas fa-cloud-upload-alt"></i> Publicar Noticia</a>
+				<!-- <a href="#footer" class="page-scroll">Contact us</a> -->
+				<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession)?></a>
+				
 			</div>
 
 			<div class="icon-burger" id="icon-burger">

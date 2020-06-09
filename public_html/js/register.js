@@ -51,6 +51,4 @@ form.addEventListener("submit", (e) => {
             }
         })();
     }
-
-
 });

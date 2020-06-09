@@ -7,14 +7,18 @@ class Login {
 
 class Interfaz {
 
-    showMessage(mensaje, user) {
-
+    showMessage(mensaje) {
+        const Warnings = document.getElementById("warnings");
+        const element = document.createElement('div');
         if (mensaje === "<br>Inicio de Sesión Exitoso.<br>") {
-            alert("Funciona");
-            document.location.href = (location.origin + "/Miranda/usuarios/dashboard/" + user);
+            element.innerHTML = `
+            <div id="warning-message">
+                <h5>Iniciando Sesión...</h5><br>
+            </div>
+            `;
+            Warnings.appendChild(element);
+            document.location.href = (location.origin + "/Miranda/usuarios/dashboard");
         } else {
-            const Warnings = document.getElementById("warnings");
-            const element = document.createElement('div');
             element.innerHTML = `
             <div id="warning-message">
                 <h5>Advertencia: ${mensaje}</h5><br>
@@ -63,7 +67,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
                 const response = await fetch(myRequest, init);
                 if (response.ok) {
                     const response2 = await response.json();
-                    return ui.showMessage(response2, user);
+                    return ui.showMessage(response2);
                 } else {
                     throw new Error(response.statusText);
                 }

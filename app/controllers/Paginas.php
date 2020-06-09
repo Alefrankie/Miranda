@@ -4,6 +4,7 @@ class Paginas extends AppController
 {
 	public function __construct()
 	{
+		session_start();
 		$this->usuarioModelo = $this->model('Usuario');
 		//echo "Controlador pagina cargada";
 	}
@@ -18,7 +19,7 @@ class Paginas extends AppController
 			'usuarios' => $usuarios
 		];
 		//Si Todo Salió Correcto, Importo los datos de MySQL A JSON
-		$file = RUTA_APP . '/data.json';
+		$file = RUTA_ORIGIN . '/public_html/json/data.json';
 		$json_string = json_encode($usuarios);
 		file_put_contents($file, $json_string);
 
@@ -82,7 +83,7 @@ class Paginas extends AppController
 		}
 	}
 
-	public function borrar($id)
+	public function delete($id)
 	{
 		//Obtener informacion de usuario desde el modelo
 		$usuario = $this->usuarioModelo->obtenerUsuarioID($id);
@@ -101,7 +102,7 @@ class Paginas extends AppController
 
 			if ($this->usuarioModelo->borrarUsuario($datos)) {
 				//redireccionar('templates/paginas');
-				$this->view('templates/editar');
+				$this->view('templates/borrar');
 			} else {
 				die('Algo salió mal');
 			}

@@ -11,7 +11,7 @@ class Usuario
 
     public function obtenerUsuarios()
     {
-        $this->db->query('SELECT * FROM Usuarios');
+        $this->db->query('SELECT id, nombre, apellido, user, pass, t_user, status_user FROM Usuarios');
         $resultados = $this->db->registros();
         return $resultados;
     }
@@ -55,13 +55,29 @@ class Usuario
 
     public function actualizarUsuario($datos)
     {
-        $this->db->query('INSERT OR UPDATE Usuarios SET nombre = :nombre, apellido = :apellido, pass = :pass WHERE id = :id');
+        $this->db->query('UPDATE Usuarios SET nombre = :nombre, apellido = :apellido, pass = :pass WHERE id = :id');
 
         //Vincular valores
         $this->db->bind(':id', $datos['id']);
         $this->db->bind(':nombre', $datos['nombre']);
         $this->db->bind(':apellido', $datos['apellido']);
         $this->db->bind(':pass', $datos['pass']);
+
+        //Ejecutar
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateStatus($user, $status_user)
+    {
+        $this->db->query('UPDATE Usuarios SET user = :user, status_user = :status_user WHERE user = :user');
+
+        //Vincular valores
+        $this->db->bind(':user', $user);
+        $this->db->bind(':status_user', $status_user);
 
         //Ejecutar
         if ($this->db->execute()) {
@@ -82,10 +98,10 @@ class Usuario
 
     public function updateImage($datos)
     {
-        $this->db->query('UPDATE Images SET id_usuario = :id_usuario, imagen = :imagen WHERE id_usuario = :id_usuario');
+        $this->db->query('UPDATE Usuarios SET id = :id, imagen = :imagen WHERE id = :id');
 
         //Vincular valores
-        $this->db->bind(':id_usuario', $datos['id_usuario']);
+        $this->db->bind(':id', $datos['id']);
         $this->db->bind(':imagen', $datos['imagen']);
 
         //Ejecutar insercion
@@ -97,10 +113,10 @@ class Usuario
         }
     }
 
-    public function showImage($id_usuario)
+    public function showImage($id)
     {
-        $this->db->query('SELECT * FROM Images WHERE id_usuario = :id_usuario');
-        $this->db->bind(':id_usuario', $id_usuario);
+        $this->db->query('SELECT * FROM Usuarios WHERE id = :id');
+        $this->db->bind(':id', $id);
         $file = $this->db->imagen();
         return $file;
     }

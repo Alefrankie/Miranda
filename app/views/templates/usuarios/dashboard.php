@@ -1,7 +1,6 @@
 <?php
-session_start();
-if (empty($_SESSION['usuario'])) {
-    // redireccionar("/usuarios/login");
+if (empty($_SESSION['SESSION_USER'])) {
+    redireccionar("/usuarios/login");
 }
 ?>
 
@@ -13,6 +12,7 @@ if (empty($_SESSION['usuario'])) {
     <title>Dashboard</title>
     <link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
+    <link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/bootstrap.min.css">
 </head>
 <header class="fondo-gradiente">
     <nav id="nav">
@@ -22,8 +22,9 @@ if (empty($_SESSION['usuario'])) {
         <div class=" enlaces">
             <a href="<?php echo RUTA_URL; ?>/"><i class="fa fa-home"></i> INICIO</a>
             <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
-            <a href="#"><i class="fas fa-search"></i></i> BUSCAR EMPLEADO</a>
-            <a href="#"><i class="fa fa-link"></i> FICHA DE EMPLEADO</a></<a>
+            <a href="#data-base" id="enlace_BuscarUsuario"><i class="fas fa-search"></i></i> BUSCAR USUARIO</a>
+            <a href="#personal-card"><i class="fa fa-link"></i> FICHA PERSONAL</a></<a>
+            <a href="<?php echo RUTA_URL; ?>/noticias"><i class="fa fa-link"></i> NOTICIAS</a></<a>
             <a href="<?php echo RUTA_URL; ?>/usuarios/closeSession"><i class="fas fa-power-off"></i> CERRAR SESIÓN</a></<a>
         </div>
     </nav>
@@ -46,33 +47,12 @@ if (empty($_SESSION['usuario'])) {
             <div></div>
         </div>
     </div> -->
-    <!-- Datos a colocar en la barra de navegación
-    Si es administrador colocar el "general" pero desde el controlador
-    Cedula
-    Foto Usuario GENERAL
-    crear una sidebar-->
-    <!--
-    <img src="/img/usuarios/profile.png" alt="user">
-
-    <h3 class="">Aquí irá el nombre del administrador</h3>
-    <p class="">ADMINISTRADOR GENERAL</p>
-    <a href="#top"><i class="fa fa-home"></i>INICIO</a>
-    <a href="#about"><i class="fa fa-user"></i>ACTUALIZAR DATOS</a>
-    <a href="#buscar"><i class="fa fa-newspaper-o"></i>BUSCAR EMPLEADO</a>
-    <a href="#projects"><i class="fa fa-newspaper-o"></i>DIRECCIÓN DEL DESPACHO</a>
-    <a href="#projects2"><i class="fa fa-newspaper-o"></i>SECRETARIA GENERAL</a>
-    <a href="#contact"><i class="fa fa-link"></i>REGISTRAR EMPLEADOS</a>
-    <form action="../db/close.php" method="post" class="close-session">
-        <input type="submit" class="button" value="SALIR" />
-    </form> -->
-    <!-- PERFIL -->
 
     <div class="data-update contenedor" id="data-update">
-
-        <h2>Bienvenido <?php echo $datos['nombre'] ?></h2>
+        <h2>Bienvenido <?php echo $_SESSION['SESSION_USER'] ?></h2>
         <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user">
 
-        <form id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/saveDataProcess" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/test" method="POST" enctype="multipart/form-data" autocomplete="off">
             <h3>Actualiza tus Datos</h3>
             <img id="photo" src="data:image/png;base64,<?php echo base64_encode(stripslashes($datos['imagen'])); ?>" alt="user">
             <input type="file" name="imagen" accept="image/*">
@@ -86,7 +66,7 @@ if (empty($_SESSION['usuario'])) {
             </svg></div>
     </div>
 
-    <!-- BASE DE DATOS SOLO ES VISIBLE SI ERES ADMINISTRADOR - ARREGLAR CON JS-->
+    <!-- BASE DE DATOS SOLO ES VISIBLE SI ERES ADMINISTRADOR -->
     <div class="data-base-users" id="data-base">
         <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
@@ -97,42 +77,39 @@ if (empty($_SESSION['usuario'])) {
             <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula" />
             <input class="form-button" type="submit" class="button" value="BUSCAR" />
             <input class="form-button" type="submit" class="button" value="TODOS" />
+            <a class="form-button" href="<?php echo RUTA_URL; ?>/usuarios/register">Registrar Usuario</a>
         </form>
+        <br>
+        <br>
+        <br>
+        <br>
 
-        <a href="#">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Usuario</th>
-                        <th>Contraseña</th>
-                        <th><a href="<?php echo RUTA_URL; ?>/usuarios/register">Registrar Usuario</a></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($datos['usuarios'] as $usuario) : ?>
-                        <tr>
-                            <td><?php echo $usuario->id; ?></td>
-                            <td><?php echo $usuario->nombre; ?></td>
-                            <td><?php echo $usuario->apellido; ?></td>
-                            <td><?php echo $usuario->user; ?></td>
-                            <td><?php echo $usuario->pass; ?></td>
-                            <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
-                            <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
-                        </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
-        </a>
+        <table class="table container text-center table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Usuario</th>
+                    <th>Privilegios</th>
+                    <th>Estado</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody id="contenido">
+                <!-- 
+                    Este contenido es GENERADO POR JS, se encuentra en el archivo dashboard.js
+                 -->
+            </tbody>
+        </table>
 
         <div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
             </svg></div>
     </div>
 
-    <div class="personal-card contenedor">
+    <div class="personal-card contenedor" id="personal-card">
         <h2>Ficha del Empleado</h2>
         <form action="../empleados/guardar.php" method="post" class="contact-form">
 
@@ -197,32 +174,7 @@ if (empty($_SESSION['usuario'])) {
     </div>
 
 
-    <div class="admin-privileges">
-        <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
-            </svg></div>
-
-        <h3>Usted es identificado como Administrador General por lo que el sistema le permite iterar los siguientes privilegios:</h3>
-
-        <p><span class="far fa-dot-circle"></span> Actualiza sus Datos de Sesión y Foto de administrador.</p>
-        <p><span class="far fa-dot-circle"></span> Realizar una búsqueda de empleados por su documento de identidad.</p>
-        <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección de Despacho.</p>
-        <p><span class="far fa-dot-circle"></span> Consultar los departamentos Adscritos a la Dirección General</p>
-        <p><span class="far fa-dot-circle"></span> Registrar Nuevo Empleado a las Dependencias Adscritas.</p>
-
-
-        <div class="admin-privileges-footer">
-            <a class="icon icon-facebook"><i class="fab fa-facebook"></i></a>
-            <a class="icon icon-instagram "><i class="fab fa-instagram"></i></a>
-            <a class="icon icon-twitter"><i class="fab fa-twitter"></i></a>
-            <a class="icon icon-whatsapp"><i class="fab fa-whatsapp"></i></a>
-            <a class="icon icon-youtube"><i class="fab fa-youtube"></i></a>
-
-            <p>Copyright © 2019-2020. Developed by <a href="#">JGBM/AJMA</a></p>
-        </div>
-    </div>
-
-
+    <?php require RUTA_APP . '/views/inc/footer.php'; ?>
 
     <!--===== Javascript ===================================== -->
     <script src="<?php echo RUTA_URL ?>/js/dashboard.js"></script>
