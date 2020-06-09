@@ -2,7 +2,7 @@
 if (empty($_SESSION['SESSION_USER'])) {
 	$dataSession = " Iniciar Sesión";
 	$destino = RUTA_URL . "/Usuarios/login/";
-}else{
+} else {
 	$dataSession = $_SESSION['SESSION_USER'];
 	$destino = RUTA_URL . "/Usuarios/dashboard/";
 }
@@ -42,7 +42,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 					<a href="#noticias" class="page-scroll">Noticias</a>
 					<a href="#institutos" class="page-scroll">Institutos</a>
 					<a href="#tf-testimonials" class="page-scroll">Dirección General</a>
-					<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession)?></a>
+					<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession) ?></a>
 			</div>
 
 			<div class="icon-burger" id="icon-burger">
@@ -264,28 +264,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 			</div>
 		</div>
 	</div>
-	<table class="data-base-table">
-		<p><?php echo $datos['titulo']; ?></p>
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Nombre</th>
-				<th><a href="<?php echo RUTA_URL; ?>/paginas/agregar/">Insertar</a></th>
-			</tr>
-		</thead>
-		<?php foreach ($datos['usuarios'] as $usuario) : ?>
-			<tbody>
-				<tr>
-					<td><?php echo $usuario->id; ?></td>
-					<td><?php echo $usuario->nombre; ?></td>
-					<td><?php echo $usuario->apellido; ?></td>
-					<td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
-					<td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
-				</tr>
 
-			<?php endforeach ?>
-			</tbody>
-	</table> 
 	<!--===== FOOTER =======================================-->
 	<?php require RUTA_APP . '/views/inc/footer.php'; ?>
 
