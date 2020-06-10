@@ -25,15 +25,15 @@ class Usuario
 
     public function agregarUsuario($datos)
     {
-        $this->db->query('INSERT INTO Usuarios (nombre, apellido, user, pass, imagen) values (:nombre, :apellido, :user,:pass, :imagen)');
-        
+        $this->db->query('INSERT INTO Usuarios (nombre, apellido, user, pass, photoPerfil) values (:nombre, :apellido, :user,:pass, :photoPerfil)');
+
         //Vincular valores
 
         $this->db->bind(':nombre', $datos['nombre']);
         $this->db->bind(':apellido', $datos['apellido']);
         $this->db->bind(':user', $datos['user']);
         $this->db->bind(':pass', $datos['pass']);
-        $this->db->bind(':imagen', $datos['imagen']);
+        $this->db->bind(':photoPerfil', $datos['photoPerfil']);
 
         //Ejecutar inserción
 
@@ -55,13 +55,17 @@ class Usuario
 
     public function actualizarUsuario($datos)
     {
-        $this->db->query('UPDATE Usuarios SET nombre = :nombre, apellido = :apellido, pass = :pass WHERE id = :id');
+        $this->db- $this->db->query('UPDATE Usuarios SET nombre = :nombre, apellido = :apellido, user = :user, pass = :pass, photoPerfil = :photoPerfil, t_user = :t_user, status_user = :status_user WHERE id = :id');
 
         //Vincular valores
         $this->db->bind(':id', $datos['id']);
         $this->db->bind(':nombre', $datos['nombre']);
         $this->db->bind(':apellido', $datos['apellido']);
+        $this->db->bind(':user', $datos['user']);
         $this->db->bind(':pass', $datos['pass']);
+        $this->db->bind(':photoPerfil', $datos['photoPerfil']);
+        $this->db->bind(':t_user', $datos['t_user']);
+        $this->db->bind(':status_user',  $datos['status_user']);
 
         //Ejecutar
         if ($this->db->execute()) {
@@ -71,13 +75,13 @@ class Usuario
         }
     }
 
-    public function updateStatus($user, $status_user)
+    public function updateStatus($datos)
     {
-        $this->db->query('UPDATE Usuarios SET user = :user, status_user = :status_user WHERE user = :user');
+        $this->db->query('UPDATE Usuarios SET status_user = :status_user WHERE id = :id');
 
         //Vincular valores
-        $this->db->bind(':user', $user);
-        $this->db->bind(':status_user', $status_user);
+        $this->db->bind(':id', $datos['id']);
+        $this->db->bind(':status_user',  $datos['status_user']);
 
         //Ejecutar
         if ($this->db->execute()) {
@@ -86,7 +90,6 @@ class Usuario
             return false;
         }
     }
-
 
     public function GetUser($user)
     {
@@ -98,11 +101,11 @@ class Usuario
 
     public function updateImage($datos)
     {
-        $this->db->query('UPDATE Usuarios SET id = :id, imagen = :imagen WHERE id = :id');
+        $this->db->query('UPDATE Usuarios SET id = :id, photoPerfil = :photoPerfil WHERE id = :id');
 
         //Vincular valores
         $this->db->bind(':id', $datos['id']);
-        $this->db->bind(':imagen', $datos['imagen']);
+        $this->db->bind(':photoPerfil', $datos['photoPerfil']);
 
         //Ejecutar insercion
 

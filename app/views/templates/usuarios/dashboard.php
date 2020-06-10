@@ -50,15 +50,18 @@ if (empty($_SESSION['SESSION_USER'])) {
 
     <div class="data-update contenedor" id="data-update">
         <h2>Bienvenido <?php echo $_SESSION['SESSION_USER'] ?></h2>
-        <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user">
+        <!-- <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user"> -->
 
-        <form id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/test" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <h3>Actualiza tus Datos</h3>
-            <img id="photo" src="data:image/png;base64,<?php echo base64_encode(stripslashes($datos['imagen'])); ?>" alt="user">
-            <input type="file" name="imagen" accept="image/*">
-            <!-- <input type="text" name="user" id="user" class="input">
-            <input type="text" name="pass" id="pass" class="input"> -->
-            <input class="form-button" type="submit" class="button" name="enviar" value="Actualizar">
+        <form  id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/uploadPhotoPerfil" method="POST" enctype="multipart/form-data" autocomplete="off">
+            <!-- <h3>Actualiza tus Datos</h3> -->
+            <img id="photo" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+            <div id="labelInputPhotoPerfil">
+                <label for="inputPhotoPerfil" style="font-size: 30px;">Cambiar</label>
+            </div>
+            <input id="inputPhotoPerfil" type="file" name="imagen" accept=".jpg,.png" >
+            <!-- <input type="text" name="user" id="user" class="input" required>
+            <input type="text" name="pass" id="pass" class="input" required> -->
+            <!-- <input class="form-button" type="submit" class="button" name="enviar" value="Actualizar"> -->
         </form>
 
         <div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
@@ -74,7 +77,7 @@ if (empty($_SESSION['SESSION_USER'])) {
         <h2>BUSCAR EMPLEADO</h2>
         <form action="../admin/buscar/p_buscar.php" method="post" target="_blank">
             <label for="cedula">Cédula:</label>
-            <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula" />
+            <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula"/>
             <input class="form-button" type="submit" class="button" value="BUSCAR" />
             <input class="form-button" type="submit" class="button" value="TODOS" />
             <a class="form-button" href="<?php echo RUTA_URL; ?>/usuarios/register">Registrar Usuario</a>

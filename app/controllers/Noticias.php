@@ -12,23 +12,33 @@ class Noticias extends AppController
 
 	public function index()
 	{
-		$this->view('templates/noticias');
+		$currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
+		$datos = [
+			"t_user" => $currentUser->t_user 
+		];
+		$this->view('templates/noticias', $datos);
 	}
 
 	public function updateNews()
 	{
 		$news = $this->noticiaModelo->getNewsImages();
 		$file = RUTA_ORIGIN . '/public_html/json/imagesNews.json';
+		
 		foreach ($news as $key => $value) {
-			$data[$key] = [
-				"user" => $value->user,
+			$photo = $this->noticiaModelo->getNewsImagesPerfil($value->nameUser);
+			$news[$key] = [
+				"id_noticia" => $value->id_noticia,
+				"user" => $value->nameUser,
 				"description_image" => $value->description_image,
-				"imagen" => base64_encode(stripslashes(($value->imagen)))
+				"imagenNews" => base64_encode(stripslashes($value->imagenNews)),
+				"photoPerfil" => base64_encode(stripslashes($photo->photoPerfil)),
 			];
 		}
-		$json_string = json_encode($data);
+
+
+		$json_string = json_encode($news);
 		file_put_contents($file, $json_string);
-		echo json_encode($data);
+		echo json_encode($news);
 	}
 
 	public function postNews()
@@ -42,18 +52,24 @@ class Noticias extends AppController
 		$image = addslashes(file_get_contents($_FILES['news']['tmp_name']));
 		$datos = [
 			'id_usuario' => $currentUser->id,
-			'user' => $_SESSION['SESSION_USER'],
-			'imagen' => $image,
+			'nameUser' => $_SESSION['SESSION_USER'],
+			'imagenNews' => $image,
 			'description_image' => $_POST['description']
 		];
 		$this->noticiaModelo->uploadNews($datos);
-		$photoDecode = base64_encode(stripslashes($datos['imagen']));
+		$photoDecode = base64_encode(stripslashes($datos['imagenNews']));
 		echo json_encode($photoDecode);
+	}
+
+	public function deleteNews(){
+		$id_noticia = $_POST["IDNoticia"];
+		$this->noticiaModelo->deleteNews($id_noticia);
+		echo ("Noticia Eliminada");
 	}
 
 	public function test()
 	{
-		$news = ("hola");
-		echo ($news);
+		$photo = $this->noticiaModelo->getNewsImagesPerfil("Alefrank");
+		print_r ($photo->photoPerfil);
 	}
 }

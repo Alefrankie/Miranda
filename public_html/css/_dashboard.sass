@@ -2,8 +2,8 @@
 
 .page-tittle
     background: url(../img/fondos/portada1.jpg)
+    text-align: center
     +propieades-basicas-fondo
-        text-align: center
 
 .admin-privileges
     display: flex
@@ -35,22 +35,51 @@
     .data-update__form
         display: flex
         width: 21.875em
-        height: 32.5em
+        height: 22.5em
         flex-direction: column
         align-items: center
         justify-content: center
         margin: 0 10px
         border-radius: 5px
-        background: $color-white
+        // background: $color-white
         margin-bottom: 100px
+        position: relative
 
         & > img
-            width: 12.5em
-            height: 12.5em
+            width: 18.75em
+            height: 18.75em
             border: 1px solid $color-green
-            border-radius: 5px
-            padding: 10px
+            border-radius: 50%
+            padding: 2px
             margin: 10px 0
+            object-fit: fill
+            transition: all .5s ease
+           
+                
+        & > div 
+            position: absolute
+            display: flex
+            width: 18.75em
+            height: 18.75em
+            border-radius: 50%
+            border-color: $color-green
+            justify-content: center
+            align-items: center
+            border-radius: 50%
+            color: #fff
+            font-weight: 500
+            background: $degradado-oscuro
+            transition: all .5s ease
+            transform: scale(0)
+            cursor: pointer
+            &.active
+                transform: scale(1)
+            & > label
+                cursor: pointer
+                
+        
+        & > #inputPhotoPerfil
+            display: none
 
         input , label
             width: 200px
@@ -61,10 +90,10 @@
                 border: 3px solid $color-green
 
 .form-button
+    width: 200px
+    height: 30px
+    border-color: $color-green
     +button-degrade
-        width: 200px
-        height: 30px
-        border-color: $color-green
 
 .data-base-users
     display: flex
@@ -95,8 +124,6 @@
             margin: 0 10px
             &:focus
                 border: 3px solid $color-green
-
-
 
     .table
         width: 100%

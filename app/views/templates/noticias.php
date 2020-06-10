@@ -2,7 +2,7 @@
 if (empty($_SESSION['SESSION_USER'])) {
 	$dataSession = " Iniciar Sesión";
 	$destino = RUTA_URL . "/Usuarios/login/";
-}else{
+} else {
 	$dataSession = $_SESSION['SESSION_USER'];
 	$destino = RUTA_URL . "/Usuarios/dashboard/";
 }
@@ -23,15 +23,15 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<header>
 		<nav id="nav">
 			<div class="logo">
-				<a href="#"><strong>RIF G-20000169-0</strong></a>
+				<a href="#" id="Admin"><strong><?php echo ($datos["t_user"]) ?></strong></a>
 			</div>
 
 			<div class="enlaces" id="enlaces">
 				<a href="/Miranda"><i class="fa fa-home page-scroll"></i> Inicio</a>
 				<a href="<?php echo RUTA_URL ?>/noticias/postNews/"><i class="fas fa-cloud-upload-alt"></i> Publicar Noticia</a>
 				<!-- <a href="#footer" class="page-scroll">Contact us</a> -->
-				<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession)?></a>
-				
+				<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession) ?></a>
+
 			</div>
 
 			<div class="icon-burger" id="icon-burger">
@@ -52,9 +52,11 @@ if (empty($_SESSION['SESSION_USER'])) {
 		<article class="articulo">
 			<div class="cabecera-articulo">
 				<div class="thumbnail">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="X">
 				</div>
-				<!-- <a href="">Administrador</a> -->
+				<a href="#">Admin</a>
+
+			
 			</div>
 			<div class="gallery">
 				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_1.png" alt="" class="imagen" />
@@ -67,9 +69,10 @@ if (empty($_SESSION['SESSION_USER'])) {
 		<article class="articulo">
 			<div class="cabecera-articulo">
 				<div class="thumbnail">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="X">
 				</div>
 				<!-- <a href="">Administrador</a> -->
+			
 			</div>
 			<div class="gallery">
 				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_2.png" alt="" class="imagen" />
@@ -82,9 +85,10 @@ if (empty($_SESSION['SESSION_USER'])) {
 		<article class="articulo">
 			<div class="cabecera-articulo">
 				<div class="thumbnail">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="X">
 				</div>
 				<!-- <a href="">Administrador</a> -->
+				
 			</div>
 			<div class="gallery">
 				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_3.png" alt="" class="imagen" />
@@ -130,9 +134,9 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
 
 	<!--===== Javascript ===================================== -->
-	<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
-	<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
-	<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
+		<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
+		<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
+		<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 
 </body>
 

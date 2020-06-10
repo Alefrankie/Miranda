@@ -37,11 +37,11 @@ if (empty($_SESSION['SESSION_USER'])) {
 
 			<div class=" enlaces" id="enlaces">
 					<a href="#"><i class="fa fa-home page-scroll"></i> Inicio</a>
-					<a href="#alcalde" class="page-scroll">Alcalde</a>
-					<a href="#turismo" class="page-scroll">Turismo</a>
-					<a href="#noticias" class="page-scroll">Noticias</a>
-					<a href="#institutos" class="page-scroll">Institutos</a>
-					<a href="#tf-testimonials" class="page-scroll">Dirección General</a>
+					<a href="#alcalde" class="page-scroll"><i class="fas fa-hat-cowboy"></i>Alcalde</a>
+					<a href="#turismo" class="page-scroll"><i class="fas fa-plane"></i>Turismo</a>
+					<a href="#noticias" class="page-scroll"><i class="fas fa-newspaper"></i>Noticias</a>
+					<a href="#institutos" class="page-scroll"><i class="fas fa-warehouse"></i>Institutos</a>
+					<a href="#tf-testimonials" class="page-scroll"><i class="fas fa-street-view"></i>Dirección General</a>
 					<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession) ?></a>
 			</div>
 

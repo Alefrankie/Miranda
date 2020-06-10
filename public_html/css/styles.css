@@ -1087,6 +1087,10 @@ footer .footer-main .footer-body .footer-texto p {
 }
 
 .main-section {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-size: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1100,10 +1104,6 @@ footer .footer-main .footer-body .footer-texto p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 16px;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   font-size: 16px;
 }
 
@@ -1140,6 +1140,7 @@ footer .footer-main .footer-body .footer-texto p {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  position: relative;
 }
 
 .main-section .articulo .cabecera-articulo .thumbnail {
@@ -1177,6 +1178,32 @@ footer .footer-main .footer-body .footer-texto p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.main-section .articulo .cabecera-articulo > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10%;
+}
+
+.main-section .articulo .cabecera-articulo > form > input {
+  text-align: center;
+  width: 50px;
+  margin-right: 5px;
+}
+
+.main-section .articulo .cabecera-articulo > form > button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 2px;
+  background: #ff0000;
 }
 
 .main-section .articulo .gallery > img {
@@ -1239,6 +1266,7 @@ footer .footer-main .footer-body .footer-texto p {
 
 .page-tittle {
   background: url(../img/fondos/portada1.jpg);
+  text-align: center;
   -webkit-transition: all 1000ms ease;
   transition: all 1000ms ease;
   width: 100%;
@@ -1248,7 +1276,6 @@ footer .footer-main .footer-body .footer-texto p {
   background-attachment: fixed;
   background-repeat: no-repeat;
   position: relative;
-  text-align: center;
 }
 
 .admin-privileges {
@@ -1306,7 +1333,7 @@ footer .footer-main .footer-body .footer-texto p {
   display: -ms-flexbox;
   display: flex;
   width: 21.875em;
-  height: 32.5em;
+  height: 22.5em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1319,17 +1346,61 @@ footer .footer-main .footer-body .footer-texto p {
           justify-content: center;
   margin: 0 10px;
   border-radius: 5px;
-  background: #fff;
   margin-bottom: 100px;
+  position: relative;
 }
 
 .data-update .data-update__form > img {
-  width: 12.5em;
-  height: 12.5em;
+  width: 18.75em;
+  height: 18.75em;
   border: 1px solid #63FFAF;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 50%;
+  padding: 2px;
   margin: 10px 0;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.data-update .data-update__form > div {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 18.75em;
+  height: 18.75em;
+  border-radius: 50%;
+  border-color: #63FFAF;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 500;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.65)));
+  background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.65) 100%);
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  cursor: pointer;
+}
+
+.data-update .data-update__form > div.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.data-update .data-update__form > div > label {
+  cursor: pointer;
+}
+
+.data-update .data-update__form > #inputPhotoPerfil {
+  display: none;
 }
 
 .data-update .data-update__form input, .data-update .data-update__form label {
@@ -1344,6 +1415,9 @@ footer .footer-main .footer-body .footer-texto p {
 }
 
 .form-button {
+  width: 200px;
+  height: 30px;
+  border-color: #63FFAF;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1363,9 +1437,6 @@ footer .footer-main .footer-body .footer-texto p {
   color: #fff;
   font-size: 16px;
   background: linear-gradient(45deg, rgba(175, 255, 144, 0.99) 1%, rgba(112, 249, 147, 0.89) 5%, rgba(45, 249, 160, 0.99) 30%, #3c0c78 99%, #4a0c96 99%, #4a0c96 100%);
-  width: 200px;
-  height: 30px;
-  border-color: #63FFAF;
 }
 
 .data-base-users {

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("click", (e) => {
-  if (e.target === anuncioContainer || e.target === img) {
+  if (e.target == anuncioContainer || e.target == img) {
     anuncio.classList.add("anuncio-cerrado");
     anuncioContainer.style.opacity = "1";
     anuncioContainer.style.visibility = "hidden";

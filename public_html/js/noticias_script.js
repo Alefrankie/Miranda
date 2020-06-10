@@ -1,21 +1,39 @@
 // FUNCIÓN OCULTACIÓN DE OPCIONES
 
+//------------ PRIVILEGES TO DELETE NEWS
+let formDeleteNews = document.querySelectorAll("form");
+const Admin = document.getElementById("Admin").innerText;
+(() => {
+  if (Admin === "Usuario") {
+    Array.from(formDeleteNews).forEach(function (element) {
+      element.style.display = 'none'
+    });
+  }
+})();
+
+///////////////////////////////
 class NewsInterface {
 
   showImagesNews(table) {
     const seccionPrincipal = document.getElementById("sección-principal");
+    const deleteNewsRuta = location.origin + "/Miranda/noticias/deleteNews";
     for (let valor of table) {
       seccionPrincipal.innerHTML += `
       <article class="articulo">
 			    <div class="cabecera-articulo">
 			          <div class="thumbnail">
-			              <img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="X">
+			              <img loading="lazy" src="data:image/png;base64,${valor.photoPerfil}" alt="X">
 			          </div>
-			            <a href="">${valor.user}</a>
+                  <a href="">${valor.user}</a>
+                  
+                  <form action="${deleteNewsRuta}" method="POST">
+					            <input type="text" name="IDNoticia" value="${valor.id_noticia}" readonly>
+					            <button type="submit">Eliminar Noticia</button>
+				          </form>
           </div>
           
 			    <div class="gallery">
-			          <img loading="lazy" src="data:image/png;base64,${valor.imagen}" alt="" class="imagen" />
+			          <img loading="lazy" src="data:image/png;base64,${valor.imagenNews}" alt="" class="imagen" />
 			    </div>
           
           <div class="footer-article">
@@ -37,8 +55,8 @@ class NewsInterface {
     try {
       const response = await fetch(myRequest);
       if (response.ok) {
-        const images = await response.json();
-        ui.showImagesNews(images);
+        const news = await response.json();
+        ui.showImagesNews(news);
       } else {
         throw new error(response.statusText);
       }

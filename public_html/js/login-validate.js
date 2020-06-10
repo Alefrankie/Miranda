@@ -6,7 +6,7 @@ class Login {
 }
 
 class Interfaz {
-
+    
     showMessage(mensaje) {
         const Warnings = document.getElementById("warnings");
         const element = document.createElement('div');
@@ -25,7 +25,7 @@ class Interfaz {
             </div>
             `;
             Warnings.appendChild(element);
-            this.resetForm();
+            // this.resetForm();
             setTimeout(() => {
                 document.getElementById("warning-message").remove();
             }, 2000)
@@ -56,7 +56,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
     } else {
         (async () => {
             try {
-                const myRequest = new Request(location.origin + "/Miranda/usuarios/validate");
+                const myRequest = new Request(location.origin + "/Miranda/usuarios/login");
                 const init = {
                     method: "POST",
                     headers: {
@@ -67,7 +67,8 @@ document.getElementById("form").addEventListener("submit", (e) => {
                 const response = await fetch(myRequest, init);
                 if (response.ok) {
                     const response2 = await response.json();
-                    return ui.showMessage(response2);
+                    console.log(response2.mensaje);
+                    ui.showMessage(response2.mensaje);
                 } else {
                     throw new Error(response.statusText);
                 }

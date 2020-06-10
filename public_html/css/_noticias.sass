@@ -7,9 +7,10 @@
 
 //*===== SECCIÓN PRINCIPAL =====*
 .main-section
-    +propieades-basicas-seccion-principal()
     justify-content: space-evenly
     font-size: 16px
+    +propieades-basicas-seccion-principal()
+
     .articulo
         display: flex
         height: 100%
@@ -27,6 +28,7 @@
             width: 95%
             height: 3.125em
             justify-content: flex-start
+            position: relative
             .thumbnail
                 display: flex
                 justify-content: center
@@ -46,6 +48,24 @@
                 height: 2.5em
                 align-items: center
                 justify-content: center
+
+            & > form
+                display: flex
+                position: absolute
+                right: 0
+                align-items: center
+                border-radius: 10%
+                & > input
+                    text-align: center
+                    width: 50px
+                    margin-right: 5px
+
+                & > button
+                    display: flex
+                    border-radius: 2px
+                    background: #ff0000
+                    
+
         .gallery > img
             width: 100%
             height: 100%
@@ -79,6 +99,5 @@
         font-size: 14px
         .articulo
             width: 90%
-
 
 //*===== Botón Volver =====*

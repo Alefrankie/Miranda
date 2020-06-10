@@ -52,41 +52,56 @@ class Interfaz {
 
 // DOM Events
 const form = document.getElementById("dashboard_perfil");
-form.addEventListener("submit", (e) => {
+const inputPhotoPerfil = document.getElementById("inputPhotoPerfil")
+inputPhotoPerfil.addEventListener("change", (e) => {
     e.preventDefault();
-    (async (e) => {
-        const ui = new Interfaz();
-
-        // if (enviarFormulario.enviando) { return; }
-        // enviarFormulario.enviando = true;
-        const data = new FormData(form);
-        const init = {
-            method: form.method,
-            body: data
-        };
-        try {
-            const response = await fetch(form.action, init);
-            if (response.ok) {
-                const photoPerfil = await response.json();
-                ui.changePhoto(photoPerfil);
-            } else {
-                throw new error(response.statusText);
+    if (inputPhotoPerfil.value == "") {
+        return alert("Debe Indicar su Foto de Perfil.");
+    } else {
+        (async (e) => {
+            const ui = new Interfaz();
+            const data = new FormData(form);
+            const init = {
+                method: form.method,
+                body: data
+            };
+            try {
+                const response = await fetch(form.action, init);
+                if (response.ok) {
+                    const photoPerfil = await response.json();
+                    ui.changePhoto(photoPerfil);
+                } else {
+                    throw new error(response.statusText);
+                }
+            } catch (error) {
+                alert("Error al enviar el formulario: " + error.message);
             }
-        } catch (error) {
-            alert("Error al enviar el formulario: " + error.message);
-        }
-        // permitimos volver a enviar el formulario de nuevo
-        // enviarFormulario.enviando = false;
-    })();
+            // permitimos volver a enviar el formulario de nuevo
+            // enviarFormulario.enviando = false;
+        })();
+        form.onsubmit;
+    }
 })
 
-window.addEventListener("load", (e) => {
-    const myRequest = new Request("/Miranda/public_html/json/data.json");
-    (async (e) => {
-        const ui = new Interfaz();
+//SCRIPT TO PHOTO PERFIL MIN-MAX
+document.getElementById("photo").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputPhotoPerfil").classList.add("active");
+})
+document.getElementById("photo").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputPhotoPerfil").classList.remove("active");
+})
+document.getElementById("labelInputPhotoPerfil").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputPhotoPerfil").classList.add("active");
+})
+document.getElementById("labelInputPhotoPerfil").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputPhotoPerfil").classList.remove("active");
+})
 
-        // if (enviarFormulario.enviando) { return; }
-        // enviarFormulario.enviando = true;
+
+window.addEventListener("load", (e) => {
+    const ui = new Interfaz();
+    (chargeTableUsersFromDB = async (e) => {
+        const myRequest = new Request(location.origin + "/Miranda/usuarios/chargeTableUsers");
         try {
             const response = await fetch(myRequest);
             if (response.ok) {
@@ -101,6 +116,22 @@ window.addEventListener("load", (e) => {
         // permitimos volver a enviar el formulario de nuevo
         // enviarFormulario.enviando = false;
     })();
+
+    (showPhotoPerfil = async (e) => {
+        const myRequest = new Request(location.origin + "/Miranda/usuarios/showPhotoPerfil");
+        try {
+            const response = await fetch(myRequest);
+            if (response.ok) {
+                const photoPerfil = await response.json();
+                ui.changePhoto(photoPerfil);
+            } else {
+                throw new error(response.statusText);
+            }
+        } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+        }
+    })();
+
 })
 
 
