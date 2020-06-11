@@ -50,15 +50,14 @@ if (empty($_SESSION['SESSION_USER'])) {
 
     <div class="data-update contenedor" id="data-update">
         <h2>Bienvenido <?php echo $_SESSION['SESSION_USER'] ?></h2>
-        <!-- <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user"> -->
 
-        <form  id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/uploadPhotoPerfil" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/uploadPhotoPerfil" method="POST" enctype="multipart/form-data" autocomplete="off">
             <!-- <h3>Actualiza tus Datos</h3> -->
             <img id="photo" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
             <div id="labelInputPhotoPerfil">
                 <label for="inputPhotoPerfil" style="font-size: 30px;">Cambiar</label>
             </div>
-            <input id="inputPhotoPerfil" type="file" name="imagen" accept=".jpg,.png" >
+            <input id="inputPhotoPerfil" type="file" name="imagen" accept=".jpg,.png">
             <!-- <input type="text" name="user" id="user" class="input" required>
             <input type="text" name="pass" id="pass" class="input" required> -->
             <!-- <input class="form-button" type="submit" class="button" name="enviar" value="Actualizar"> -->
@@ -77,7 +76,7 @@ if (empty($_SESSION['SESSION_USER'])) {
         <h2>BUSCAR EMPLEADO</h2>
         <form action="../admin/buscar/p_buscar.php" method="post" target="_blank">
             <label for="cedula">Cédula:</label>
-            <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula"/>
+            <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula" />
             <input class="form-button" type="submit" class="button" value="BUSCAR" />
             <input class="form-button" type="submit" class="button" value="TODOS" />
             <a class="form-button" href="<?php echo RUTA_URL; ?>/usuarios/register">Registrar Usuario</a>
@@ -113,67 +112,55 @@ if (empty($_SESSION['SESSION_USER'])) {
     </div>
 
     <div class="personal-card contenedor" id="personal-card">
-        <h2>Ficha del Empleado</h2>
-        <form action="../empleados/guardar.php" method="post" class="contact-form">
+        <div class="body-login">
+            <div class="wave">
+                <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user">
+            </div>
+            <div class="usuarios">
+                <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
+                <form id="form">
+                    <p>Actualización</p>
+                    <div class="input-div">
+                        <div class="head-input">
+                            <i class="fas fa-user"></i>
+                            <h3 id="h3-nombre">Nombre</h3>
+                        </div>
+                        <input type="text" name="nombre" id="nombre" class="input" value="<?php echo $datos['nombre']; ?>" autocomplete="off">
+                    </div>
+                    <div class="input-div">
+                        <div class="head-input">
+                            <i class="fas fa-user"></i>
+                            <h3 id="h3-apellido">Apellido</h3>
+                        </div>
+                        <input type="text" name="apellido" id="apellido" class="input" value="<?php echo $datos['apellido']; ?>" autocomplete="off">
+                    </div>
+                    <div class="input-div">
+                        <div class="head-input">
+                            <i class="fas fa-user"></i>
+                            <h3 id="h3-usuario">Usuario</h3>
+                        </div>
+                        <input type="text" name="user" id="user" class="input" autocomplete="off">
+                    </div>
 
-            <h3>DATOS PERSONALES: </h3>
-            <input type="number" REQUIRED placeholder="CEDULA..." name="cedula" />
-            <input type="text" REQUIRED placeholder="NOMBRES..." name="nombres" />
-            <input type="text" REQUIRED placeholder="APELLIDOS..." name="apellidos" />
-            <input type="number" placeholder="NUMERO DE HIJOS..." name="n_hijos" />
+                    <div class="input-div">
+                        <div class="head-input">
+                            <i class="fas fa-lock"></i>
+                            <h3 id="h3-contraseña">Contraseña</h3>
+                        </div>
+                        <input type="password" name="pass" id="password" class="input" autocomplete="off">
+                    </div>
 
-            <h3>INFORMACIÓN DE CONTACTO:</h3>
-            <input type="number" placeholder="TELÉFONO..." name="telefono" />
-            <input type="text" placeholder="CORREO..." name="correo" />
-            <input type="text" REQUIRED placeholder="DIRECCIÓN..." name="direccion" />
+                    <div class="forgot-password">
+                    </div>
+                    <button type="submit" value="Iniciar">Actualizar Datos</button>
+                    <div class="warnings" id="warnings">
+                        <h5>
 
-            <h3>DATOS LABORALES:</h3>
-            <select REQUIRED name="departamento">
-                <option selected>DEPARTAMENTO...</option>
-                <option>SECRETARIA SOCIAL MUNICIPAL</option>
-                <option>SECRETARIA DE HACIENDA MUNICIPAL</option>
-                <option>SECRETARIA POLÍTICA MUNICIPAL</option>
-                <option>SECRETARIA DE AMBIENTE MUNICIPAL</option>
-                <option>SECRETARIA TERRITORIAL MUNICIPAL</option>
-                <option>SECRETARIA DE DESARROLLO ECONÓMICO COMUNAL</option>
-                <option>SECRETARIA DE TURISMO, EDUCACIÓN Y CULTURA MUNICIPAL</option>
-                <option>COORDINACIÓN DE INFORMÁTICA Y ESTADÍSTICA</option>
-                <option>OFICINA DE ADMINISTRACIÓN DEL TALENTO HUMANO</option>
-                <option>SINDICATURA</option>
-            </select>
-
-            <input REQUIRED type="text" placeholder="OFICINA..." name="oficina">
-
-            <input REQUIRED type="text" placeholder="CARGO..." name="cargo">
-
-            <select REQUIRED placeholder="CATEGORÍA..." name=categoria>
-                <option selected>NIVEL DE ESTUDIO...</option>
-                <option>BACHILLER</option>
-                <option>T.S.U</option>
-                <option>UNIVERSITARIO</option>
-                <option>MAESTRÍA</option>
-                <option>DOCTORADO</option>
-            </select>
-
-            <select REQUIRED placeholder="CONDICIÓN..." name="condicion">
-                <option selected>CONDICIÓN...</option>
-                <option>DIRECTIVO</option>
-                <option>CONTRATADO</option>
-                <option>FIJO</option>
-            </select>
-
-            <input type="number" REQUIRED placeholder="SUELDO..." name="sueldo" />
-            <input type="number" REQUIRED placeholder="AÑOS DE SERVICIO..." name="servicio" />
-
-            <h3>FECHA DE INGRESO:</h3>
-            <input type="date" REQUIRED placeholder="FECHA DE INGRESO..." name="f_ingreso" />
-
-            <h3>FECHA ASIGNACIÓN DE CARGO:</h3>
-            <input type="date" REQUIRED placeholder="FECHA ASIGNACIÓN DE CARGO..." name="f_asignado" />
-
-            <input type="submit" class="button" value="Actualizar Datos" />
-            <hr>
-        </form>
+                        </h5>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 

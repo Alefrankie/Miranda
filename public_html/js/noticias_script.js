@@ -1,15 +1,7 @@
 // FUNCIÓN OCULTACIÓN DE OPCIONES
 
-//------------ PRIVILEGES TO DELETE NEWS
-let formDeleteNews = document.querySelectorAll("form");
-const Admin = document.getElementById("Admin").innerText;
-(() => {
-  if (Admin === "Usuario") {
-    Array.from(formDeleteNews).forEach(function (element) {
-      element.style.display = 'none'
-    });
-  }
-})();
+
+
 
 ///////////////////////////////
 class NewsInterface {
@@ -49,6 +41,8 @@ class NewsInterface {
 //DOM EVENTS
 //------------ CHARGE NEWS
 (() => {
+  const formDeleteNews = document.getElementsByTagName("form");
+  const Admin = document.getElementById("Admin").innerText;
   const myRequest = new Request(location.origin + "/Miranda/noticias/updateNews");
   (async (e) => {
     const ui = new NewsInterface();
@@ -57,6 +51,12 @@ class NewsInterface {
       if (response.ok) {
         const news = await response.json();
         ui.showImagesNews(news);
+
+        if (Admin == "Usuario" || Admin == "RIF G-20000169-0") {
+          Array.from(formDeleteNews).forEach(function (element) {
+            element.style.display = 'none'
+          });
+        }
       } else {
         throw new error(response.statusText);
       }
@@ -65,6 +65,7 @@ class NewsInterface {
     }
   })();
 })();
+
 
 
 /*===== SCRIPT AMPLIACIÓN DE IMÁGENES =====*/

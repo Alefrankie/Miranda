@@ -234,8 +234,8 @@ a:focus {
 }
 
 .anuncio-container .anuncio-abierto {
-  width: 34.375em;
-  height: 40.625em;
+  width: 500px;
+  height: 600px;
   background: #fff;
   border-radius: 5%;
   overflow: hidden;
@@ -268,8 +268,12 @@ a:focus {
 
 @media screen and (max-width: 900px) {
   .anuncio-abierto {
-    width: 80%;
-    height: 100%;
+    width: 70%;
+    height: 90%;
+  }
+  .anuncio-abierto img {
+    width: 70%;
+    height: 80%;
   }
 }
 
@@ -1497,47 +1501,140 @@ footer .footer-main .footer-body .footer-texto p {
   width: 100%;
 }
 
-.personal-card {
-  position: relative;
+.contact-form {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: "headerCard headerCard" "sideBar1 dataSession" "dataFooter dataFooter";
+}
+
+.contact-form > .header-card {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: headerCard;
+}
+
+.contact-form > .sideBar1 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: sideBar1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
-.personal-card > h2 {
-  width: 100%;
+.contact-form > .sideBar1 > img {
+  width: 500px;
+  height: 500px;
 }
 
-.personal-card form {
+.contact-form > .data-session {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: dataSession;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
-  width: 80%;
+  padding: 0 50px;
+  width: 50%;
+  height: 100%;
 }
 
-.personal-card form > h3 {
+.contact-form > .data-session .input-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
-}
-
-.personal-card form input {
+  padding: 20px 0;
   margin: 10px 0;
+  position: relative;
+}
+
+.contact-form > .data-session .input-div .head-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 900;
+  color: #999;
+  position: relative;
+}
+
+.contact-form > .data-session .input-div .head-input > h3 {
+  position: absolute;
+  margin: 0 20px;
+  -webkit-transition: all 3s;
+  transition: all 3s;
+}
+
+.contact-form > .data-session .input-div .head-input > input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 8px 20px;
+  font-size: 20px;
+  color: #555;
+  border-bottom: 2px solid #77777752;
+}
+
+.contact-form > .data-footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: dataFooter;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .admin-privileges {
@@ -1612,6 +1709,18 @@ footer .footer-main .footer-body .footer-texto p {
 
 .admin-privileges .admin-privileges-footer p {
   font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-form {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: "headerCard" "dataSession" "dataContact" "dataPersonal" "dataFooter";
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .home-img {
@@ -1775,8 +1884,9 @@ footer .footer-main .footer-body .footer-texto p {
   border: none;
   outline: none;
   background: none;
-  padding: 8px 20px;
-  font-size: 1.25em;
+  padding: 8px 30px;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: #555;
   border-bottom: 2px solid #77777752;
 }

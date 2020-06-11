@@ -12,7 +12,6 @@
     <a href="/Miranda">
         <img src="<?php echo RUTA_URL ?>/img/home.png">
     </a>
-
 </header>
 
 <body>

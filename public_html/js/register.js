@@ -1,9 +1,9 @@
 class Register {
-    constructor(nombre, apellido, user, pass, t_user) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.pass = pass;
-        this.user = user;
+    constructor(a_name, a_lastName, an_user, a_pass) {
+        this.a_name = a_name;
+        this.a_lastName = a_lastName;
+        this.an_user = an_user;
+        this.a_pass = a_pass;
     }
 }
 
@@ -12,37 +12,38 @@ class InterfaceRegister {
 
 
 }
-const form = document.getElementById("formulario");
+const form = document.getElementById("form");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-    const user = document.getElementById("user").value;
-    const pass = document.getElementById("pass").value;
+    const a_name = document.getElementById("name").value;
+    const a_lastName = document.getElementById("lastName").value;
+    const an_user = document.getElementById("user").value;
+    const a_pass = document.getElementById("pass").value;
 
-    const dataRegister= new Register(nombre, apellido, user, pass);
+    const dataRegister = new Register(a_name, a_lastName, an_user, a_pass);
     const ui = new InterfaceRegister();
 
-    if (nombre == "" || apellido == "" ||user == "" || pass == "") {
+    if (a_name == "" || a_lastName == "" || an_user == "" || a_pass == "") {
         return alert("Debe Rellenar Los Campos Faltantes.");
         // return ui.showMessage("Debe Rellenar Los Campos Faltantes.");
-    } else if (nombre.length <= 6 || apellido.length <= 6 || user.length <= 6 || pass.length <= 6) {
+    } else if (a_name.length <= 6 || a_lastName.length <= 6 || an_user.length <= 6 || a_pass.length <= 6) {
         return alert("Datos No Válidos.");
         // return ui.showMessage("Datos No Válidos.");
     } else {
-        (async (e) => {
-            const data = new FormData(form);
+        (async () => {
             const init = {
-                method: form.method,
-                body: data
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataRegister)
             };
             try {
-                const response = await fetch(form.action, init);
-                debugger
+                const myRequest = new Request(location.origin + "/Miranda/usuarios/register");
+                const response = await fetch(myRequest, init);
                 if (response.ok) {
                     const respuesta = await response.json();
-                    alert(respuesta);
-                    form.reset();
+                    console.log(respuesta);
                 } else {
                     throw new error(response.statusText);
                 }

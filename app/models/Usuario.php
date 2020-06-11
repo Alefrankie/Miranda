@@ -23,27 +23,25 @@ class Usuario
         return $resultado;
     }
 
-    public function agregarUsuario($datos)
+    public function registerUser($datos)
     {
-        $this->db->query('INSERT INTO Usuarios (nombre, apellido, user, pass, photoPerfil) values (:nombre, :apellido, :user,:pass, :photoPerfil)');
+        $this->db->query('INSERT INTO Usuarios (nombre, apellido, user, pass) values (:a_name, :a_lastName, :an_user, :a_pass)');
 
         //Vincular valores
 
-        $this->db->bind(':nombre', $datos['nombre']);
-        $this->db->bind(':apellido', $datos['apellido']);
-        $this->db->bind(':user', $datos['user']);
-        $this->db->bind(':pass', $datos['pass']);
-        $this->db->bind(':photoPerfil', $datos['photoPerfil']);
+        $this->db->bind(':a_name', $datos['a_name']);
+        $this->db->bind(':a_lastName', $datos['a_lastName']);
+        $this->db->bind(':an_user', $datos['an_user']);
+        $this->db->bind(':a_pass', $datos['a_pass']);
 
         //Ejecutar inserción
 
         if ($this->db->execute()) {
             return true;
         } else {
-            return true;
+            return false;
         }
     }
-
 
     public function obtenerUsuarioID($id)
     {

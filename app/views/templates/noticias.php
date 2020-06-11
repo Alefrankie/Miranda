@@ -2,9 +2,11 @@
 if (empty($_SESSION['SESSION_USER'])) {
 	$dataSession = " Iniciar Sesión";
 	$destino = RUTA_URL . "/Usuarios/login/";
+	$tipoUser = "RIF G-20000169-0";
 } else {
 	$dataSession = $_SESSION['SESSION_USER'];
 	$destino = RUTA_URL . "/Usuarios/dashboard/";
+	$tipoUser = $datos["t_user"];
 }
 ?>
 
@@ -23,7 +25,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<header>
 		<nav id="nav">
 			<div class="logo">
-				<a href="#" id="Admin"><strong><?php echo ($datos["t_user"]) ?></strong></a>
+				<a href="#" id="Admin"><strong><?php echo $tipoUser ?></strong></a>
 			</div>
 
 			<div class="enlaces" id="enlaces">

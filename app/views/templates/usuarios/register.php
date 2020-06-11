@@ -27,28 +27,56 @@ if (empty($_SESSION['SESSION_USER'])) {
 
 <body>
     <!--===== SECCIÓN DE REGISTRO=====-->
-    <section class="usuarios">
-        <img src="<?php echo RUTA_URL ?>/img/usuarios/register.svg">
-        <div class="register-contenedor-formulario">
-            <div class="card">
-
-                <h1> <strong><span>Alcaldía Miranda</span></strong></h1>
-                <img src="<?php echo RUTA_URL ?>/img/usuarios/profile.png" alt="">
-                <form action="<?php echo RUTA_URL; ?>/usuarios/register" method="POST" id="formulario">
-                    <input id="nombre" type="text" name="nombre" class="form-control" placeholder="Nombre" autocomplete="off">
-
-                    <input id="apellido" type="text" name="apellido" class="form-control" placeholder="Apellido" autocomplete="off">
-
-                    <input id="user" type="text" name="user" class="form-control" placeholder="Nombre de Usuario" autocomplete="off">
-
-                    <input id="pass" type="password" name="pass" class="form-control" placeholder="Contraseña" autocomplete="off">
-
-                    <button type="submit" value="Iniciar">Registrar</button>
-                </form>
-            </div>
+    <div class="body-login">
+        <div class="wave">
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/wave.png">
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/bg.svg">
         </div>
-    </section>
-    <?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
+        <div class="usuarios">
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
+            <form id="form">
+                <p>Registro</p>
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-user"></i>
+                        <h3 id="h3-name">Nombre</h3>
+                    </div>
+                    <input type="text" name="a_name" id="name" class="input">
+                </div>
+
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-user"></i>
+                        <h3 id="h3-lastName">Apellido</h3>
+                    </div>
+                    <input type="text" name="a_lastName" id="lastName" class="input">
+                </div>
+
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-user"></i>
+                        <h3 id="h3-usuario">Usuario</h3>
+                    </div>
+                    <input type="text" name="an_user" id="user" class="input">
+                </div>
+
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-lock"></i>
+                        <h3 id="h3-contraseña">Contraseña</h3>
+                    </div>
+                    <input type="password" name="a_pass" id="pass" class="input">
+                </div>
+
+                <button type="submit">Registrar</button>
+                <div class="warnings" id="warnings">
+                    <h5>
+
+                    </h5>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!--===== Javascript ===================================== -->
     <!-- <script src="<?php echo RUTA_URL ?>/js/usuarios.js"></script> -->

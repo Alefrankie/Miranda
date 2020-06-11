@@ -24,7 +24,7 @@ class dashboard {
         this.pass = password;
     }
 }
-
+const buttons_Delete = document.getElementsByClassName("buttonDelete")
 class Interfaz {
     changePhoto(image) {
         document.getElementById("photo").setAttribute("src", `data:image/png;base64,${image}`);
@@ -33,19 +33,42 @@ class Interfaz {
 
     chargeTable(table) {
         const contenido = document.getElementById("contenido");
+
+        const myRequest = location.origin + "/Miranda/usuarios/delete/";
         for (let valor of table) {
             contenido.innerHTML += `
-            <th>
+            <tr>
                 <th >${valor.id}</th>
                 <td >${valor.nombre}</td>
                 <td >${valor.apellido}</td>
                 <td >${valor.user}</td>
                 <td >${valor.t_user}</td>
                 <th ${valor.status_user == "Online" ? "class='btn btn-success btn-xs'" : "class='btn btn-danger btn-xs'"}>${valor.status_user}</th>
-                <td><a href="Miranda/usuarios/editar/${valor.id}"><i class="fas fa-user-edit"></i></a></td>
-                <td><a href="Miranda/usuarios/delete/${valor.id}"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a class="buttonEdit" href="Miranda/usuarios/editar/${valor.id}"><i class="fas fa-user-edit"></i></a></td>
+                <td><a class="buttonDelete" href="${myRequest + valor.id}"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
-            `;
+                `;
+
+        }
+        for (const i of buttons_Delete) {
+            i.onclick = function (e) {
+                (async () => {
+                    try {
+                        const response = await fetch(i.href);
+                        if (!response.ok) {
+                            throw new error(response.statusText);
+                        }
+                        const a_register = await response.json();
+                        alert(a_register)
+                    } catch (error) {
+                        alert("Error al enviar el formulario: " + error.message);
+                    }
+                    // permitimos volver a enviar el formulario de nuevo
+                    // enviarFormulario.enviando = false;
+                })();
+                e.preventDefault()
+
+            }
         }
     }
 }
@@ -131,8 +154,98 @@ window.addEventListener("load", (e) => {
             alert("Error al enviar el formulario: " + error.message);
         }
     })();
-
 })
 
+//SCRIPT TO DELETE USER
 
 
+//ANIMATIONS INPUTS UPDATE DATA
+
+/*===== ANIMACIONES DE LOS INPUTS */
+const inputNombre = document.getElementById("nombre");
+const inputApellido = document.getElementById("apellido");
+const inputUser = document.getElementById("user");
+const inputPass = document.getElementById("password");
+const h3nombre = document.getElementById("h3-nombre");
+const h3apellido = document.getElementById("h3-apellido");
+const h3usuario = document.getElementById("h3-usuario");
+const h3contraseña = document.getElementById("h3-contraseña");
+
+const inputs = [inputNombre, inputApellido, inputUser, inputPass]
+const inputs2 = ["0", "1", "2", "3"]
+const labels = [h3nombre, h3apellido, h3usuario, h3contraseña]
+
+
+// Click a un solo elemento
+// for (var i = 0; i < inputs.length; i++) {
+//     inputs[i].onclick = function () {
+//         this.style.width = "200px";
+//     }
+// }
+
+// for (const i of inputs) {
+//     i.addEventListener("click", (e) => {
+//         for (const i2 of labels) {
+//             i2.onclick = function () {
+//                 this.style.width = "200px";
+//             }
+//         }
+//     })
+// }
+
+
+
+// Array.from(inputs).forEach(function (elementInputs) {
+//     elementInputs.addEventListener("focus", (e) => {
+//             Array.from(labels).forEach(function (element2Label) {
+//                 if(elementInputs = ){
+
+//                 }
+//                 element2Label.style.top = "-35px";
+//             })
+//     });
+
+//     elementInputs.addEventListener("blur", (e) => {
+//         Array.from(labels).forEach(function (element2Label) {
+//             element2Label.style.top = "";
+//             if (elementInputs.value.length > 0) {
+//                 element2Label.style.display = "none"
+//             } else {
+//                 element2Label.style.display = "flex"
+//             }
+//         })
+
+//     });
+// });
+// Array.from(inputs).forEach(function (elementInputs) {
+//     elementInputs.addEventListener("focus", (e) => {
+//             Array.from(labels).forEach(function (element2Label) {
+//                 return element2Label.style.top = "-35px";
+//             })
+//     });
+
+//     elementInputs.addEventListener("blur", (e) => {
+//         Array.from(labels).forEach(function (element2Label) {
+//             element2Label.style.top = "";
+//             if (elementInputs.value.length > 0) {
+//                 element2Label.style.display = "none"
+//             } else {
+//                 element2Label.style.display = "flex"
+//             }
+//         })
+
+//     });
+// });
+
+
+//PASO DE OBJETOS POR REFERENCIA
+
+// let player1 = {name: "María"}
+
+// function shoot() {
+//     console.log(this.name + " Ban bang")
+// }
+
+// player1.f = shoot
+
+// player1.f()

@@ -12,18 +12,22 @@ class Noticias extends AppController
 
 	public function index()
 	{
-		$currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-		$datos = [
-			"t_user" => $currentUser->t_user 
-		];
-		$this->view('templates/noticias', $datos);
+		if (empty($_SESSION['SESSION_USER'])) {
+			$this->view('templates/noticias');
+		} else {
+			$currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
+			$datos = [
+				"t_user" => $currentUser->t_user
+			];
+			$this->view('templates/noticias', $datos);
+		}
 	}
 
 	public function updateNews()
 	{
 		$news = $this->noticiaModelo->getNewsImages();
 		$file = RUTA_ORIGIN . '/public_html/json/imagesNews.json';
-		
+
 		foreach ($news as $key => $value) {
 			$photo = $this->noticiaModelo->getNewsImagesPerfil($value->nameUser);
 			$news[$key] = [
@@ -61,7 +65,8 @@ class Noticias extends AppController
 		echo json_encode($photoDecode);
 	}
 
-	public function deleteNews(){
+	public function deleteNews()
+	{
 		$id_noticia = $_POST["IDNoticia"];
 		$this->noticiaModelo->deleteNews($id_noticia);
 		echo ("Noticia Eliminada");
@@ -70,6 +75,6 @@ class Noticias extends AppController
 	public function test()
 	{
 		$photo = $this->noticiaModelo->getNewsImagesPerfil("Alefrank");
-		print_r ($photo->photoPerfil);
+		print_r($photo->photoPerfil);
 	}
 }

@@ -15,64 +15,85 @@ class Usuarios extends AppController
     }
     public function login()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $dataPOST = json_decode(file_get_contents('php://input'));
-            if (empty($dataPOST)) {
-                echo json_encode("No hay Datos");
-            } else {
-                $dataDB = $this->usuarioModelo->GetUser($dataPOST->user);
-                if (empty($dataDB)) {
-                    echo json_encode("Usuario no encontrado.");
-                } else {
-                    if (password_verify($dataPOST->pass, $dataDB->pass)) {
-                        $_SESSION['SESSION_USER'] = $dataDB->user;
-                        $data = [
-                            'mensaje' => "<br>Inicio de Sesión Exitoso.<br>",
-                            'imagen' =>  base64_encode(stripslashes($dataDB->photoPerfil))
-                        ];
-                        echo json_encode($data);
-                    } else {
-                        $data = [
-                            'mensaje' => "<br>Usuario/Contraseña incorrectos.<br>",
-                        ];
-                        echo json_encode($data);
-                    }
-                }
-            }
-        } else {
-            $this->view('templates/usuarios/login');
+        if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+            return $this->view('templates/usuarios/login');
         }
+
+        $dataPOST = json_decode(file_get_contents('php://input'));
+        if (empty($dataPOST)) {
+            echo json_encode("No hay Datos");
+        }
+
+        $dataDB = $this->usuarioModelo->GetUser($dataPOST->user);
+        if (empty($dataDB)) {
+            echo json_encode("Usuario no encontrado.");
+        }
+
+        if (!(password_verify($dataPOST->pass, $dataDB->pass))) {
+            $data = [
+                'mensaje' => "<br>Contraseña incorrecta.<br>",
+            ];
+            echo json_encode($data);
+        }
+
+        $_SESSION['SESSION_USER'] = $dataDB->user;
+        $data = [
+            'mensaje' => "<br>Inicio de Sesión Exitoso.<br>",
+            'imagen' =>  base64_encode(stripslashes($dataDB->photoPerfil))
+        ];
+        echo json_encode($data);
     }
 
     public function register()
     {
-        $photoDefault1 = RUTA_URL . "/public_html/img/usuarios/profile.png";
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT, ['cost' => 10]);
-            $datos = [
-                'nombre' => trim($_POST['nombre']),
-                'apellido' => trim($_POST['apellido']),
-                'user' => trim($_POST['user']),
-                'pass' => $hash,
-                'photoPerfil' => $photoDefault
-            ];
-
-            if ($this->usuarioModelo->agregarUsuario($datos)) {
-                echo json_encode("Registro Exitoso.");
-            } else {
-                echo json_encode("Registro Fallido");
-            }
-        } else {
-            $datos = [
-                "photo" => $photoDefault1
-            ];
-            $this->view('templates/usuarios/register', $datos);
+        if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+            return $this->view('templates/usuarios/register');
         }
+        $dataPOST = json_decode(file_get_contents('php://input'));
+        $hashPass = password_hash($dataPOST->a_pass, PASSWORD_DEFAULT, ['cost' => 10]);
+        $datos = [
+            'a_name' => $dataPOST->a_name,
+            'a_lastName' => $dataPOST->a_lastName,
+            'an_user' => $dataPOST->an_user,
+            'a_pass' => $hashPass,
+        ];
+
+        if (!($this->usuarioModelo->registerUser($datos))) {
+            echo json_encode("Registro Fallido");
+        }
+        echo json_encode("Registro Exitoso");
     }
 
     public function editar()
     {
         $this->view('templates/usuarios/editar');
+    }
+
+    public function delete($id)
+    {
+        $dataPOST = json_decode(file_get_contents('php://input'));
+        //Obtener informacion de usuario desde el modelo
+        $usuario = $this->usuarioModelo->obtenerUsuarioID($id);
+
+        $datos = [
+            'id' => $usuario->id,
+            'nombre' => $usuario->nombre,
+            'apellido' => $usuario->apellido
+        ];
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $datos = [
+                'id' => $id
+            ];
+
+            if ($this->usuarioModelo->borrarUsuario($datos)) {
+                $this->view('templates/usuarios/borrar');
+            } else {
+                die('Algo salió mal');
+            }
+        }
+        echo json_encode($id);
     }
 
     public function dashboard()
@@ -132,32 +153,6 @@ class Usuarios extends AppController
     {
         $usuarios = $this->usuarioModelo->obtenerUsuarios();
         echo json_encode($usuarios);
-    }
-
-    public function delete($id)
-    {
-        //Obtener informacion de usuario desde el modelo
-        $usuario = $this->usuarioModelo->obtenerUsuarioID($id);
-
-        $datos = [
-            'id' => $usuario->id,
-            'nombre' => $usuario->nombre,
-            'apellido' => $usuario->apellido
-        ];
-
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $datos = [
-                'id' => $id
-            ];
-
-            if ($this->usuarioModelo->borrarUsuario($datos)) {
-                $this->view('templates/usuarios/borrar');
-            } else {
-                die('Algo salió mal');
-            }
-        }
-        $this->view('templates/borrar', $datos);
     }
 
     // public function importJson()
