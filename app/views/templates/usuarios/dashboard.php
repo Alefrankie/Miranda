@@ -68,17 +68,16 @@ if (empty($_SESSION['SESSION_USER'])) {
             </svg></div>
     </div>
 
-    <!-- BASE DE DATOS SOLO ES VISIBLE SI ERES ADMINISTRADOR -->
     <div class="data-base-users" id="data-base">
         <div class="svg-top" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
             </svg></div>
         <h2>BUSCAR EMPLEADO</h2>
         <form action="../admin/buscar/p_buscar.php" method="post" target="_blank">
-            <label for="cedula">Cédula:</label>
-            <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula" />
+            <!-- <label for="cedula">Cédula:</label> -->
+            <!-- <input type="text" REQUIRED placeholder="Cedula" name="cedula" id="cedula" />
             <input class="form-button" type="submit" class="button" value="BUSCAR" />
-            <input class="form-button" type="submit" class="button" value="TODOS" />
+            <input class="form-button" type="submit" class="button" value="TODOS" /> -->
             <a class="form-button" href="<?php echo RUTA_URL; ?>/usuarios/register">Registrar Usuario</a>
         </form>
         <br>
@@ -123,31 +122,31 @@ if (empty($_SESSION['SESSION_USER'])) {
                     <div class="input-div">
                         <div class="head-input">
                             <i class="fas fa-user"></i>
-                            <h3 id="h3-nombre">Nombre</h3>
+                            <!-- <h3 id="h3-nombre">Nombre</h3> -->
                         </div>
-                        <input type="text" name="nombre" id="nombre" class="input" value="<?php echo $datos['nombre']; ?>" autocomplete="off">
+                        <input type="text" name="nombre" id="nombre" class="input" placeholder="Nombre" value="<?php echo $datos['nombre']; ?>" autocomplete="off">
                     </div>
                     <div class="input-div">
                         <div class="head-input">
                             <i class="fas fa-user"></i>
-                            <h3 id="h3-apellido">Apellido</h3>
+                            <!-- <h3 id="h3-apellido">Apellido</h3> -->
                         </div>
-                        <input type="text" name="apellido" id="apellido" class="input" value="<?php echo $datos['apellido']; ?>" autocomplete="off">
+                        <input type="text" name="apellido" id="apellido" class="input" placeholder="Apellido" value="<?php echo $datos['apellido']; ?>" autocomplete="off">
                     </div>
                     <div class="input-div">
                         <div class="head-input">
                             <i class="fas fa-user"></i>
-                            <h3 id="h3-usuario">Usuario</h3>
+                            <!-- <h3 id="h3-usuario">Usuario</h3> -->
                         </div>
-                        <input type="text" name="user" id="user" class="input" autocomplete="off">
+                        <input type="text" name="user" id="user" class="input"  placeholder="Usuario" autocomplete="off">
                     </div>
 
                     <div class="input-div">
                         <div class="head-input">
                             <i class="fas fa-lock"></i>
-                            <h3 id="h3-contraseña">Contraseña</h3>
+                            <!-- <h3 id="h3-contraseña">Contraseña</h3> -->
                         </div>
-                        <input type="password" name="pass" id="password" class="input" autocomplete="off">
+                        <input type="password" name="pass" id="password" class="input" placeholder="Contraseña" autocomplete="off">
                     </div>
 
                     <div class="forgot-password">

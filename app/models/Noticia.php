@@ -49,7 +49,7 @@ class Noticia
 
         //Vincular valores
         $this->db->bind(':id_noticia', $id_noticia);
-       
+
         //Ejecutar inserción
         if ($this->db->execute()) {
             return true;

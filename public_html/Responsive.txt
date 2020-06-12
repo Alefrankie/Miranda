@@ -1,9 +1,0 @@
-Dispositivos grandes
-1200
-992
-
-Tablets 
-768
-
-Phones
-576

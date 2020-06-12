@@ -5,7 +5,7 @@ class Paginas extends AppController
 	public function __construct()
 	{
 		session_start();
-		$this->usuarioModelo = $this->model('Usuario');
+		$this->usuarioModelo = $this->model('UsuarioModel');
 		//echo "Controlador pagina cargada";
 	}
 

@@ -1,41 +1,73 @@
+<?php
+if (empty($_SESSION['SESSION_USER'])) {
+    redireccionar("/usuarios/login");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <title>Editar Usuario</title>
+    <title>Modificar Usuario</title>
     <meta charset="UTF-8">
+	<link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
 </head>
 
 <body>
-    <a href="<?php echo RUTA_URL; ?>/usuarios/dashboard" class="btn btn-light">Volver</a>
+    <div class="body-login">
+        <div class="wave">
+            <!-- <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user"> -->
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/flora.svg">
+        </div>
+        <div class="usuarios">
+            <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
+            <form id="form">
+                <p>Modificar</p>
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-user"></i>
+                        <!-- <h3 id="h3-nombre">Nombre</h3> -->
+                    </div>
+                    <input type="text" name="a_name" id="name" class="input" placeholder="Nombre" value="<?php echo $datos['a_name']?>" autocomplete="off">
+                </div>
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-user"></i>
+                        <!-- <h3 id="h3-apellido">Apellido</h3> -->
+                    </div>
+                    <input type="text" name="a_lastName" id="lastName" class="input" placeholder="Apellido" value="<?php echo $datos['a_lastName']?>" autocomplete="off">
+                </div>
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-user"></i>
+                        <!-- <h3 id="h3-usuario">Usuario</h3> -->
+                    </div>
+                    <input type="text" name="an_user" id="user" class="input" value="<?php echo $datos['an_user']?>" placeholder="Usuario" autocomplete="off">
+                </div>
 
-    <div class="card card-body bg-light mt-5">
-        <h2>Editar usuario</h2>
+                <div class="input-div">
+                    <div class="head-input">
+                        <i class="fas fa-lock"></i>
+                        <!-- <h3 id="h3-contraseña">Contraseña</h3> -->
+                    </div>
+                    <input type="password" name="a_pass" id="pass" class="input" placeholder="Contraseña" value="<?php echo $datos['a_pass']?>" autocomplete="off">
+                </div>
 
-        <form action="<?php echo RUTA_URL ?>/paginas/editar/<?php echo $datos['id']?>" method="POST">
-            <div class="form-group">
-                <label for="Id">ID: <sup>*</sup></label>
-                <input type="text" class="form-control form-control-lg" name="nombre" id="" value="<?php echo $datos['id']?>">
-            </div>
-            <div class="form-group">
-                <label for="nombre">Nombre: <sup>*</sup></label>
-                <input type="text" class="form-control form-control-lg" name="nombre" id="" value="<?php echo $datos['nombre']?>">
-            </div>
-            <div class="form-group">
-                <label for="apellido">Apellido: <sup>*</sup></label>
-                <input type="text" class="form-control form-control-lg" name="apellido" id="" value="<?php echo $datos['apellido']?>">
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña: <sup>*</sup></label>
-                <input type="password" class="form-control form-control-lg" name="password" id="" value="<?php echo $datos['pass']?>"">
-            </div>
-            <input type="submit" value="Actualizar Datos" class="btn btn-success">
-        </form>
-    </div>
-    <?php require RUTA_APP . '/views/inc/footer.php'; ?>
+                <div class="forgot-password">
+                </div>
+                <button type="submit" value="Iniciar">Modificar Datos</button>
+                <div class="warnings" id="warnings">
+                    <h5>
 
+                    </h5>
+                </div>
+            </form>
+        </div>
+
+        <!--===== Javascript ===================================== -->
+        <script src="<?php echo RUTA_URL ?>/js/modify.js"></script>
+        <script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@ class Noticias extends AppController
 	{
 		session_start();
 		$this->noticiaModelo = $this->model('Noticia');
-		$this->usuarioModelo = $this->model('Usuario');
+		$this->usuarioModelo = $this->model('UsuarioModel');
 	}
 
 	public function index()

@@ -24,17 +24,17 @@ class dashboard {
         this.pass = password;
     }
 }
-const buttons_Delete = document.getElementsByClassName("buttonDelete")
 class Interfaz {
     changePhoto(image) {
         document.getElementById("photo").setAttribute("src", `data:image/png;base64,${image}`);
         form.reset();
     }
-
+    
     chargeTable(table) {
+        const buttons_Delete = document.getElementsByClassName("buttonDelete")
         const contenido = document.getElementById("contenido");
 
-        const myRequest = location.origin + "/Miranda/usuarios/delete/";
+        const myRequest = location.origin + "/Miranda/usuarios/";
         for (let valor of table) {
             contenido.innerHTML += `
             <tr>
@@ -44,8 +44,8 @@ class Interfaz {
                 <td >${valor.user}</td>
                 <td >${valor.t_user}</td>
                 <th ${valor.status_user == "Online" ? "class='btn btn-success btn-xs'" : "class='btn btn-danger btn-xs'"}>${valor.status_user}</th>
-                <td><a class="buttonEdit" href="Miranda/usuarios/editar/${valor.id}"><i class="fas fa-user-edit"></i></a></td>
-                <td><a class="buttonDelete" href="${myRequest + valor.id}"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a class="buttonEdit" href="${myRequest + "editar/" + valor.id}"><i class="fas fa-user-edit"></i></a></td>
+                <td><a class="buttonDelete" href="${myRequest + "delete/" + valor.id}"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
                 `;
 

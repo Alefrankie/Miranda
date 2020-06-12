@@ -1,10 +1,10 @@
 <?php
 
-class Paginas extends AppController
+class BaseDeDatosController extends AppController
 {
 	public function __construct()
 	{
-		$this->usuarioModelo = $this->model('Usuario');
+		$this->usuarioModelo = $this->model('UsuarioModel');
 		//echo "Controlador pagina cargada";
 	}
 
@@ -63,7 +63,7 @@ class Paginas extends AppController
 			];
 
 			if ($this->usuarioModelo->actualizarUsuario($datos)) {
-				//redireccionar('templates/paginas');
+				//redireccionar('templates/PaginasController');
 				$this->view('templates/editar');
 			} else {
 				die('Algo salió mal');
@@ -103,7 +103,7 @@ class Paginas extends AppController
 			];
 
 			if ($this->usuarioModelo->borrarUsuario($datos)) {
-				//redireccionar('templates/paginas');
+				//redireccionar('templates/PaginasController');
 				$this->view('templates/editar');
 			} else {
 				die('Algo salió mal');

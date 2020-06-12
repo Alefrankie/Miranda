@@ -5,7 +5,7 @@ class Usuarios extends AppController
     public function __construct()
     {
         session_start();
-        $this->usuarioModelo = $this->model('Usuario');
+        $this->usuarioModelo = $this->model('UsuarioModel');
         $this->loginModelo = $this->model('Login');
     }
 
@@ -64,9 +64,32 @@ class Usuarios extends AppController
         echo json_encode("Registro Exitoso");
     }
 
-    public function editar()
+    public function editar($id)
     {
-        $this->view('templates/usuarios/editar');
+        $userDB = $this->usuarioModelo->obtenerUsuarioID($id);
+
+        if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+            $data = [
+                'an_id' => $userDB->id,
+                'a_name' => $userDB->nombre,
+                'a_lastName' => $userDB->apellido,
+                'an_user' => $userDB->user,
+                'a_pass' => $userDB->pass,
+            ];
+
+            return $this->view('templates/usuarios/editar', $data);
+        }
+        $dataPOST = json_decode(file_get_contents('php://input'));
+        $data2 = [
+            'an_id' => $userDB->id,
+            'a_name' => $dataPOST->a_name,
+            'a_lastName' => $dataPOST->a_lastName,
+            'an_user' => $dataPOST->an_user,
+            'a_pass' => $dataPOST->a_pass,
+        ];
+        echo json_encode("Registro Exitoso");
+        $this->usuarioModelo->updateUser($data2);
+        return $this->view('templates/usuarios/register');
     }
 
     public function delete($id)

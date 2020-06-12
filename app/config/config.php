@@ -2,8 +2,8 @@
 		//CONFIGURACIÓN DE ACCESO A LA BASE DE DATOS
 		define ('DB_HOST', 'localhost');
 		define ('DB_USUARIO', 'root');
-		define ('DB_PASSWORD', '');
-		define ('DB_NOMBRE', 'Miranda');
+		define ('DB_PASSWORD', '30089812');
+		define ('DB_NOMBRE', 'miranda');
 		//Ruta de la aplicación
 
 		//echo dirname(dirname(__FILE__));

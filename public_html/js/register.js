@@ -25,31 +25,30 @@ form.addEventListener("submit", (e) => {
 
     if (a_name == "" || a_lastName == "" || an_user == "" || a_pass == "") {
         return alert("Debe Rellenar Los Campos Faltantes.");
-        // return ui.showMessage("Debe Rellenar Los Campos Faltantes.");
-    } else if (a_name.length <= 6 || a_lastName.length <= 6 || an_user.length <= 6 || a_pass.length <= 6) {
-        return alert("Datos No Válidos.");
-        // return ui.showMessage("Datos No Válidos.");
-    } else {
-        (async () => {
-            const init = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dataRegister)
-            };
-            try {
-                const myRequest = new Request(location.origin + "/Miranda/usuarios/register");
-                const response = await fetch(myRequest, init);
-                if (response.ok) {
-                    const respuesta = await response.json();
-                    console.log(respuesta);
-                } else {
-                    throw new error(response.statusText);
-                }
-            } catch (error) {
-                alert("Error al enviar el formulario: " + error.message);
-            }
-        })();
     }
+    if (a_name.length <= 6 || a_lastName.length <= 6 || an_user.length <= 6 || a_pass.length <= 6) {
+        return alert("Datos No Válidos.");
+    }
+    
+    (async () => {
+        const init = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataRegister)
+        };
+        try {
+            const myRequest = new Request(location.origin + "/Miranda/usuarios/register");
+            const response = await fetch(myRequest, init);
+            if (!response.ok) {
+                throw new error(response.statusText);
+            }
+            const respuesta = await response.json();
+            alert(respuesta);
+        } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+        }
+    })();
+
 });

@@ -8,6 +8,4 @@ class Login
     {
         $this->db = new Db;
     }
-
-    
 }
