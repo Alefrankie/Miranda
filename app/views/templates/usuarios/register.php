@@ -37,33 +37,33 @@ if (empty($_SESSION['SESSION_USER'])) {
                 <div class="input-div">
                     <div class="head-input">
                         <i class="fas fa-user"></i>
-                        <h3 id="h3-name">Nombre</h3>
+                        <!-- <h3 id="h3-name">Nombre</h3> -->
                     </div>
-                    <input type="text" name="a_name" id="name" class="input">
+                    <input type="text" name="a_name" id="name" class="input" placeholder="Nombres">
                 </div>
 
                 <div class="input-div">
                     <div class="head-input">
                         <i class="fas fa-user"></i>
-                        <h3 id="h3-lastName">Apellido</h3>
+                        <!-- <h3 id="h3-lastName">Apellido</h3> -->
                     </div>
-                    <input type="text" name="a_lastName" id="lastName" class="input">
+                    <input type="text" name="a_lastName" id="lastName" class="input" placeholder="Apellidos">
                 </div>
 
                 <div class="input-div">
                     <div class="head-input">
                         <i class="fas fa-user"></i>
-                        <h3 id="h3-usuario">Usuario</h3>
+                        <!-- <h3 id="h3-usuario">Usuario</h3> -->
                     </div>
-                    <input type="text" name="an_user" id="user" class="input">
+                    <input type="text" name="an_user" id="user" class="input" placeholder="Usuario">
                 </div>
 
                 <div class="input-div">
                     <div class="head-input">
                         <i class="fas fa-lock"></i>
-                        <h3 id="h3-contraseña">Contraseña</h3>
+                        <!-- <h3 id="h3-contraseña">Contraseña</h3> -->
                     </div>
-                    <input type="password" name="a_pass" id="pass" class="input">
+                    <input type="password" name="a_pass" id="pass" class="input" placeholder="Contraseña">
                 </div>
 
                 <button type="submit">Registrar</button>

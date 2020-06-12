@@ -144,15 +144,25 @@ class Usuarios extends AppController
 
     public function showAnnouncementNews1News2()
     {
-        $announcement = file_get_contents(RUTA_APP . '/announcement.json');
-        $news1 = file_get_contents(RUTA_APP . '/news1.json');
-        $news2 = file_get_contents(RUTA_APP . '/news2.json');
-        
-        $data =  json_decode($json, true);
+        $announcement = file_get_contents(RUTA_ORIGIN . '/public_html/json/announcement.json');
+        $news1 = file_get_contents(RUTA_ORIGIN . '/public_html/json/news1.json');
+        $news2 = file_get_contents(RUTA_ORIGIN . '/public_html/json/news2.json');
 
-        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-        $photo = base64_encode(stripslashes($currentUser->photoPerfil));
-        echo json_encode($photo);
+        $data1 =  json_decode($announcement, true);
+        $data2 =  json_decode($news1, true);
+        $data3 =  json_decode($news2, true);
+
+        $data4 = [
+            "announcement" => $data1['announcement'],
+            "news1" =>  $data2['news1'],
+            "news2" => $data3['news2']
+        ];
+
+        // $file = RUTA_ORIGIN . '/public_html/json/TEST.json';
+        // $json_string = json_encode($data4);
+        // file_put_contents($file, $json_string);
+
+        echo json_encode($data4);
     }
 
     public function chargeTableUsers()

@@ -27,7 +27,7 @@ form.addEventListener("submit", (e) => {
         return alert("Debe Rellenar Los Campos Faltantes.");
     }
     if (a_name.length <= 6 || a_lastName.length <= 6 || an_user.length <= 6 || a_pass.length <= 6) {
-        return alert("Datos No Válidos.");
+        return alert("Datos No Válidos (Debe contener más de 6 caracteres).");
     }
     
     (async () => {

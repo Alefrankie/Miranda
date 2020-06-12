@@ -3,16 +3,11 @@ const t_User = document.getElementById("t_user").innerHTML;
 const data_base = document.getElementById("data-base");
 const admin = document.getElementsByClassName("Admin");
 const enlace_BuscarUsuario = document.getElementById("enlace_BuscarUsuario");
+const managementHomePage = document.getElementById("managementHomePage");
 if (t_User == "Usuario") {
     data_base.style.display = 'none';
     enlace_BuscarUsuario.style.display = 'none';
-    // Array.from(admin).forEach(function (element) { 
-    //     element.style.display = 'none'
-    //   }); 
-
-    // for (const i of admin) {
-    //     i.style.display = 'none'
-    //   }
+    managementHomePage.style.display = 'none';
 };
 
 
@@ -269,16 +264,18 @@ window.addEventListener("load", (e) => {
         }
     })();
 
-    (showPhotoPerfil = async (e) => {
+    (showAnnouncementNews1News2 = async (e) => {
         const myRequest = new Request(location.origin + "/Miranda/usuarios/showAnnouncementNews1News2");
         try {
             const response = await fetch(myRequest);
-            if (response.ok) {
-                const photoPerfil = await response.json();
-                ui.changePhoto(photoPerfil);
-            } else {
+            if (!response.ok) {
                 throw new error(response.statusText);
             }
+            const images = await response.json();
+            ui.changeAnnouncement(images.announcement)
+            ui.changeNews1(images.news1)
+            ui.changeNews2(images.news2)
+
         } catch (error) {
             alert("Error al enviar el formulario: " + error.message);
         }

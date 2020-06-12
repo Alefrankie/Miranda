@@ -31,7 +31,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
     if (description === "") {
         return ui.showMessage("Debe indicar una Descripción.");
     } else if (description.length <= 6) {
-        return ui.showMessage("Descripción No Válida.");
+        return ui.showMessage("Descripción No Válida (Debe contener más de 6 caracteres).");
     } else {
         (async (e) => {
             const data = new FormData(form);

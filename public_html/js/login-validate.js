@@ -52,7 +52,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
     if (user == "" || password == "") {
         return ui.showMessage("Debe rellenar los campos faltantes.");
     } else if (user.length <= 6 || password.length <= 6) {
-        return ui.showMessage("Usuario/Contraseña No válido.");
+        return ui.showMessage("Usuario/Contraseña No válido (Debe contener más de 6 caracteres).");
     } else {
         (async () => {
             try {
