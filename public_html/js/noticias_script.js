@@ -1,14 +1,13 @@
 // FUNCIÓN OCULTACIÓN DE OPCIONES
 
 
-
-
 ///////////////////////////////
 class NewsInterface {
 
   showImagesNews(table) {
     const seccionPrincipal = document.getElementById("sección-principal");
-    const deleteNewsRuta = location.origin + "/Miranda/noticias/deleteNews";
+    const buttons_Delete = document.getElementsByClassName("buttonDelete")
+    const myRequest = location.origin + "/Miranda/noticias/deleteNews/";
     for (let valor of table) {
       seccionPrincipal.innerHTML += `
       <article class="articulo">
@@ -17,11 +16,7 @@ class NewsInterface {
 			              <img loading="lazy" src="data:image/png;base64,${valor.photoPerfil}" alt="X">
 			          </div>
                   <a href="">${valor.user}</a>
-                  
-                  <form action="${deleteNewsRuta}" method="POST">
-					            <input type="text" name="IDNoticia" value="${valor.id_noticia}" readonly>
-					            <button type="submit">Eliminar Noticia</button>
-				          </form>
+			            <a class="buttonDelete" href="${myRequest + valor.id_noticia}" type="submit">Eliminar Noticia</a>
           </div>
           
 			    <div class="gallery">
@@ -29,20 +24,41 @@ class NewsInterface {
 			    </div>
           
           <div class="footer-article">
-			          <p>"${valor.description_image}".</p>
+			          <p>"${valor.description_image}"</p>
           </div>
           
 		  </article>
         `;
+    }
+    for (const i of buttons_Delete) {
+      i.onclick = function (e) {
+        (async () => {
+          try {
+            const response = await fetch(i.href);
+            if (!response.ok) {
+              throw new error(response.statusText);
+            }
+            const a_news = await response.json();
+            alert(a_news)
+            window.location.reload(true)
+          } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+          }
+          // permitimos volver a enviar el formulario de nuevo
+          // enviarFormulario.enviando = false;
+        })();
+        e.preventDefault()
+
+      }
     }
   }
 }
 
 //DOM EVENTS
 //------------ CHARGE NEWS
-(() => {
-  const formDeleteNews = document.getElementsByTagName("form");
+(function chargeNews() {
   const Admin = document.getElementById("Admin").innerText;
+  const buttons_Delete = document.getElementsByClassName("buttonDelete")
   const myRequest = new Request(location.origin + "/Miranda/noticias/updateNews");
   (async (e) => {
     const ui = new NewsInterface();
@@ -53,7 +69,7 @@ class NewsInterface {
         ui.showImagesNews(news);
 
         if (Admin == "Usuario" || Admin == "RIF G-20000169-0") {
-          Array.from(formDeleteNews).forEach(function (element) {
+          Array.from(buttons_Delete).forEach(function (element) {
             element.style.display = 'none'
           });
         }
@@ -112,5 +128,4 @@ openMenu.addEventListener("click", () => {
     menu.style.overflow = "hidden";
     close = true;
   }
-
 });

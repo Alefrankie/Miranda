@@ -173,3 +173,5 @@ window.addEventListener("scroll", () => {
     animación.style.transform = "translateX(0%)";
   }
 });
+
+/*===== SCRIPT, CHANGE OF ANNOUNCEMENT AND IMAGES OF NEWS SECTION*/

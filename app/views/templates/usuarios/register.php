@@ -10,21 +10,19 @@ if (empty($_SESSION['SESSION_USER'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-
+    <link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
 </head>
 <header class="fondo-gradiente">
     <nav id="nav">
         <div class="logo ">
-            <a href="#""><strong>RIF G-20000169-0</strong></a>
+            <a href="#""><strong><?php echo ($_SESSION['SESSION_USER'])?></strong></a>
 			</div>
 			<div class=" enlaces">
-                <a href="/Miranda/usuarios/dashboard/" class="page-scroll">Inicio</a>
-                <a href="#footer" class="page-scroll">Contact us</a>
+                <a href="/Miranda/usuarios/dashboard/" class="page-scroll">Regresar</a>
         </div>
     </nav>
 </header>
-
 <body>
     <!--===== SECCIÓN DE REGISTRO=====-->
     <div class="body-login">

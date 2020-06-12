@@ -20,28 +20,17 @@ class Usuarios extends AppController
         }
 
         $dataPOST = json_decode(file_get_contents('php://input'));
-        if (empty($dataPOST)) {
-            echo json_encode("No hay Datos");
-        }
-
         $dataDB = $this->usuarioModelo->GetUser($dataPOST->user);
-        if (empty($dataDB)) {
-            echo json_encode("Usuario no encontrado.");
+        if (empty($dataPOST) || empty($dataDB)) {
+            return printf(json_encode("Usuario no encontrado."));
         }
 
         if (!(password_verify($dataPOST->pass, $dataDB->pass))) {
-            $data = [
-                'mensaje' => "<br>Contraseña incorrecta.<br>",
-            ];
-            echo json_encode($data);
+            return printf(json_encode("Contraseña incorrecta."));
         }
 
         $_SESSION['SESSION_USER'] = $dataDB->user;
-        $data = [
-            'mensaje' => "<br>Inicio de Sesión Exitoso.<br>",
-            'imagen' =>  base64_encode(stripslashes($dataDB->photoPerfil))
-        ];
-        echo json_encode($data);
+        echo json_encode("<br>Inicio de Sesión Exitoso.<br>");
     }
 
     public function register()
@@ -80,43 +69,24 @@ class Usuarios extends AppController
             return $this->view('templates/usuarios/editar', $data);
         }
         $dataPOST = json_decode(file_get_contents('php://input'));
+        $hashPass = password_hash($dataPOST->a_pass, PASSWORD_DEFAULT, ['cost' => 10]);
         $data2 = [
-            'an_id' => $userDB->id,
+            'an_id' => $dataPOST->an_id,
             'a_name' => $dataPOST->a_name,
             'a_lastName' => $dataPOST->a_lastName,
             'an_user' => $dataPOST->an_user,
-            'a_pass' => $dataPOST->a_pass,
+            'a_pass' => $hashPass,
         ];
-        echo json_encode("Registro Exitoso");
         $this->usuarioModelo->updateUser($data2);
-        return $this->view('templates/usuarios/register');
+        echo json_encode("Registro Modificado Exitosamente");
     }
 
     public function delete($id)
     {
-        $dataPOST = json_decode(file_get_contents('php://input'));
-        //Obtener informacion de usuario desde el modelo
-        $usuario = $this->usuarioModelo->obtenerUsuarioID($id);
-
-        $datos = [
-            'id' => $usuario->id,
-            'nombre' => $usuario->nombre,
-            'apellido' => $usuario->apellido
-        ];
-
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $datos = [
-                'id' => $id
-            ];
-
-            if ($this->usuarioModelo->borrarUsuario($datos)) {
-                $this->view('templates/usuarios/borrar');
-            } else {
-                die('Algo salió mal');
-            }
+        if (!($this->usuarioModelo->deleteUser($id))) {
+            echo json_encode("No se ha Eliminado el Usuario");
         }
-        echo json_encode($id);
+        echo json_encode("Usuario Eliminado con Éxito");
     }
 
     public function dashboard()
@@ -172,10 +142,63 @@ class Usuarios extends AppController
         echo json_encode($photo);
     }
 
+    public function showAnnouncementNews1News2()
+    {
+        $announcement = file_get_contents(RUTA_APP . '/announcement.json');
+        $news1 = file_get_contents(RUTA_APP . '/news1.json');
+        $news2 = file_get_contents(RUTA_APP . '/news2.json');
+        
+        $data =  json_decode($json, true);
+
+        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
+        $photo = base64_encode(stripslashes($currentUser->photoPerfil));
+        echo json_encode($photo);
+    }
+
     public function chargeTableUsers()
     {
         $usuarios = $this->usuarioModelo->obtenerUsuarios();
         echo json_encode($usuarios);
+    }
+
+    public function changeAnnouncementHomePage()
+    {
+        $announcement = addslashes(file_get_contents($_FILES['announcement']['tmp_name']));
+        $imagen = base64_encode(stripslashes($announcement));
+        $datos = [
+            'announcement' => $imagen
+        ];
+
+        $file = RUTA_ORIGIN . '/public_html/json/announcement.json';
+        $json_string = json_encode($datos);
+        file_put_contents($file, $json_string);
+        echo json_encode($datos['announcement']);
+    }
+    public function changeNews1HomePage()
+    {
+        $news1 = addslashes(file_get_contents($_FILES['news1']['tmp_name']));
+        $imagen = base64_encode(stripslashes($news1));
+        $datos = [
+            'news1' => $imagen
+        ];
+
+        $file = RUTA_ORIGIN . '/public_html/json/news1.json';
+        $json_string = json_encode($datos);
+        file_put_contents($file, $json_string);
+        echo ($imagen);
+    }
+    public function changeNews2HomePage()
+    {
+        $news2 = addslashes(file_get_contents($_FILES['news2']['tmp_name']));
+        $imagen = base64_encode(stripslashes($news2));
+        $datos = [
+            'news2' => $imagen
+        ];
+
+        $file = RUTA_ORIGIN . '/public_html/json/news2.json';
+        $json_string = json_encode($datos);
+        file_put_contents($file, $json_string);
+        echo ($imagen);
     }
 
     // public function importJson()

@@ -15,7 +15,7 @@ if (empty($_SESSION['SESSION_USER'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-
+    <link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
 </head>
 <header class="fondo-gradiente">
@@ -25,7 +25,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 			</div>
 			<div class=" enlaces">
                 <a href="/Miranda"><i class="fa fa-home page-scroll"></i> Inicio</a>
-                <a href="<?php echo RUTA_URL; ?>/noticias"><i class="fa fa-link"></i> NOTICIAS</a></<a>
+                <a href="<?php echo RUTA_URL; ?>/noticias"><i class="fa fa-link"></i> Noticias</a></<a>
                 <a href="<?php echo  RUTA_URL; ?>/usuarios/dashboard" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession) ?></a>
         </div>
     </nav>
@@ -38,23 +38,23 @@ if (empty($_SESSION['SESSION_USER'])) {
             <img src="<?php echo RUTA_URL ?>/img/usuarios/wave.png">
             <img src="<?php echo RUTA_URL ?>/img/noticias/newsFondo.png">
         </div>
-        <div class="usuarios" >
+        <div class="usuarios">
             <img id="photoNews" src="<?php echo RUTA_URL ?>/img/noticias/newsIcon.png">
             <form id="form" action="<?php echo RUTA_URL ?>/Noticias/uploadNews" method="POST" enctype="multipart/form-data">
-                <p><?php echo $dataSession?></p>
+                <p><?php echo $dataSession ?></p>
                 <div class="input-div">
                     <div class="head-input">
                         <i class="far fa-newspaper"></i>
                         <input type="file" name="news" accept="image/*" class="input">
                     </div>
                 </div>
-                <div class="input-div">
-                    <input type="text" name="description" id="description" class="input" value="" autocomplete="off" placeholder="Descripción">
+                <div class="input-div" style="height: 200px;">
+                    <textarea class="input" name="description" id="description" cols="30" rows="10" placeholder="Descripción"></textarea>
                 </div>
                 <button type="submit" value="Iniciar"><i class="fas fa-cloud-upload-alt"></i>Publicar Noticia</button>
                 <div class="warnings" id="warnings">
                     <h5>
-                       
+
                     </h5>
                 </div>
             </form>

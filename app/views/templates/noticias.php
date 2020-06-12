@@ -17,6 +17,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Noticias</title>
+	<link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
 	<link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
 </head>
 
@@ -51,7 +52,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 
 	<!--===== SECCIÓN PRINCIPAL =============-->
 	<section class="main-section" id="sección-principal">
-		<article class="articulo">
+		<!-- <article class="articulo">
 			<div class="cabecera-articulo">
 				<div class="thumbnail">
 					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="X">
@@ -64,81 +65,21 @@ if (empty($_SESSION['SESSION_USER'])) {
 				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_1.png" alt="" class="imagen" />
 			</div>
 			<div class="footer-article">
-				<p>"Reparación y Mantenimiento de la Red de Semáforos de la Ciudad de SANTA ANA DE CORO".</p>
+				<p>"Reparación y Mantenimiento de la Red de Semáforos de la Ciudad de SANTA ANA DE CORO.".</p>
 			</div>
-		</article>
+		</article> -->
 
-		<article class="articulo">
-			<div class="cabecera-articulo">
-				<div class="thumbnail">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="X">
-				</div>
-				<!-- <a href="">Administrador</a> -->
-			
-			</div>
-			<div class="gallery">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_2.png" alt="" class="imagen" />
-			</div>
-			<div class="footer-article">
-				<p>Adquisición de Artículos y Herramientas Menores de la Ferretería para ser Utilizados en la Limpieza y Mantenimiento de Canales y Quebradas del Municipio Miranda.</p>
-			</div>
-		</article>
-
-		<article class="articulo">
-			<div class="cabecera-articulo">
-				<div class="thumbnail">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="X">
-				</div>
-				<!-- <a href="">Administrador</a> -->
-				
-			</div>
-			<div class="gallery">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_3.png" alt="" class="imagen" />
-			</div>
-			<div class="footer-article">
-				<p>Adquisición de 40 Cuñetes de Pintura de Tráfico Color Amarillo y (34) Cuñetes de Pintura de Tráfico Color Blanco para ser utilizados en la Demarcación de la Calle Falcón desde Sector Los Tres Platos hasta el Callejón Chevrolet Parroquia San Gabriel Municipio Miranda Estado Falcón con recursos provenientes del Consejo Federal de Gobierno.</p>
-			</div>
-		</article>
-		<!-- <article class="articulo">
-			<div class="cabecera-articulo">
-				<img loading="lazy" src="" alt="X">
-				<a href="">Administrador</a>
-			</div>
-			<div class="gallery">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia1.jpg" alt="" class="imagen" />
-			</div>
-			<div class="footer-article">
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
-			</div>
-		</article>
-
-		<article class="articulo">
-			<div class="cabecera-articulo">
-				<img loading="lazy" src="" alt="X">
-				<a href="">Administrador</a>
-			</div>
-			<div class="gallery">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/noticias/Noticia2.jpg" alt="" class="imagen" />
-			</div>
-			<div class="footer-article">
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					Quaerat ipsum voluptatum earum vitae odit ab natus, ipsa eos quas recusandae.</p>
-			</div>
-		</article>
-
-
-		<div class="botón-volver">
-			<a href="#" role="button"><i class="fas fa-angle-up"></i></a>
-		</div>
 	</section>
 
+	<div class="botón-volver">
+		<a href="#" role="button"><i class="fas fa-angle-up"></i></a>
+	</div>
 	<?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
 
 	<!--===== Javascript ===================================== -->
-		<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
-		<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
-		<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
+	<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
+	<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
+	<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 
 </body>
 

@@ -60,7 +60,22 @@ class UsuarioModel
         $this->db->bind(':a_name', $datos['a_name']);
         $this->db->bind(':a_lastName', $datos['a_lastName']);
         $this->db->bind(':an_user', $datos['an_user']);
-        $this->db->bind(':a_pass', $datos['pass']);
+        $this->db->bind(':a_pass', $datos['a_pass']);
+
+        //Ejecutar
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteUser($id)
+    {
+        $this->db->query('DELETE FROM usuarios WHERE id = :id');
+
+        //Vincular valores
+        $this->db->bind(':id', $id);
 
         //Ejecutar
         if ($this->db->execute()) {
@@ -117,20 +132,5 @@ class UsuarioModel
         $this->db->bind(':id', $id);
         $file = $this->db->imagen();
         return $file;
-    }
-
-    public function borrarUsuario($datos)
-    {
-        $this->db->query('DELETE FROM usuarios WHERE id = :id');
-
-        //Vincular valores
-        $this->db->bind(':id', $datos['id']);
-
-        //Ejecutar
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

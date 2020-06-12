@@ -66,9 +66,9 @@ document.getElementById("form").addEventListener("submit", (e) => {
                 };
                 const response = await fetch(myRequest, init);
                 if (response.ok) {
-                    const response2 = await response.json();
-                    console.log(response2.mensaje);
-                    ui.showMessage(response2.mensaje);
+                    const mensaje = await response.json();
+                    console.log(mensaje);
+                    ui.showMessage(mensaje);
                 } else {
                     throw new Error(response.statusText);
                 }
@@ -112,3 +112,4 @@ inputPass.addEventListener("blur", () => {
         h3contraseña.style.display = "flex"
     }
 });
+

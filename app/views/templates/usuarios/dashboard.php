@@ -16,10 +16,10 @@ if (empty($_SESSION['SESSION_USER'])) {
 </head>
 <header class="fondo-gradiente">
     <nav id="nav">
-        <div class="logo ">
+        <div class="logo">
             <a href="#" style="text-transform:uppercase;"><strong id="t_user"><?php echo $datos['t_user']; ?></strong></a>
         </div>
-        <div class=" enlaces">
+        <div class="enlaces" id="enlaces">
             <a href="<?php echo RUTA_URL; ?>/"><i class="fa fa-home"></i> INICIO</a>
             <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
             <a href="#data-base" id="enlace_BuscarUsuario"><i class="fas fa-search"></i></i> BUSCAR USUARIO</a>
@@ -52,15 +52,11 @@ if (empty($_SESSION['SESSION_USER'])) {
         <h2>Bienvenido <?php echo $_SESSION['SESSION_USER'] ?></h2>
 
         <form id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/uploadPhotoPerfil" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <!-- <h3>Actualiza tus Datos</h3> -->
             <img id="photo" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
             <div id="labelInputPhotoPerfil">
                 <label for="inputPhotoPerfil" style="font-size: 30px;">Cambiar</label>
             </div>
             <input id="inputPhotoPerfil" type="file" name="imagen" accept=".jpg,.png">
-            <!-- <input type="text" name="user" id="user" class="input" required>
-            <input type="text" name="pass" id="pass" class="input" required> -->
-            <!-- <input class="form-button" type="submit" class="button" name="enviar" value="Actualizar"> -->
         </form>
 
         <div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
@@ -138,7 +134,7 @@ if (empty($_SESSION['SESSION_USER'])) {
                             <i class="fas fa-user"></i>
                             <!-- <h3 id="h3-usuario">Usuario</h3> -->
                         </div>
-                        <input type="text" name="user" id="user" class="input"  placeholder="Usuario" autocomplete="off">
+                        <input type="text" name="user" id="user" class="input" placeholder="Usuario" autocomplete="off">
                     </div>
 
                     <div class="input-div">
@@ -162,8 +158,57 @@ if (empty($_SESSION['SESSION_USER'])) {
         </div>
     </div>
 
+    <div class="managementHomePage contenedor" id="managementHomePage" style="margin: 50 0px;">
+        <div class="announcementHomepage">
+            <h2>Anuncio</h2>
+            <form id="announcementHomepage_FORM" class="announcement__form" action="<?php echo RUTA_URL; ?>/usuarios/changeAnnouncementHomePage" method="POST" enctype="multipart/form-data">
+                <img id="Announcement" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
+                <div id="labelInputAnnouncement">
+                    <label for="inputAnnouncement" style="font-size: 30px;">Cambiar</label>
+                </div>
+                <input id="inputAnnouncement" type="file" name="announcement" accept=".jpg,.png">
+            </form>
+        </div>
 
-    <?php require RUTA_APP . '/views/inc/footer.php'; ?>
+        <div class="news1Homepage">
+            <h2>Noticia 1</h2>
+            <form id="news1Homepage_FORM" class="news1__form" enctype="multipart/form-data" autocomplete="off">
+                <img id="news1" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+                <div id="labelInputNews1">
+                    <label for="inputNews1" style="font-size: 30px;">Cambiar</label>
+                </div>
+                <input id="inputNews1" type="file" name="imagen" accept=".jpg,.png">
+            </form>
+        </div>
+
+        <div class="news2Homepage">
+            <h2>Noticia 2</h2>
+            <form id="news2Homepage_FORM" class="news2__form" enctype="multipart/form-data" autocomplete="off">
+                <img id="news2" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+                <div id="labelInputNews2">
+                    <label for="inputNews2" style="font-size: 30px;">Cambiar</label>
+                </div>
+                <input id="inputNews2" type="file" name="imagen" accept=".jpg,.png">
+            </form>
+        </div>
+
+    </div>
+
+    <div>
+        <div class="footer-body" style="text-align: center;">
+            <div class="footer-social">
+                <a class="icon icon-facebook fab fa-facebook"></a>
+                <a class="icon icon-instagram fab fa-instagram"></a>
+                <a class="icon icon-twitter fab fa-twitter"></a>
+                <a class="icon icon-whatsapp fab fa-whatsapp"></a>
+                <a class="icon icon-youtube fab fa-youtube"></a>
+            </div>
+
+            <div>
+                <p>Copyright © 2019-2020. Developed with <a href="#">AJMA</a></p>
+            </div>
+        </div>
+    </div>
 
     <!--===== Javascript ===================================== -->
     <script src="<?php echo RUTA_URL ?>/js/dashboard.js"></script>

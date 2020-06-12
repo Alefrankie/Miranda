@@ -25,24 +25,24 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<!-- ===== ANUNCIO ==================================================-->
 	<div class="anuncio-container">
 		<div class="anuncio-abierto">
-			<img loading="lazy" src="img/anuncios/anuncio.jpg" alt="">
+			<img loading="lazy" src="img/anuncios/anuncio.jpg">
 		</div>
 	</div>
 	<!--===== NAVEGACIÓN ==================================================-->
 	<header>
 		<nav id="nav">
 			<div class="logo">
-				<a href="#""><strong>RIF G-20000169-0</strong></a>
+				<a href="#"><strong>RIF G-20000169-0</strong></a>
 			</div>
 
-			<div class=" enlaces" id="enlaces">
-					<a href="#"><i class="fa fa-home page-scroll"></i> Inicio</a>
-					<a href="#alcalde" class="page-scroll"><i class="fas fa-hat-cowboy"></i>Alcalde</a>
-					<a href="#turismo" class="page-scroll"><i class="fas fa-plane"></i>Turismo</a>
-					<a href="#noticias" class="page-scroll"><i class="fas fa-newspaper"></i>Noticias</a>
-					<a href="#institutos" class="page-scroll"><i class="fas fa-warehouse"></i>Institutos</a>
-					<a href="#tf-testimonials" class="page-scroll"><i class="fas fa-street-view"></i>Dirección General</a>
-					<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession) ?></a>
+			<div class="enlaces" id="enlaces">
+				<a href="#"><i class="fa fa-home page-scroll"></i> Inicio</a>
+				<a href="#alcalde" class="page-scroll"><i class="fas fa-hat-cowboy"></i>Alcalde</a>
+				<a href="#turismo" class="page-scroll"><i class="fas fa-plane"></i>Turismo</a>
+				<a href="#noticias" class="page-scroll"><i class="fas fa-newspaper"></i>Noticias</a>
+				<a href="#institutos" class="page-scroll"><i class="fas fa-warehouse"></i>Institutos</a>
+				<a href="#tf-testimonials" class="page-scroll"><i class="fas fa-street-view"></i>Dirección General</a>
+				<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession) ?></a>
 			</div>
 
 			<div class="icon-burger" id="icon-burger">
@@ -143,36 +143,36 @@ if (empty($_SESSION['SESSION_USER'])) {
 		<h2>Institutos <strong>Autónomos</strong></h2>
 		<div id="clients" class="owl-carousel owl-theme">
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/HaciendaMunicipal.jpeg" alt="" />
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/HaciendaMunicipal.jpeg" />
 				<a><strong>Hacienda Municipal</strong></a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaMunicipal.jpeg" alt="" />
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaMunicipal.jpeg" />
 				<a><strong>Oficina Municipal</strong></a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/SecretariaDeAmbiente.jpeg" alt="" />
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/SecretariaDeAmbiente.jpeg" />
 				<a><strong>Secretaria De Ambiente</strong></a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaDeProyecto.jpeg" alt="" />
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/OficinaDeProyecto.jpeg" />
 				<a><strong>Oficina De Proyecto</strong></a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/IMUM.jpeg" alt="" />
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/IMUM.jpeg" />
 				<a><strong>Instituto de la mujer</strong></a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/bomberos.php">Cuerpo de Bomberos</a>
 			</div>
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/fondesMiranda.php">FONDES Miranda</a>
 			</div>
 
@@ -182,37 +182,37 @@ if (empty($_SESSION['SESSION_USER'])) {
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/patrimonio.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/patrimonio.jpg">
 				<a href="secciones/institutos/patrimonio.php">Patrimonio Municipal</a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/terminal.php">Terminal Pasajeros</a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/mercado.php">Mercados Municipales</a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/imtt.php">IMTT</a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/imaud.php">IMAUD</a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/imudemi.php">IMUDEMI</a>
 			</div>
 
 			<div class="item">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg" alt="">
+				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/institutos/instituto-bomberos.jpg">
 				<a href="secciones/institutos/inhamir.php">INHAMIR</a>
 			</div>
 		</div>

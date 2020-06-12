@@ -44,27 +44,23 @@
                     border: 1px solid $green-pretty-color
             & > a
                 display: flex
-                width: 2.5em
-                height: 2.5em
+                height: 2.5rem
                 align-items: center
                 justify-content: center
 
-            & > form
+            & > .buttonDelete
                 display: flex
                 position: absolute
                 right: 0
                 align-items: center
                 border-radius: 10%
-                & > input
-                    text-align: center
-                    width: 50px
-                    margin-right: 5px
-
-                & > button
-                    display: flex
-                    border-radius: 2px
-                    background: #ff0000
-                    
+                background: #ff0000
+                text-align: center
+                width: 100px
+                margin-right: 5px
+                display: flex
+                border-radius: 2px
+                color: $color-white
 
         .gallery > img
             width: 100%
@@ -79,20 +75,23 @@
             justify-content: flex-start
             p
                 font-size: 1em
-    //Button Styles Back
-    .botón-volver
-        display: flex
-        padding: 30px 30px
-        & > a
-            font-size: 50px
-            font-weight: 600
-            transition: 1s all ease
-            color: $color-gray
-            &:hover
-                color: #FFD700
-                transform: scale(1.4)
-                transform-origin: center
-                cursor: pointer
+
+//Button Styles Back
+.botón-volver
+    display: flex
+    justify-content: center
+    margin: auto
+    padding: 30px 30px
+    & > a
+        font-size: 50px
+        font-weight: 600
+        transition: 1s all ease
+        color: $color-gray
+        &:hover
+            color: #FFD700
+            transform: scale(1.4)
+            transform-origin: center
+            cursor: pointer
 
 @media screen and (max-width: 600px)
     .main-section

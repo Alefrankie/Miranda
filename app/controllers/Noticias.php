@@ -65,11 +65,10 @@ class Noticias extends AppController
 		echo json_encode($photoDecode);
 	}
 
-	public function deleteNews()
+	public function deleteNews($id_noticia)
 	{
-		$id_noticia = $_POST["IDNoticia"];
 		$this->noticiaModelo->deleteNews($id_noticia);
-		echo ("Noticia Eliminada");
+		echo json_encode("Noticia Eliminada");
 	}
 
 	public function test()

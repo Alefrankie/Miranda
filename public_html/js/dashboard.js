@@ -27,9 +27,24 @@ class dashboard {
 class Interfaz {
     changePhoto(image) {
         document.getElementById("photo").setAttribute("src", `data:image/png;base64,${image}`);
-        form.reset();
+        return form.reset();
     }
-    
+
+    changeAnnouncement(Announcement) {
+        document.getElementById("Announcement").setAttribute("src", `data:image/png;base64,${Announcement}`);
+        return an_announcement_FORM.reset();
+    }
+
+    changeNews1(news1) {
+        document.getElementById("news1").setAttribute("src", `data:image/png;base64,${news1}`);
+        return an_news1_FORM.reset();
+    }
+
+    changeNews2(news2) {
+        document.getElementById("news2").setAttribute("src", `data:image/png;base64,${news2}`);
+        return an_news2_FORM.reset();
+    }
+
     chargeTable(table) {
         const buttons_Delete = document.getElementsByClassName("buttonDelete")
         const contenido = document.getElementById("contenido");
@@ -45,10 +60,9 @@ class Interfaz {
                 <td >${valor.t_user}</td>
                 <th ${valor.status_user == "Online" ? "class='btn btn-success btn-xs'" : "class='btn btn-danger btn-xs'"}>${valor.status_user}</th>
                 <td><a class="buttonEdit" href="${myRequest + "editar/" + valor.id}"><i class="fas fa-user-edit"></i></a></td>
-                <td><a class="buttonDelete" href="${myRequest + "delete/" + valor.id}"><i class="fas fa-trash-alt"></i></a></td>
+                <td ${valor.t_user == "Administrador" ? "style='display: none;'" : ""}><a class="buttonDelete" href="${myRequest + "delete/" + valor.id}"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
                 `;
-
         }
         for (const i of buttons_Delete) {
             i.onclick = function (e) {
@@ -80,31 +94,131 @@ inputPhotoPerfil.addEventListener("change", (e) => {
     e.preventDefault();
     if (inputPhotoPerfil.value == "") {
         return alert("Debe Indicar su Foto de Perfil.");
-    } else {
-        (async (e) => {
-            const ui = new Interfaz();
-            const data = new FormData(form);
+    }
+    (async (e) => {
+        const ui = new Interfaz();
+        const data = new FormData(form);
+        const init = {
+            method: form.method,
+            body: data
+        };
+        try {
+            const response = await fetch(form.action, init);
+            if (response.ok) {
+                const photoPerfil = await response.json();
+                ui.changePhoto(photoPerfil);
+            } else {
+                throw new error(response.statusText);
+            }
+        } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+        }
+    })();
+    form.onsubmit;
+})
+
+//----CHANGE ANNOUNCEMENT AND NEWS
+const an_announcement_FORM = document.getElementById("announcementHomepage_FORM");
+const an_announcement_Input = document.getElementById("inputAnnouncement");
+an_announcement_Input.addEventListener("change", (e) => {
+    e.preventDefault();
+    if (an_announcement_Input.value == "") {
+        return alert("Debe Indicar Una Imagen Válida.");
+    }
+    (async (e) => {
+        const ui = new Interfaz();
+        const data = new FormData(an_announcement_FORM);
+        const init = {
+            method: an_announcement_FORM.method,
+            body: data
+        };
+        try {
+            const response = await fetch(an_announcement_FORM.action, init);
+            if (response.ok) {
+                const image = await response.json();
+                ui.changeAnnouncement(image);
+            } else {
+                throw new error(response.statusText);
+            }
+        } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+        }
+        // permitimos volver a enviar el formulario de nuevo
+        // enviarFormulario.enviando = false;
+    })();
+    an_announcement_FORM.onsubmit;
+})
+
+const an_news1_FORM = document.getElementById("news1Homepage_FORM");
+const an_news1_Input = document.getElementById("inputNews1");
+an_news1_Input.addEventListener("change", (e) => {
+    e.preventDefault();
+    if (an_news1_Input.value == "") {
+        return alert("Debe Indicar Una Imagen Válida.");
+    }
+    (async (e) => {
+        const ui = new Interfaz();
+        var data = new FormData();
+        data.append("news1", an_news1_Input.files[0]);
+        try {
+            const myRequest = new Request(location.origin + "/Miranda/usuarios/changeNews1HomePage");
             const init = {
-                method: form.method,
+                method: "POST",
                 body: data
             };
-            try {
-                const response = await fetch(form.action, init);
-                if (response.ok) {
-                    const photoPerfil = await response.json();
-                    ui.changePhoto(photoPerfil);
-                } else {
-                    throw new error(response.statusText);
-                }
-            } catch (error) {
-                alert("Error al enviar el formulario: " + error.message);
+            const response = await fetch(myRequest, init);
+            if (!response.ok) {
+                throw new error(response.statusText);
             }
-            // permitimos volver a enviar el formulario de nuevo
-            // enviarFormulario.enviando = false;
-        })();
-        form.onsubmit;
-    }
+            const image = await response.text();
+            ui.changeNews1(image);
+        } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+        }
+        // permitimos volver a enviar el formulario de nuevo
+        // enviarFormulario.enviando = false;
+    })();
+    an_news1_FORM.onsubmit;
 })
+
+const an_news2_FORM = document.getElementById("news2Homepage_FORM");
+const an_news2_Input = document.getElementById("inputNews2");
+an_news2_Input.addEventListener("change", (e) => {
+    e.preventDefault();
+    if (an_news2_Input.value == "") {
+        return alert("Debe Indicar Una Imagen Válida.");
+    }
+    (async (e) => {
+        const ui = new Interfaz();
+        var data = new FormData();
+        data.append("news2", an_news2_Input.files[0]);
+        try {
+            const myRequest = new Request(location.origin + "/Miranda/usuarios/changeNews2HomePage");
+            const init = {
+                method: "POST",
+                body: data
+            };
+            const response = await fetch(myRequest, init);
+            if (!response.ok) {
+                throw new error(response.statusText);
+            }
+            const image = await response.text();
+            ui.changeNews2(image);
+        } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+        }
+        // permitimos volver a enviar el formulario de nuevo
+        // enviarFormulario.enviando = false;
+    })();
+    an_news2_FORM.onsubmit;
+})
+
+
+
+
+
+
+
 
 //SCRIPT TO PHOTO PERFIL MIN-MAX
 document.getElementById("photo").addEventListener("mouseover", (e) => {
@@ -154,10 +268,92 @@ window.addEventListener("load", (e) => {
             alert("Error al enviar el formulario: " + error.message);
         }
     })();
+
+    (showPhotoPerfil = async (e) => {
+        const myRequest = new Request(location.origin + "/Miranda/usuarios/showAnnouncementNews1News2");
+        try {
+            const response = await fetch(myRequest);
+            if (response.ok) {
+                const photoPerfil = await response.json();
+                ui.changePhoto(photoPerfil);
+            } else {
+                throw new error(response.statusText);
+            }
+        } catch (error) {
+            alert("Error al enviar el formulario: " + error.message);
+        }
+    })();
 })
 
-//SCRIPT TO DELETE USER
 
+// const an_announcement_FORM = document.getElementById("announcementHomepage_FORM")
+// const an_announcement_Input = document.getElementById("inputPhotoPerfil")
+
+// for (const i of buttons_Delete) {
+//     i.onchange = function (e) {
+//         (async () => {
+//             try {
+//                 const response = await fetch(i.href);
+//                 if (!response.ok) {
+//                     throw new error(response.statusText);
+//                 }
+//                 const a_register = await response.json();
+//                 alert(a_register)
+//             } catch (error) {
+//                 alert("Error al enviar el formulario: " + error.message);
+//             }
+//             // permitimos volver a enviar el formulario de nuevo
+//             // enviarFormulario.enviando = false;
+//         })();
+//         e.preventDefault()
+
+//     }
+// }
+
+
+
+
+
+//SCRIPT TO CHANGE PHOTO IN MANAGEMENT HOMEPAGE--- ANUNCIO
+document.getElementById("Announcement").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputAnnouncement").classList.add("active");
+})
+document.getElementById("Announcement").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputAnnouncement").classList.remove("active");
+})
+document.getElementById("labelInputAnnouncement").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputAnnouncement").classList.add("active");
+})
+document.getElementById("labelInputAnnouncement").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputAnnouncement").classList.remove("active");
+})
+//--------------------------------------------------NEWS1
+document.getElementById("news1").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputNews1").classList.add("active");
+})
+document.getElementById("news1").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputNews1").classList.remove("active");
+})
+document.getElementById("labelInputNews1").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputNews1").classList.add("active");
+})
+document.getElementById("labelInputNews1").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputNews1").classList.remove("active");
+})
+//-------------------------------------------------NEWS2
+
+document.getElementById("news2").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputNews2").classList.add("active");
+})
+document.getElementById("news2").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputNews2").classList.remove("active");
+})
+document.getElementById("labelInputNews2").addEventListener("mouseover", (e) => {
+    document.getElementById("labelInputNews2").classList.add("active");
+})
+document.getElementById("labelInputNews2").addEventListener("mouseout", (e) => {
+    document.getElementById("labelInputNews2").classList.remove("active");
+})
 
 //ANIMATIONS INPUTS UPDATE DATA
 
@@ -174,6 +370,25 @@ const h3contraseña = document.getElementById("h3-contraseña");
 const inputs = [inputNombre, inputApellido, inputUser, inputPass]
 const inputs2 = ["0", "1", "2", "3"]
 const labels = [h3nombre, h3apellido, h3usuario, h3contraseña]
+
+
+/*===== MENU DE NAVEGACIÓN RESPONSIVE */
+
+// const openMenu = document.getElementById("icon-burger")
+// const menu = document.getElementById("enlaces");
+// let close = true;
+
+// openMenu.addEventListener("click", () => {
+//   if (close) {
+//     menu.style.width = "100%";
+//     close = false;
+//   } else {
+//     menu.style.width = "0%";
+//     menu.style.overflow = "hidden";
+//     close = true;
+//   }
+// });
+
 
 
 // Click a un solo elemento

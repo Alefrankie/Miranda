@@ -986,7 +986,7 @@ footer .footer-main {
   width: 100%;
   margin-top: 100px;
   z-index: 100;
-  margin-bottom: 20px;
+  bottom: 0;
 }
 
 footer .footer-main .footer-img {
@@ -1026,7 +1026,7 @@ footer .footer-main .footer-body a:hover {
           transform: scale(1.5);
 }
 
-footer .footer-main .footer-body .footer-social .icon {
+.footer-social .icon {
   display: inline-block;
   font-size: 1.35em;
   -webkit-transition: .3s all ease;
@@ -1035,32 +1035,32 @@ footer .footer-main .footer-body .footer-social .icon {
   margin-right: 0.3125em;
 }
 
-footer .footer-main .footer-body .footer-social .icon:hover {
+.footer-social .icon:hover {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
 
-footer .footer-main .footer-body .footer-social .icon-facebook {
+.footer-social .icon-facebook {
   color: #3b5998;
 }
 
-footer .footer-main .footer-body .footer-social .icon-instagram {
+.footer-social .icon-instagram {
   color: #3f729b;
 }
 
-footer .footer-main .footer-body .footer-social .icon-twitter {
+.footer-social .icon-twitter {
   color: #00acee;
 }
 
-footer .footer-main .footer-body .footer-social .icon-whatsapp {
+.footer-social .icon-whatsapp {
   color: #00bb2d;
 }
 
-footer .footer-main .footer-body .footer-social .icon-youtube {
+.footer-social .icon-youtube {
   color: #c4302b;
 }
 
-footer .footer-main .footer-body .footer-texto p {
+.footer-social .footer-texto p {
   font-weight: 600;
 }
 
@@ -1174,8 +1174,7 @@ footer .footer-main .footer-body .footer-texto p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 2.5em;
-  height: 2.5em;
+  height: 2.5rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1184,7 +1183,7 @@ footer .footer-main .footer-body .footer-texto p {
           justify-content: center;
 }
 
-.main-section .articulo .cabecera-articulo > form {
+.main-section .articulo .cabecera-articulo > .buttonDelete {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1194,20 +1193,13 @@ footer .footer-main .footer-body .footer-texto p {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 10%;
-}
-
-.main-section .articulo .cabecera-articulo > form > input {
+  background: #ff0000;
   text-align: center;
-  width: 50px;
+  width: 100px;
   margin-right: 5px;
-}
-
-.main-section .articulo .cabecera-articulo > form > button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   border-radius: 2px;
-  background: #ff0000;
+  color: #fff;
 }
 
 .main-section .articulo .gallery > img {
@@ -1235,14 +1227,18 @@ footer .footer-main .footer-body .footer-texto p {
   font-size: 1em;
 }
 
-.main-section .botón-volver {
+.botón-volver {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
   padding: 30px 30px;
 }
 
-.main-section .botón-volver > a {
+.botón-volver > a {
   font-size: 50px;
   font-weight: 600;
   -webkit-transition: 1s all ease;
@@ -1250,7 +1246,7 @@ footer .footer-main .footer-body .footer-texto p {
   color: #686363;
 }
 
-.main-section .botón-volver > a:hover {
+.botón-volver > a:hover {
   color: #FFD700;
   -webkit-transform: scale(1.4);
           transform: scale(1.4);
@@ -1637,78 +1633,135 @@ footer .footer-main .footer-body .footer-texto p {
           align-items: center;
 }
 
-.admin-privileges {
+.managementHomePage {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 100%;
-  padding: 0 20px;
-  background: linear-gradient(45deg, rgba(175, 255, 144, 0.99) 1%, rgba(112, 249, 147, 0.89) 5%, rgba(45, 249, 160, 0.99) 30%, #3c0c78 99%, #4a0c96 99%, #4a0c96 100%);
+  min-height: 50vh;
+  font-size: 16px;
+  text-align: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  opacity: 1;
+  background: #0cebeb;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#29ffc6), color-stop(#20e3b2), to(#0cebeb));
+  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.admin-privileges > h3 {
-  padding-top: 100px;
+.managementHomePage h2 {
   width: 100%;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
-.admin-privileges p {
-  width: 100%;
-  text-align: justify;
+.managementHomePage > img {
+  width: 31.25em;
+  height: 31.25em;
 }
 
-.admin-privileges .admin-privileges-footer {
+.managementHomePage .announcement__form, .managementHomePage .news1__form, .managementHomePage .news2__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  bottom: 0;
-  margin: 10px;
+  width: 21.875em;
+  height: 18.5em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 10px;
+  border-radius: 5px;
+  margin-bottom: 100px;
+  position: relative;
 }
 
-.admin-privileges .admin-privileges-footer a {
-  display: inline-block;
-  -webkit-transition: .3s all ease;
-  transition: .3s all ease;
+.managementHomePage .announcement__form > img, .managementHomePage .news1__form > img, .managementHomePage .news2__form > img {
+  width: 18.75em;
+  height: 18.75em;
+  border: 1px solid #63FFAF;
+  border-radius: 50%;
+  padding: 2px;
+  margin: 10px 0;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.managementHomePage .announcement__form > div, .managementHomePage .news1__form > div, .managementHomePage .news2__form > div {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 18.75em;
+  height: 18.75em;
+  border-radius: 50%;
+  border-color: #63FFAF;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 500;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.65)));
+  background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.65) 100%);
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  -webkit-transform: scale(0);
+          transform: scale(0);
   cursor: pointer;
-  margin: 0 5px;
 }
 
-.admin-privileges .admin-privileges-footer a:hover {
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
+.managementHomePage .announcement__form > div.active, .managementHomePage .news1__form > div.active, .managementHomePage .news2__form > div.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
-.admin-privileges .admin-privileges-footer a.icon-facebook {
-  color: #3b5998;
-  font-size: 20px;
+.managementHomePage .announcement__form > div > label, .managementHomePage .news1__form > div > label, .managementHomePage .news2__form > div > label {
+  cursor: pointer;
 }
 
-.admin-privileges .admin-privileges-footer a.icon-instagram {
-  color: #3f729b;
-  font-size: 20px;
+.managementHomePage .announcement__form > #inputAnnouncement, .managementHomePage .news1__form > #inputAnnouncement, .managementHomePage .news2__form > #inputAnnouncement {
+  display: none;
 }
 
-.admin-privileges .admin-privileges-footer a.icon-twitter {
-  color: #00acee;
-  font-size: 20px;
+.managementHomePage .announcement__form > #inputNews1, .managementHomePage .news1__form > #inputNews1, .managementHomePage .news2__form > #inputNews1 {
+  display: none;
 }
 
-.admin-privileges .admin-privileges-footer a.icon-whatsapp {
-  color: #00bb2d;
-  font-size: 20px;
+.managementHomePage .announcement__form > #inputNews2, .managementHomePage .news1__form > #inputNews2, .managementHomePage .news2__form > #inputNews2 {
+  display: none;
 }
 
-.admin-privileges .admin-privileges-footer a.icon-youtube {
-  color: #c4302b;
-  font-size: 20px;
+.managementHomePage .announcement__form input, .managementHomePage .announcement__form label, .managementHomePage .news1__form input, .managementHomePage .news1__form label, .managementHomePage .news2__form input, .managementHomePage .news2__form label {
+  width: 200px;
+  height: 50px;
+  margin: 5px 0;
+  border: none;
 }
 
-.admin-privileges .admin-privileges-footer p {
-  font-weight: 600;
+.managementHomePage .announcement__form input:focus, .managementHomePage .announcement__form label:focus, .managementHomePage .news1__form input:focus, .managementHomePage .news1__form label:focus, .managementHomePage .news2__form input:focus, .managementHomePage .news2__form label:focus {
+  border: 3px solid #63FFAF;
 }
 
 @media screen and (max-width: 768px) {
@@ -1876,6 +1929,22 @@ footer .footer-main .footer-body .footer-texto p {
 }
 
 .body-login .usuarios form .input-div > input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 8px 30px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #77777752;
+}
+
+.body-login .usuarios form .input-div > textarea {
   position: absolute;
   left: 0;
   top: 0;
