@@ -18,11 +18,11 @@ class Test extends AppController
     {
         $user = new test("Alefrank");
 
-        try {
-            $this->user
-        } catch ($th) {
-            //throw $th;
-        }
+        // try {
+        //     $this->user
+        // } catch ($th) {
+        //     //throw $th;
+        // }
 
         $usuarios = $this->usuarioModelo->obtenerUsuarios();
         $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);

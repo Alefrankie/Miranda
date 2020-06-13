@@ -44,8 +44,6 @@ class NewsInterface {
           } catch (error) {
             alert("Error al enviar el formulario: " + error.message);
           }
-          // permitimos volver a enviar el formulario de nuevo
-          // enviarFormulario.enviando = false;
         })();
         e.preventDefault()
 
@@ -64,18 +62,18 @@ class NewsInterface {
     const ui = new NewsInterface();
     try {
       const response = await fetch(myRequest);
-      if (response.ok) {
-        const news = await response.json();
-        ui.showImagesNews(news);
-
-        if (Admin == "Usuario" || Admin == "RIF G-20000169-0") {
-          Array.from(buttons_Delete).forEach(function (element) {
-            element.style.display = 'none'
-          });
-        }
-      } else {
+      if (!response.ok) {
         throw new error(response.statusText);
       }
+      const news = await response.json();
+      ui.showImagesNews(news);
+
+      if (Admin == "Usuario" || Admin == "RIF G-20000169-0") {
+        Array.from(buttons_Delete).forEach(function (element) {
+          element.style.display = 'none'
+        });
+      }
+
     } catch (error) {
       alert("Error al enviar el formulario: " + error.message);
     }
@@ -114,7 +112,6 @@ document.addEventListener("scroll", () => {
 
 
 /*===== MENU DE NAVEGACIÓN RESPONSIVE */
-
 const openMenu = document.getElementById("icon-burger")
 const menu = document.getElementById("enlaces");
 let close = true;
