@@ -1,7 +1,3 @@
-// FUNCIÓN OCULTACIÓN DE OPCIONES
-
-
-///////////////////////////////
 class NewsInterface {
 
   showImagesNews(table) {
@@ -54,7 +50,7 @@ class NewsInterface {
 
 //DOM EVENTS
 //------------ CHARGE NEWS
-(function chargeNews() {
+window.addEventListener("load", (e) => {
   const Admin = document.getElementById("Admin").innerText;
   const buttons_Delete = document.getElementsByClassName("buttonDelete")
   const myRequest = new Request(location.origin + "/Miranda/noticias/updateNews");
@@ -78,7 +74,7 @@ class NewsInterface {
       alert("Error al enviar el formulario: " + error.message);
     }
   })();
-})();
+})
 
 
 

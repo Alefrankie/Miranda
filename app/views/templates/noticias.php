@@ -80,12 +80,6 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
 	<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
 	<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
-
-
-	<script src="<?php echo RUTA_URL; ?>/js/jquery.1.11.1.js"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/owl.carousel.js"></script>
-	<script src="<?php echo RUTA_URL; ?>/js/bootstrap.js"></script>
-
 </body>
 
 </html>

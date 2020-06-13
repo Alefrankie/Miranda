@@ -1,6 +1,6 @@
 <?php
 
-class Noticia
+class NoticiaModel
 {
     private $db;
 
@@ -11,14 +11,14 @@ class Noticia
 
     public function getNewsImages()
     {
-        $this->db->query('SELECT * FROM imagesNews');
+        $this->db->query('SELECT * FROM imagesnews');
         $resultado = $this->db->registros();
         return $resultado;
     }
 
     public function getNewsImagesPerfil($user)
     {
-        $this->db->query('SELECT photoPerfil FROM Usuarios WHERE user = :user');
+        $this->db->query('SELECT photoPerfil FROM usuarios WHERE user = :user');
         $this->db->bind(':user', $user);
         $fila = $this->db->registro();
         return $fila;
