@@ -39,9 +39,7 @@ class Noticias extends AppController
 			];
 		}
 
-		$json_string = json_encode($news);
-		file_put_contents($file, $json_string);
-		echo json_encode($news);
+		return printf (json_encode($news));
 	}
 
 	public function postNews()
