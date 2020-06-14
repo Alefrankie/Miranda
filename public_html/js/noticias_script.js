@@ -15,7 +15,7 @@ class NewsInterface {
 			          <div class="thumbnail">
 			              <img loading="lazy" src="data:image/png;base64,${valor.photoPerfil}" alt="X">
 			          </div>
-                  <a href="">${valor.user}</a>
+                  <a hrtextef="">${valor.user}</a>
 			            <a class="buttonDelete" href="${myRequest + valor.id_noticia}" type="submit">Eliminar Noticia</a>
           </div>
           

@@ -6,7 +6,7 @@ class Noticias extends AppController
 	public function __construct()
 	{
 		session_start();
-		$this->noticiaModelo = $this->model('Noticia');
+		$this->noticiaModelo = $this->model('NoticiaModel');
 		$this->usuarioModelo = $this->model('UsuarioModel');
 	}
 
@@ -38,7 +38,6 @@ class Noticias extends AppController
 				"photoPerfil" => base64_encode(stripslashes($photo->photoPerfil)),
 			];
 		}
-
 
 		$json_string = json_encode($news);
 		file_put_contents($file, $json_string);
