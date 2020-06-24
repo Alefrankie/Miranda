@@ -6,7 +6,6 @@ class Paginas extends AppController
 	{
 		session_start();
 		$this->usuarioModelo = $this->model('UsuarioModel');
-		//echo "Controlador pagina cargada";
 	}
 
 	public function index()

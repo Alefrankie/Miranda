@@ -160,17 +160,6 @@ if (empty($_SESSION['SESSION_USER'])) {
 
     <div class="managementHomePage contenedor" id="managementHomePage" style="margin: 50 0px;">
 
-        <div class="news1Homepage">
-            <h2>Noticia 1</h2>
-            <form id="news1Homepage_FORM" class="news1__form" enctype="multipart/form-data" autocomplete="off">
-                <img id="news1" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
-                <div id="labelInputNews1">
-                    <label for="inputNews1" style="font-size: 30px;">Cambiar</label>
-                </div>
-                <input id="inputNews1" type="file" name="imagen" accept=".jpg,.png">
-            </form>
-        </div>
-       
         <div class="announcementHomepage">
             <h2>Anuncio</h2>
             <form id="announcementHomepage_FORM" class="announcement__form" action="<?php echo RUTA_URL; ?>/usuarios/changeAnnouncementHomePage" method="POST" enctype="multipart/form-data">
@@ -182,14 +171,25 @@ if (empty($_SESSION['SESSION_USER'])) {
             </form>
         </div>
 
-        <div class="news2Homepage">
+        <div>
+            <h2>Noticia 1</h2>
+            <form id="news1Homepage_FORM" class="news__form" enctype="multipart/form-data" action="<?php echo RUTA_URL; ?>/usuarios/changeNews1HomePage">
+                <img id="news1" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+                <div id="labelInputNews1">
+                    <label for="inputNews1" style="font-size: 30px;">Cambiar</label>
+                </div>
+                <input id="inputNews1" type="file" name="imagen" accept=".jpg,.png">
+            </form>
+        </div>
+
+        <div>
             <h2>Noticia 2</h2>
-            <form id="news2Homepage_FORM" class="news2__form" enctype="multipart/form-data" autocomplete="off">
+            <form id="news2Homepage_FORM" class="news__form" enctype="multipart/form-data" action="<?php echo RUTA_URL; ?>/usuarios/changeNews2HomePage">
                 <img id="news2" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
                 <div id="labelInputNews2">
                     <label for="inputNews2" style="font-size: 30px;">Cambiar</label>
                 </div>
-                <input id="inputNews2" type="file" name="imagen" accept=".jpg,.png">
+                <input id="inputNews2" type="file" name="news2" accept=".jpg,.png">
             </form>
         </div>
 
