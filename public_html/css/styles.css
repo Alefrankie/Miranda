@@ -1673,7 +1673,7 @@ footer .footer-main .footer-body a:hover {
   height: 31.25em;
 }
 
-.managementHomePage .announcement__form, .managementHomePage .news1__form, .managementHomePage .news2__form {
+.managementHomePage .announcement__form, .managementHomePage .news__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1695,7 +1695,7 @@ footer .footer-main .footer-body a:hover {
   position: relative;
 }
 
-.managementHomePage .announcement__form > img, .managementHomePage .news1__form > img, .managementHomePage .news2__form > img {
+.managementHomePage .announcement__form > img, .managementHomePage .news__form > img {
   width: 18.75em;
   height: 18.75em;
   border: 1px solid #63FFAF;
@@ -1708,7 +1708,7 @@ footer .footer-main .footer-body a:hover {
   transition: all .5s ease;
 }
 
-.managementHomePage .announcement__form > div, .managementHomePage .news1__form > div, .managementHomePage .news2__form > div {
+.managementHomePage .announcement__form > div, .managementHomePage .news__form > div {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1735,35 +1735,35 @@ footer .footer-main .footer-body a:hover {
   cursor: pointer;
 }
 
-.managementHomePage .announcement__form > div.active, .managementHomePage .news1__form > div.active, .managementHomePage .news2__form > div.active {
+.managementHomePage .announcement__form > div.active, .managementHomePage .news__form > div.active {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 
-.managementHomePage .announcement__form > div > label, .managementHomePage .news1__form > div > label, .managementHomePage .news2__form > div > label {
+.managementHomePage .announcement__form > div > label, .managementHomePage .news__form > div > label {
   cursor: pointer;
 }
 
-.managementHomePage .announcement__form > #inputAnnouncement, .managementHomePage .news1__form > #inputAnnouncement, .managementHomePage .news2__form > #inputAnnouncement {
+.managementHomePage .announcement__form > #inputAnnouncement, .managementHomePage .news__form > #inputAnnouncement {
   display: none;
 }
 
-.managementHomePage .announcement__form > #inputNews1, .managementHomePage .news1__form > #inputNews1, .managementHomePage .news2__form > #inputNews1 {
+.managementHomePage .announcement__form > #inputNews1, .managementHomePage .news__form > #inputNews1 {
   display: none;
 }
 
-.managementHomePage .announcement__form > #inputNews2, .managementHomePage .news1__form > #inputNews2, .managementHomePage .news2__form > #inputNews2 {
+.managementHomePage .announcement__form > #inputNews2, .managementHomePage .news__form > #inputNews2 {
   display: none;
 }
 
-.managementHomePage .announcement__form input, .managementHomePage .announcement__form label, .managementHomePage .news1__form input, .managementHomePage .news1__form label, .managementHomePage .news2__form input, .managementHomePage .news2__form label {
+.managementHomePage .announcement__form input, .managementHomePage .announcement__form label, .managementHomePage .news__form input, .managementHomePage .news__form label {
   width: 200px;
   height: 50px;
   margin: 5px 0;
   border: none;
 }
 
-.managementHomePage .announcement__form input:focus, .managementHomePage .announcement__form label:focus, .managementHomePage .news1__form input:focus, .managementHomePage .news1__form label:focus, .managementHomePage .news2__form input:focus, .managementHomePage .news2__form label:focus {
+.managementHomePage .announcement__form input:focus, .managementHomePage .announcement__form label:focus, .managementHomePage .news__form input:focus, .managementHomePage .news__form label:focus {
   border: 3px solid #63FFAF;
 }
 

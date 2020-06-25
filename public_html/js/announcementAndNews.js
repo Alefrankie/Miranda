@@ -1,4 +1,3 @@
-
 /*===== SCRIPT, CHANGE OF ANNOUNCEMENT AND IMAGES OF NEWS SECTION*/
 class Interfaz {
     changeAnnouncement(Announcement) {
@@ -17,7 +16,7 @@ class Interfaz {
 document.addEventListener("DOMContentLoaded", (e) => {
     const ui = new Interfaz();
 
-    (showPhotoPerfil = async (e) => {
+    (async (e) => {
         const myRequest = new Request(location.origin + "/Miranda/usuarios/showAnnouncementNews1News2");
         try {
             const response = await fetch(myRequest);

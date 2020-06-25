@@ -12,6 +12,7 @@ class Usuarios extends AppController
     {
         $this->view('templates/usuarios/login');
     }
+
     public function login()
     {
         if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
@@ -141,6 +142,13 @@ class Usuarios extends AppController
         echo json_encode($photo);
     }
 
+
+    public function chargeTableUsers()
+    {
+        $usuarios = $this->usuarioModelo->obtenerUsuarios();
+        echo json_encode($usuarios);
+    }
+
     public function showAnnouncementNews1News2()
     {
         $announcement = file_get_contents(RUTA_ORIGIN . '/public_html/json/announcement.json');
@@ -157,17 +165,7 @@ class Usuarios extends AppController
             "news2" => $data3['news2']
         ];
 
-        // $file = RUTA_ORIGIN . '/public_html/json/TEST.json';
-        // $json_string = json_encode($data4);
-        // file_put_contents($file, $json_string);
-
         echo json_encode($data4);
-    }
-
-    public function chargeTableUsers()
-    {
-        $usuarios = $this->usuarioModelo->obtenerUsuarios();
-        echo json_encode($usuarios);
     }
 
     public function changeAnnouncementHomePage()
@@ -183,6 +181,7 @@ class Usuarios extends AppController
         file_put_contents($file, $json_string);
         echo json_encode($datos['announcement']);
     }
+
     public function changeNews1HomePage()
     {
         $news1 = addslashes(file_get_contents($_FILES['news1']['tmp_name']));
@@ -194,8 +193,9 @@ class Usuarios extends AppController
         $file = RUTA_ORIGIN . '/public_html/json/news1.json';
         $json_string = json_encode($datos);
         file_put_contents($file, $json_string);
-        echo ($imagen);
+        echo json_encode($datos['news1']);
     }
+
     public function changeNews2HomePage()
     {
         $news2 = addslashes(file_get_contents($_FILES['news2']['tmp_name']));
@@ -207,7 +207,21 @@ class Usuarios extends AppController
         $file = RUTA_ORIGIN . '/public_html/json/news2.json';
         $json_string = json_encode($datos);
         file_put_contents($file, $json_string);
-        echo ($imagen);
+        echo json_encode($datos['news2']);
+    }
+
+    public function changeNewsHomePage()
+    {
+        $news2 = addslashes(file_get_contents($_FILES['news']['tmp_name']));
+        $imagen = base64_encode(stripslashes($news2));
+        $datos = [
+            'news' => $imagen
+        ];
+
+        $file = RUTA_ORIGIN . '/public_html/json/news2.json';
+        $json_string = json_encode($datos);
+        file_put_contents($file, $json_string);
+        echo json_encode($datos['news2']);
     }
 
     // public function importJson()
