@@ -6,7 +6,6 @@ class Usuarios extends AppController
     {
         session_start();
         $this->usuarioModelo = $this->model('UsuarioModel');
-        $this->loginModelo = $this->model('Login');
     }
 
     public function index()
