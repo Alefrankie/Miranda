@@ -51,9 +51,9 @@ if (empty($_SESSION['SESSION_USER'])) {
     <div class="data-update contenedor" id="data-update">
         <h2>Bienvenido <?php echo $_SESSION['SESSION_USER'] ?></h2>
 
-        <form id="dashboard_perfil" class="data-update__form" action="<?php echo RUTA_URL; ?>/usuarios/uploadPhotoPerfil" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <img id="photo" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
-            <div id="labelInputPhotoPerfil">
+        <form id="dashboard_perfil" class="data-update__form">
+            <img class="newsImages" id="photo" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+            <div class="labelsImages" id="labelInputPhotoPerfil">
                 <label for="inputPhotoPerfil" style="font-size: 30px;">Cambiar</label>
             </div>
             <input id="inputPhotoPerfil" type="file" name="imagen" accept=".jpg,.png">
@@ -95,7 +95,7 @@ if (empty($_SESSION['SESSION_USER'])) {
                 </tr>
             </thead>
             <tbody id="contenido">
-                <!-- 
+                <!--
                     Este contenido es GENERADO POR JS, se encuentra en el archivo dashboard.js
                  -->
             </tbody>
@@ -160,36 +160,36 @@ if (empty($_SESSION['SESSION_USER'])) {
 
     <div class="managementHomePage contenedor" id="managementHomePage" style="margin: 50 0px;">
 
-        <div class="announcementHomepage">
+        <div>
             <h2>Anuncio</h2>
-            <form id="announcementHomepage_FORM" class="announcement__form" action="<?php echo RUTA_URL; ?>/usuarios/changeAnnouncementHomePage" method="POST" enctype="multipart/form-data">
-                <img id="Announcement" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
-                <div id="labelInputAnnouncement">
+            <form id="announcementHomepage_FORM" class="announcement__form" enctype="multipart/form-data">
+                <img class="newsImages" id="announcement" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
+                <div class="labelsImages" id="labelInputAnnouncement">
                     <label for="inputAnnouncement" style="font-size: 30px;">Cambiar</label>
                 </div>
-                <input id="inputAnnouncement" type="file" name="announcement" accept=".jpg,.png">
+                <input class="inputNews" id="inputAnnouncement" name="announcement" type="file"  accept=".jpg,.png" >
             </form>
         </div>
 
         <div>
             <h2>Noticia 1</h2>
-            <form id="news1Homepage_FORM" class="news__form" enctype="multipart/form-data" action="<?php echo RUTA_URL; ?>/usuarios/changeNews1HomePage">
-                <img id="news1" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
-                <div id="labelInputNews1">
+            <form id="news1Homepage_FORM" class="news__form" enctype="multipart/form-data">
+                <img class="newsImages" id="news1" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+                <div class="labelsImages" id="labelInputNews1">
                     <label for="inputNews1" style="font-size: 30px;">Cambiar</label>
                 </div>
-                <input id="inputNews1" type="file" name="imagen" accept=".jpg,.png">
+                <input class="inputNews" id="inputNews1" name="news1" type="file" accept=".jpg,.png">
             </form>
         </div>
 
         <div>
             <h2>Noticia 2</h2>
-            <form id="news2Homepage_FORM" class="news__form" enctype="multipart/form-data" action="<?php echo RUTA_URL; ?>/usuarios/changeNews2HomePage">
-                <img id="news2" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
-                <div id="labelInputNews2">
+            <form id="news2Homepage_FORM" class="news__form" enctype="multipart/form-data">
+                <img class="newsImages" id="news2" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+                <div class="labelsImages" id="labelInputNews2">
                     <label for="inputNews2" style="font-size: 30px;">Cambiar</label>
                 </div>
-                <input id="inputNews2" type="file" name="news2" accept=".jpg,.png">
+                <input class="inputNews" id="inputNews2" name="news2" type="file" accept=".jpg,.png">
             </form>
         </div>
 

@@ -48,9 +48,9 @@ class Db{
 				$tipo = PDO::PARAM_NULL;
 				break;
 				
-				case is_file($valor):
-				$tipo = PDO::PARAM_LOB;
-				break;
+				// case is_file($valor):
+				// $tipo = PDO::PARAM_LOB;
+				// break;
 
 				default:
 				$tipo = PDO::PARAM_STR;

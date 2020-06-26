@@ -46,7 +46,6 @@
                 <button type="submit" value="Iniciar">Iniciar Sesión</button>
                 <div class="warnings" id="warnings">
                     <h5>
-                       
                     </h5>
                 </div>
             </form>

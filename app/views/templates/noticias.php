@@ -59,7 +59,6 @@ if (empty($_SESSION['SESSION_USER'])) {
 				</div>
 				<a href="#">Admin</a>
 
-			
 			</div>
 			<div class="gallery">
 				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_1.png" alt="" class="imagen" />

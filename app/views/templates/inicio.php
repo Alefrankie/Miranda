@@ -16,7 +16,6 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo NOMBRESITIO; ?></title>
 	<link rel="shortcut icon" href="<?php echo RUTA_URL ?>/img/logo-footer.png" type="image/x-icon">
-	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/announcementAndNews.js"></script>
 	<link rel="stylesheet" href="<?php echo RUTA_URL; ?>/public_html/css/styles.css">
 	<link rel="stylesheet" href="<?php echo RUTA_URL; ?>/css/owl.carousel.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" href="<?php echo RUTA_URL; ?>/css/owl.theme.css" rel="stylesheet" media="screen">

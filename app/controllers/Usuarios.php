@@ -122,26 +122,23 @@ class Usuarios extends AppController
         redireccionar("/usuarios/login");
     }
 
-    public function uploadPhotoPerfil()
+    public function PhotoPerfil()
     {
+        if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+            $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
+            $photo = base64_encode(stripslashes($currentUser->photoPerfil));
+            return printf(json_encode($photo));
+        }
         $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
         $photo = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+        $photoDecode = base64_encode(stripslashes($photo));
         $datos = [
             'id' => $currentUser->id,
             'photoPerfil' => $photo
         ];
         $this->usuarioModelo->updateImage($datos);
-        $photoDecode = base64_encode(stripslashes($datos['photoPerfil']));
-        echo json_encode($photoDecode);
+        return printf(json_encode($photoDecode));
     }
-
-    public function showPhotoPerfil()
-    {
-        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-        $photo = base64_encode(stripslashes($currentUser->photoPerfil));
-        echo json_encode($photo);
-    }
-
 
     public function chargeTableUsers()
     {
@@ -149,79 +146,54 @@ class Usuarios extends AppController
         echo json_encode($usuarios);
     }
 
-    public function showAnnouncementNews1News2()
+    public function AnnouncementNews1News2()
     {
-        $announcement = file_get_contents(RUTA_ORIGIN . '/public_html/json/announcement.json');
-        $news1 = file_get_contents(RUTA_ORIGIN . '/public_html/json/news1.json');
-        $news2 = file_get_contents(RUTA_ORIGIN . '/public_html/json/news2.json');
+        if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+            $announcement =  json_decode(file_get_contents(RUTA_ORIGIN . '/public_html/json/announcement.json'), true);
+            $news1 =  json_decode(file_get_contents(RUTA_ORIGIN . '/public_html/json/news1.json'), true);
+            $news2 =  json_decode(file_get_contents(RUTA_ORIGIN . '/public_html/json/news2.json'), true);
 
-        $data1 =  json_decode($announcement, true);
-        $data2 =  json_decode($news1, true);
-        $data3 =  json_decode($news2, true);
+            $data = [
+                "announcement" => $announcement['announcement'],
+                "news1" =>  $news1['news1'],
+                "news2" => $news2['news2']
+            ];
 
-        $data4 = [
-            "announcement" => $data1['announcement'],
-            "news1" =>  $data2['news1'],
-            "news2" => $data3['news2']
-        ];
+            return printf(json_encode($data));
+        }
 
-        echo json_encode($data4);
-    }
+        $imagen = base64_encode(stripslashes(addslashes(file_get_contents($_FILES['image']['tmp_name']))));
 
-    public function changeAnnouncementHomePage()
-    {
-        $announcement = addslashes(file_get_contents($_FILES['announcement']['tmp_name']));
-        $imagen = base64_encode(stripslashes($announcement));
-        $datos = [
-            'announcement' => $imagen
-        ];
+        if ($_POST['nameFile'] == "announcement") {
+            $datos = [
+                'nameFile' => $_POST['nameFile'],
+                'announcement' => $imagen
+            ];
+            $file = RUTA_ORIGIN . '/public_html/json/announcement.json';
+            $json_string = json_encode($datos);
+            file_put_contents($file, $json_string);
+        }
 
-        $file = RUTA_ORIGIN . '/public_html/json/announcement.json';
-        $json_string = json_encode($datos);
-        file_put_contents($file, $json_string);
-        echo json_encode($datos['announcement']);
-    }
+        if ($_POST['nameFile'] == "news1") {
+            $datos = [
+                'nameFile' => $_POST['nameFile'],
+                'news1' => $imagen
+            ];
+            $file = RUTA_ORIGIN . '/public_html/json/news1.json';
+            $json_string = json_encode($datos);
+            file_put_contents($file, $json_string);
+        }
 
-    public function changeNews1HomePage()
-    {
-        $news1 = addslashes(file_get_contents($_FILES['news1']['tmp_name']));
-        $imagen = base64_encode(stripslashes($news1));
-        $datos = [
-            'news1' => $imagen
-        ];
-
-        $file = RUTA_ORIGIN . '/public_html/json/news1.json';
-        $json_string = json_encode($datos);
-        file_put_contents($file, $json_string);
-        echo json_encode($datos['news1']);
-    }
-
-    public function changeNews2HomePage()
-    {
-        $news2 = addslashes(file_get_contents($_FILES['news2']['tmp_name']));
-        $imagen = base64_encode(stripslashes($news2));
-        $datos = [
-            'news2' => $imagen
-        ];
-
-        $file = RUTA_ORIGIN . '/public_html/json/news2.json';
-        $json_string = json_encode($datos);
-        file_put_contents($file, $json_string);
-        echo json_encode($datos['news2']);
-    }
-
-    public function changeNewsHomePage()
-    {
-        $news2 = addslashes(file_get_contents($_FILES['news']['tmp_name']));
-        $imagen = base64_encode(stripslashes($news2));
-        $datos = [
-            'news' => $imagen
-        ];
-
-        $file = RUTA_ORIGIN . '/public_html/json/news2.json';
-        $json_string = json_encode($datos);
-        file_put_contents($file, $json_string);
-        echo json_encode($datos['news2']);
+        if ($_POST['nameFile'] == "news2") {
+            $datos = [
+                'nameFile' => $_POST['nameFile'],
+                'news2' => $imagen
+            ];
+            $file = RUTA_ORIGIN . '/public_html/json/news2.json';
+            $json_string = json_encode($datos);
+            file_put_contents($file, $json_string);
+        }
+        return printf(json_encode($imagen));
     }
 
     // public function importJson()

@@ -31,6 +31,33 @@ document.addEventListener("scroll", () => {
   }
 });
 
+/*===== SCRIPT, CHANGE OF ANNOUNCEMENT AND IMAGES OF NEWS SECTION*/
+class Interfaz {
+  changeNews(news, nameFile) {
+      document.getElementById(nameFile).setAttribute("src", `data:image/png;base64,${news}`);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", (e) => {
+  const ui = new Interfaz();
+
+  (async (e) => {
+      const myRequest = new Request(location.origin + "/Miranda/usuarios/AnnouncementNews1News2");
+      try {
+          const response = await fetch(myRequest);
+          if (!response.ok) {
+              throw new error(response.statusText);
+          }
+          const images = await response.json();
+          ui.changeNews(images.announcement,"announcement")
+          ui.changeNews(images.news1, "news1")
+          ui.changeNews(images.news2, "news2")
+
+      } catch (error) {
+          alert("Error al enviar el formulario: " + error.message);
+      }
+  })();
+})
 
 /*===== MENU DE NAVEGACIÓN RESPONSIVE */
 
