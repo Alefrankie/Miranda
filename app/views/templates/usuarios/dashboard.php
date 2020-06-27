@@ -21,7 +21,7 @@ if (empty($_SESSION['SESSION_USER'])) {
         </div>
         <div class="enlaces" id="enlaces">
             <a href="<?php echo RUTA_URL; ?>/"><i class="fa fa-home"></i> INICIO</a>
-            <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR data</a>
+            <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
             <a href="#data-base" id="enlace_BuscarUsuario"><i class="fas fa-search"></i></i> BUSCAR USUARIO</a>
             <a href="#personal-card"><i class="fa fa-link"></i> FICHA PERSONAL</a></<a>
             <a href="<?php echo RUTA_URL; ?>/noticias"><i class="fa fa-link"></i> NOTICIAS</a></<a>
@@ -52,7 +52,7 @@ if (empty($_SESSION['SESSION_USER'])) {
         <h2>Bienvenido <?php echo $_SESSION['SESSION_USER'] ?></h2>
 
         <form id="dashboard_perfil" class="data-update__form">
-            <img class="newsImages" id="photo" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+            <img class="newsImages" id="photo" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="name_user">
             <div class="labelsImages" id="labelInputPhotoPerfil">
                 <label for="inputPhotoPerfil" style="font-size: 30px;">Cambiar</label>
             </div>
@@ -109,7 +109,7 @@ if (empty($_SESSION['SESSION_USER'])) {
     <div class="personal-card contenedor" id="personal-card">
         <div class="body-login">
             <div class="wave">
-                <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user">
+                <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="name_user">
             </div>
             <div class="usuarios">
                 <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
@@ -174,7 +174,7 @@ if (empty($_SESSION['SESSION_USER'])) {
         <div>
             <h2>Noticia 1</h2>
             <form id="news1Homepage_FORM" class="news__form" enctype="multipart/form-data">
-                <img class="newsImages" id="news1" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+                <img class="newsImages" id="news1" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="name_user">
                 <div class="labelsImages" id="labelInputNews1">
                     <label for="inputNews1" style="font-size: 30px;">Cambiar</label>
                 </div>
@@ -185,7 +185,7 @@ if (empty($_SESSION['SESSION_USER'])) {
         <div>
             <h2>Noticia 2</h2>
             <form id="news2Homepage_FORM" class="news__form" enctype="multipart/form-data">
-                <img class="newsImages" id="news2" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="user">
+                <img class="newsImages" id="news2" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="name_user">
                 <div class="labelsImages" id="labelInputNews2">
                     <label for="inputNews2" style="font-size: 30px;">Cambiar</label>
                 </div>

@@ -1,7 +1,7 @@
 class Login {
-    constructor(user, pass) {
+    constructor(user, password) {
         this.user = user
-        this.pass = pass
+        this.password = password
     }
 }
 

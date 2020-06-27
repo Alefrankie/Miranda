@@ -24,7 +24,7 @@ class dashboard {
 class Interfaz {
 
     changeImages(image, nameFile) {
-        document.getElementById(nameFile).setAttribute("src", `data:image/png;base64,${image}`);
+        document.getElementById(nameFile).setAttribute("src", `data:image;base64,${image}`);
     }
 
     chargeTable(table) {
@@ -38,7 +38,7 @@ class Interfaz {
                 <th >${valor.id}</th>
                 <td >${valor.nombre}</td>
                 <td >${valor.apellido}</td>
-                <td >${valor.user}</td>
+                <td >${valor.name_user}</td>
                 <td >${valor.t_user}</td>
                 <th ${valor.status_user == "Online" ? "class='btn btn-success btn-xs'" : "class='btn btn-danger btn-xs'"}>${valor.status_user}</th>
                 <td><a class="buttonEdit" href="${myRequest + "editar/" + valor.id}"><i class="fas fa-user-edit"></i></a></td>
@@ -72,6 +72,8 @@ const ui = new Interfaz();
 const inputPhotoPerfil = document.getElementById("inputPhotoPerfil")
 inputPhotoPerfil.addEventListener("change", (e) => {
     (async (e) => {
+        // const blob = new Blob([inputPhotoPerfil.files[0]], {type: 'application/octet-binary'});
+
         const data = new FormData();
         data.append("imagen", inputPhotoPerfil.files[0]);
         try {
@@ -86,8 +88,9 @@ inputPhotoPerfil.addEventListener("change", (e) => {
             }
             const photoPerfil = await response.json();
             ui.changeImages(photoPerfil, "photo");
+            console.log
         } catch (error) {
-            alert("Error al enviar el formulario: " + error.message);
+            console.log("Error al enviar el formulario: " + error.message);
         }
     })();
 })

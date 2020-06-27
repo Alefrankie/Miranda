@@ -3,10 +3,11 @@ if (empty($_SESSION['SESSION_USER'])) {
 	$dataSession = " Iniciar Sesión";
 	$destino = RUTA_URL . "/Usuarios/login/";
 	$tipoUser = "RIF G-20000169-0";
+}else{
+	$dataSession = $_SESSION['SESSION_USER'];
+	$destino = RUTA_URL . "/Usuarios/dashboard/";
+	$tipoUser = $data["t_user"];
 }
-$dataSession = $_SESSION['SESSION_USER'];
-$destino = RUTA_URL . "/Usuarios/dashboard/";
-$tipoUser = $data["t_user"];
 
 ?>
 
@@ -74,7 +75,7 @@ $tipoUser = $data["t_user"];
 	<?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
 
 	<!--===== Javascript ===================================== -->
-	<script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
+	<!-- <script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script> -->
 	<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
 	<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 </body>

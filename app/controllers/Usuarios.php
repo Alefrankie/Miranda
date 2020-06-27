@@ -34,11 +34,11 @@ class Usuarios extends AppController
             return printf(json_encode("Usuario no encontrado."));
         }
 
-        if (!(password_verify($dataPOST->pass, $dataDB->pass))) {
+        if (!(password_verify($dataPOST->password, $dataDB->pass))) {
             return printf(json_encode("Contraseña incorrecta."));
         }
 
-        $_SESSION['SESSION_USER'] = $dataDB->user;
+        $_SESSION['SESSION_USER'] = $dataDB->name_user;
         echo json_encode("<br>Inicio de Sesión Exitoso.<br>");
     }
 
@@ -71,7 +71,7 @@ class Usuarios extends AppController
                 'an_id' => $userDB->id,
                 'a_name' => $userDB->nombre,
                 'a_lastName' => $userDB->apellido,
-                'an_user' => $userDB->user,
+                'an_user' => $userDB->name_user,
                 'a_pass' => $userDB->pass,
             ];
 
@@ -109,9 +109,9 @@ class Usuarios extends AppController
             'id' => $currentUser->id,
             'nombre' => $currentUser->nombre,
             'apellido' => $currentUser->apellido,
-            'user' => $currentUser->user,
+            'name_user' => $currentUser->name_user,
             'pass' => $currentUser->pass,
-            'imagen' => $currentUserImage->photoPerfil,
+            'imagen' => $currentUserImage->photo_perfil,
             't_user' => $currentUser->t_user,
             'status_user' => "Online"
         ];
@@ -134,20 +134,18 @@ class Usuarios extends AppController
 
     public function PhotoPerfil()
     {
+        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
         if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
-            $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-            $photo = base64_encode(stripslashes($currentUser->photoPerfil));
+            $photo = $currentUser->photo_perfil;
             return printf(json_encode($photo));
         }
-        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-        $photo = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
-        $photoDecode = base64_encode(stripslashes($photo));
+        $photo = base64_encode(file_get_contents($_FILES['imagen']['tmp_name']));
         $data = [
             'id' => $currentUser->id,
-            'photoPerfil' => $photo
+            'photo_perfil' => $photo
         ];
         $this->usuarioModelo->updateImage($data);
-        return printf(json_encode($photoDecode));
+        return printf(json_encode($photo));
     }
 
     public function chargeTableUsers()
@@ -159,42 +157,109 @@ class Usuarios extends AppController
     public function AnnouncementNews1News2()
     {
         if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
-            $announcement =  json_decode(file_get_contents(RUTA_ORIGIN . '/public_html/json/announcement.json'), true);
-            $news1 =  json_decode(file_get_contents(RUTA_ORIGIN . '/public_html/json/news1.json'), true);
-            $news2 =  json_decode(file_get_contents(RUTA_ORIGIN . '/public_html/json/news2.json'), true);
+            $data = json_decode(file_get_contents(RUTA_ORIGIN . '/public_html/json/AnnouncementNews1News2.json'));
 
             $data = [
-                "announcement" => $announcement['announcement'],
-                "news1" =>  $news1['news1'],
-                "news2" => $news2['news2']
+                "announcement" => $data['0']->imagen,
+                "news1" =>  $data['1']->imagen,
+                "news2" => $data['2']->imagen
             ];
 
             return printf(json_encode($data));
         }
 
-        $imagen = base64_encode(stripslashes(addslashes(file_get_contents($_FILES['image']['tmp_name']))));
-        $data = [
-            'nameFile' => $_POST['nameFile'],
-            $_POST['nameFile'] => $imagen
-        ];
+        $file = RUTA_ORIGIN . '/public_html/json/AnnouncementNews1News2.json';
+        if (!file_exists($file)) {
+            $data = '
+            [
+            {   "file_name":"announcement",
+                "imagen":"archivo base 641"
+            },
+            {   "file_name":"news1",
+                "imagen":"archivo base 642"
+            },
+            {   "file_name":"news2",
+                "imagen":"archivo base 643"
+            }]
+            ';
 
-        if ($_POST['nameFile'] == "announcement") {
-            $file = RUTA_ORIGIN . '/public_html/json/announcement.json';
-            $json_string = json_encode($data);
+            $file = RUTA_ORIGIN . '/public_html/json/AnnouncementNews1News2.json';
+            $json_string = $data;
             file_put_contents($file, $json_string);
         }
+        #FILE EXIST
 
-        if ($_POST['nameFile'] == "news1") {
-            $file = RUTA_ORIGIN . '/public_html/json/news1.json';
-            $json_string = json_encode($data);
-            file_put_contents($file, $json_string);
+        $imagen = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+
+        $json = file_get_contents(RUTA_ORIGIN . '/public_html/json/AnnouncementNews1News2.json');
+
+        $data = json_decode($json);
+
+        foreach ($data as $obj) {
+            if ($obj->file_name == $_POST['nameFile']) {
+                $obj->imagen = $imagen;
+            }
         }
 
-        if ($_POST['nameFile'] == "news2") {
-            $file = RUTA_ORIGIN . '/public_html/json/news2.json';
-            $json_string = json_encode($data);
-            file_put_contents($file, $json_string);
-        }
+        $file = RUTA_ORIGIN . '/public_html/json/AnnouncementNews1News2.json';
+        $json_string = json_encode($data);
+        file_put_contents($file, $json_string);
         return printf(json_encode($imagen));
+    }
+
+    public function TEST()
+    {
+        $json = file_get_contents(RUTA_ORIGIN . '/public_html/json/data.json');
+
+        $data = json_decode($json);
+
+        foreach ($data as $obj) {
+            $Id = $obj->Id;
+            $Username = $obj->Username;
+            $FatherName = $obj->FatherName;
+
+            if ($obj->Id == "2") {
+                $obj->Username = "José";
+            }
+            echo $Id . " " . $Username . " " . $FatherName;
+        }
+
+        $file = RUTA_ORIGIN . '/public_html/json/data.json';
+        $json_string = json_encode($data);
+        file_put_contents($file, $json_string);
+    }
+    public function TEST2()
+    {
+
+        $file = RUTA_ORIGIN . '/public_html/json/photos_perfil.json';
+        // if (!file_exists($file)) {
+
+        $data = [];
+        for ($i = 1; $i < data; $i++) {
+            $data += ["id$i" => "$i"];
+        }
+
+        $file = RUTA_ORIGIN . '/public_html/json/photos_perfil.json';
+        $json_string = json_encode($data);
+        file_put_contents($file, $json_string);
+        // }
+        // #FILE EXIST
+
+        // $imagen = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+
+        // $json = file_get_contents(RUTA_ORIGIN . '/public_html/json/photos_perfil.json');
+
+        // $data = json_decode($json);
+
+        // foreach ($data as $obj) {
+        //     if ($obj->file_name == $_POST['nameFile']) {
+        //         $obj->imagen = $imagen;
+        //     }
+        // }
+
+        // $file = RUTA_ORIGIN . '/public_html/json/photos_perfil.json';
+        // $json_string = json_encode($data);
+        // file_put_contents($file, $json_string);
+        // return printf(json_encode($imagen));
     }
 }

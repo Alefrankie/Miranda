@@ -14,8 +14,8 @@ class Db
 	public function __construct()
 	{
 		//CONFIGURAR CONEXIÓN
-		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->nombre_base;
 
+		$dsn = 'pgsql:host=' . $this->host . ';port=5432' .   ';dbname=' . $this->nombre_base;
 		$opciones = array(
 			PDO::ATTR_PERSISTENT => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -24,7 +24,7 @@ class Db
 		// Crear una instancia PDO
 		try {
 			$this->dbh = new PDO($dsn, $this->usuario, $this->password, $opciones);
-			$this->dbh->exec('set names utf8');
+			// $this->dbh->exec('set names utf8');
 		} catch (PDOException $e) {
 			$this->error = $e->getMessage();
 			echo $this->error;
@@ -52,9 +52,9 @@ class Db
 					$tipo = PDO::PARAM_NULL;
 					break;
 
-					// case is_file($valor):
-					// $tipo = PDO::PARAM_LOB;
-					// break;
+				// case is_file($valor):
+				// 	$tipo = PDO::FETCH_ASSOC;
+				// 	break;
 
 				default:
 					$tipo = PDO::PARAM_STR;

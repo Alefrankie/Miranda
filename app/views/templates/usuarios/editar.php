@@ -27,7 +27,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 <body>
     <div class="body-login">
         <div class="wave">
-            <!-- <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="user"> -->
+            <!-- <img src="<?php echo RUTA_URL; ?>/img/usuarios/data-update.svg" alt="name_user"> -->
             <img src="<?php echo RUTA_URL ?>/img/usuarios/flora.svg">
         </div>
         <div class="usuarios">

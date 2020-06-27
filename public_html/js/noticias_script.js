@@ -9,14 +9,14 @@ class NewsInterface {
       <article class="articulo">
           <div class="cabecera-articulo">
                 <div class="thumbnail">
-                    <img loading="lazy" src="data:image/png;base64,${valor.photoPerfil}" alt="X">
+                    <img loading="lazy" src="data:image/png;base64,${valor.photo_perfil}" alt="X">
                 </div>
-                  <a hrtextef="">${valor.user}</a>
+                  <a hrtextef="">${valor.name_user}</a>
                   <a class="buttonDelete" href="${myRequest + valor.id_noticia}" type="submit">Eliminar Noticia</a>
           </div>
 
           <div class="gallery">
-                <img loading="lazy" src="data:image/png;base64,${valor.imagenNews}" alt="" class="imagen" />
+                <img loading="lazy" src="data:image/png;base64,${valor.image_news}" alt="" class="imagen" />
           </div>
 
           <div class="footer-article">

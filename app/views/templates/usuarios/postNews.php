@@ -40,7 +40,7 @@ $destino = RUTA_URL . "/Usuarios/dashboard/";
         </div>
         <div class="usuarios">
             <img id="photoNews" src="<?php echo RUTA_URL ?>/img/noticias/newsIcon.png">
-            <form id="form" action="<?php echo RUTA_URL ?>/Noticias/uploadNews" method="POST" enctype="multipart/form-data">
+            <form id="form" enctype="multipart/form-data">
                 <p><?php echo $dataSession ?></p>
                 <div class="input-div">
                     <div class="head-input">

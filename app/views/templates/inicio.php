@@ -273,7 +273,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 
 	<!--===== Javascripts ================================================== -->
 
-	<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script>
+	<!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script> -->
 	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/jquery.1.11.1.js"></script>
 	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/owl.carousel.js"></script>
 	<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/bootstrap.js"></script>

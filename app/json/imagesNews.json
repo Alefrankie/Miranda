@@ -1,12 +1,12 @@
 [
     {
         "id_usuario": "1",
-        "user": "Alefrank",
+        "name_user": "Alefrank",
         "description_image": "HOLA"
     },
     {
         "id_usuario": "2",
-        "user": "Alefrank",
+        "name_user": "Alefrank",
         "description_image": "HOLAx"
     }
 ]

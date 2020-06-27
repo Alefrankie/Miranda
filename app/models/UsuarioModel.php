@@ -11,7 +11,7 @@ class UsuarioModel
 
     public function obtenerUsuarios()
     {
-        $this->db->query('SELECT id, nombre, apellido, user, pass, t_user, status_user FROM usuarios');
+        $this->db->query('SELECT id, nombre, apellido, name_user, pass, t_user, status_user FROM usuarios');
         $resultados = $this->db->registros();
         return $resultados;
     }
@@ -25,7 +25,7 @@ class UsuarioModel
 
     public function registerUser($data)
     {
-        $this->db->query('INSERT INTO usuarios (nombre, apellido, user, pass) values (:a_name, :a_lastName, :an_user, :a_pass)');
+        $this->db->query('INSERT INTO usuarios (nombre, apellido, name_user, pass) values (:a_name, :a_lastName, :an_user, :a_pass)');
 
         //Vincular valores
 
@@ -52,7 +52,7 @@ class UsuarioModel
 
     public function updateUser($data)
     {
-        $this->db->query('UPDATE usuarios SET nombre = :a_name, apellido = :a_lastName, user = :an_user, pass = :a_pass WHERE id = :an_id');
+        $this->db->query('UPDATE usuarios SET nombre = :a_name, apellido = :a_lastName, name_user = :an_user, pass = :a_pass WHERE id = :an_id');
 
         //Vincular valores
         $this->db->bind(':an_id', $data['an_id']);
@@ -97,10 +97,10 @@ class UsuarioModel
         return false;
     }
 
-    public function GetUser($user)
+    public function GetUser($name_user)
     {
-        $this->db->query('SELECT * FROM usuarios WHERE user = :user');
-        $this->db->bind(':user', $user);
+        $this->db->query('SELECT * FROM usuarios WHERE name_user = :name_user');
+        $this->db->bind(':name_user', $name_user);
         $fila = $this->db->registro();
         return $fila;
     }
@@ -115,18 +115,18 @@ class UsuarioModel
 
     public function updateImage($data)
     {
-        $this->db->query('UPDATE usuarios SET id = :id, photoPerfil = :photoPerfil WHERE id = :id');
+        $this->db->query('UPDATE usuarios SET id = :id, photo_perfil = :photo_perfil WHERE id = :id');
 
         //Vincular valores
         $this->db->bind(':id', $data['id']);
-        $this->db->bind(':photoPerfil', $data['photoPerfil']);
+        $this->db->bind(':photo_perfil', $data['photo_perfil']);
 
         //Ejecutar insercion
 
         if ($this->db->execute()) {
             return true;
         }
-        return true;
+        return false;
     }
 
     public function showImage($id)

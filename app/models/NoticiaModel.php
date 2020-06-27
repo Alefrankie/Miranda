@@ -16,21 +16,21 @@ class NoticiaModel
         return $resultado;
     }
 
-    public function getNewsImagesPerfil($user)
+    public function getNewsImagesPerfil($name_user)
     {
-        $this->db->query('SELECT photoPerfil FROM usuarios WHERE user = :user');
-        $this->db->bind(':user', $user);
+        $this->db->query('SELECT photo_perfil FROM usuarios WHERE name_user = :name_user');
+        $this->db->bind(':name_user', $name_user);
         $fila = $this->db->registro();
         return $fila;
     }
 
     public function uploadNews($data)
     {
-        $this->db->query('INSERT INTO imagesnews (id_usuario, nameUser, imagenNews, description_image) values (:id_usuario, :nameUser, :imagenNews, :description_image)');
+        $this->db->query('INSERT INTO imagesnews (id_usuario, name_user, image_news, description_image) values (:id_usuario, :name_user, :image_news, :description_image)');
 
         $this->db->bind(':id_usuario', $data['id_usuario']);
-        $this->db->bind(':nameUser', $data['nameUser']);
-        $this->db->bind(':imagenNews', $data['imagenNews']);
+        $this->db->bind(':name_user', $data['name_user']);
+        $this->db->bind(':image_news', $data['image_news']);
         $this->db->bind(':description_image', $data['description_image']);
 
         if ($this->db->execute()) {
@@ -53,10 +53,10 @@ class NoticiaModel
         return false;
     }
 
-    public function GetUser($user)
+    public function GetUser($name_user)
     {
-        $this->db->query('SELECT * FROM usuarios WHERE user = :user');
-        $this->db->bind(':user', $user);
+        $this->db->query('SELECT * FROM usuarios WHERE name_user = :name_user');
+        $this->db->bind(':name_user', $name_user);
         $fila = $this->db->registro();
         return $fila;
     }
