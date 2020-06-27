@@ -17,22 +17,22 @@
     <div class="card card-body bg-light mt-5">
         <h2>Editar usuario</h2>
 
-        <form action="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $datos['id']?>" method="POST">
+        <form action="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $data['id']?>" method="POST">
 
             <div class="form-group">
                 <label for="cedula">Cedula: <sup>*</sup></label>
-                <input type="text" class="form-control form-control-lg" name="cedula" id="" value="<?php echo $datos['cedula']?>">
+                <input type="text" class="form-control form-control-lg" name="cedula" id="" value="<?php echo $data['cedula']?>">
             </div>
             <div class="form-group">
                 <label for="nombre">Nombre: <sup>*</sup></label>
-                <input type="text" class="form-control form-control-lg" name="nombre" id="" value="<?php echo $datos['nombre']?>">
+                <input type="text" class="form-control form-control-lg" name="nombre" id="" value="<?php echo $data['nombre']?>">
             </div>
             <div class="form-group">
                 <label for="apellido">Apellido: <sup>*</sup></label>
-                <input type="text" class="form-control form-control-lg" name="apellido" id="" value="<?php echo $datos['apellido']?>">
+                <input type="text" class="form-control form-control-lg" name="apellido" id="" value="<?php echo $data['apellido']?>">
             </div>
 
-            <input type="submit" value="Borrar Datos" class="btn btn-success">
+            <input type="submit" value="Borrar data" class="btn btn-success">
         </form>
     </div>
     <?php require RUTA_APP . '/views/inc/footer.php'; ?>

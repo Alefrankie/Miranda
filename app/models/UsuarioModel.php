@@ -23,24 +23,23 @@ class UsuarioModel
         return $resultado;
     }
 
-    public function registerUser($datos)
+    public function registerUser($data)
     {
         $this->db->query('INSERT INTO usuarios (nombre, apellido, user, pass) values (:a_name, :a_lastName, :an_user, :a_pass)');
 
         //Vincular valores
 
-        $this->db->bind(':a_name', $datos['a_name']);
-        $this->db->bind(':a_lastName', $datos['a_lastName']);
-        $this->db->bind(':an_user', $datos['an_user']);
-        $this->db->bind(':a_pass', $datos['a_pass']);
+        $this->db->bind(':a_name', $data['a_name']);
+        $this->db->bind(':a_lastName', $data['a_lastName']);
+        $this->db->bind(':an_user', $data['an_user']);
+        $this->db->bind(':a_pass', $data['a_pass']);
 
         //Ejecutar inserción
 
         if ($this->db->execute()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function obtenerUsuarioID($id)
@@ -51,23 +50,22 @@ class UsuarioModel
         return $fila;
     }
 
-    public function updateUser($datos)
+    public function updateUser($data)
     {
         $this->db->query('UPDATE usuarios SET nombre = :a_name, apellido = :a_lastName, user = :an_user, pass = :a_pass WHERE id = :an_id');
 
         //Vincular valores
-        $this->db->bind(':an_id', $datos['an_id']);
-        $this->db->bind(':a_name', $datos['a_name']);
-        $this->db->bind(':a_lastName', $datos['a_lastName']);
-        $this->db->bind(':an_user', $datos['an_user']);
-        $this->db->bind(':a_pass', $datos['a_pass']);
+        $this->db->bind(':an_id', $data['an_id']);
+        $this->db->bind(':a_name', $data['a_name']);
+        $this->db->bind(':a_lastName', $data['a_lastName']);
+        $this->db->bind(':an_user', $data['an_user']);
+        $this->db->bind(':a_pass', $data['a_pass']);
 
         //Ejecutar
         if ($this->db->execute()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function deleteUser($id)
@@ -80,25 +78,23 @@ class UsuarioModel
         //Ejecutar
         if ($this->db->execute()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    public function updateStatus($datos)
+    public function updateStatus($data)
     {
         $this->db->query('UPDATE usuarios SET status_user = :status_user WHERE id = :id');
 
         //Vincular valores
-        $this->db->bind(':id', $datos['id']);
-        $this->db->bind(':status_user',  $datos['status_user']);
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':status_user',  $data['status_user']);
 
         //Ejecutar
         if ($this->db->execute()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function GetUser($user)
@@ -109,21 +105,28 @@ class UsuarioModel
         return $fila;
     }
 
-    public function updateImage($datos)
+    public function ValidateAdmin($admi)
+    {
+        $this->db->query('SELECT t_user FROM usuarios WHERE t_user = :admi');
+        $this->db->bind(':admi', $admi);
+        $fila = $this->db->registro();
+        return $fila;
+    }
+
+    public function updateImage($data)
     {
         $this->db->query('UPDATE usuarios SET id = :id, photoPerfil = :photoPerfil WHERE id = :id');
 
         //Vincular valores
-        $this->db->bind(':id', $datos['id']);
-        $this->db->bind(':photoPerfil', $datos['photoPerfil']);
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':photoPerfil', $data['photoPerfil']);
 
         //Ejecutar insercion
 
         if ($this->db->execute()) {
             return true;
-        } else {
-            return true;
         }
+        return true;
     }
 
     public function showImage($id)

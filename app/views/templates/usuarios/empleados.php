@@ -29,7 +29,7 @@
             <div class="main-navigation responsive-menu">
                 <ul class="navigation">
                     <li><a href="#top"><i class="fa fa-home"></i>INICIO</a></li>
-                    <li><a href="#about"><i class="fa fa-user"></i>ACTUALIZAR DATOS</a></li>
+                    <li><a href="#about"><i class="fa fa-user"></i>ACTUALIZAR data</a></li>
                     <li><a href="#projects"><i class="fa fa-newspaper-o"></i>CARNET</a></li>
                     <li><a href="#projects2"><i class="fa fa-newspaper-o"></i>CONSTANSIA DE TRABAJO</a></li>
                     <li><a href="#projects3"><i class="fa fa-newspaper-o"></i>CONSTANSIA IPP</a></li>
@@ -57,7 +57,7 @@
         <div class="main-navigation">
             <ul class="navigation">
                 <li><a href="#top"><i class="fa fa-home"></i>INICIO</a></li>
-                <li><a href="#about"><i class="fa fa-user"></i>ACTUALIZAR DATOS</a></li>
+                <li><a href="#about"><i class="fa fa-user"></i>ACTUALIZAR data</a></li>
                 <li><a href="#projects"><i class="fa fa-newspaper-o"></i>CARNET</a></li>
                 <li><a href="#projects2"><i class="fa fa-newspaper-o"></i>CONSTANCIA DE TRABAJO</a></li>
                 <li><a href="#projects3"><i class="fa fa-newspaper-o"></i>CONSTANCIA IPP</a></li>
@@ -104,7 +104,7 @@
 
                             <ul>
                                 </br>
-                                <li class="fa fa-user"><i class="widget-title"> Actualizacion de datos de Inicio de Sesion.</i></li>
+                                <li class="fa fa-user"><i class="widget-title"> Actualizacion de data de Inicio de Sesion.</i></li>
                                 </br>
                                 <li class="fa fa-newspaper-o"><i class="widget-title"> Imprimir su Carnet de Identificacion como Empleado.</i></li>
                                 </br>
@@ -121,7 +121,7 @@
                 <div class="page-section" id="about">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="widget-title">Actualizar Datos</h4>
+                            <h4 class="widget-title">Actualizar data</h4>
 
 
                             <!--informacion del perfil -->
@@ -137,7 +137,7 @@
 
                             <form action="../empleados/p_modificar.php?idempleados=<?php echo $conexion['idempleados']; ?>" method="post" class="contact-constancia">
                                 <br>
-                                <h2>DATOS DE SESION:</h2>
+                                <h2>data DE SESION:</h2>
                                 <br><br>
                                 <h3>USUARIO: <input type="text" REQUIRED placeholder="Usuario..." name="user" value="<?php echo $conexion['user']; ?>" /> </h3>
                                 <br>
@@ -166,7 +166,7 @@
                         <!--inicio de la informacion -->
                         <form action="../../../../pdf/carnet.php" method="post" class="contact-constancia" target="_blank">
                             <br><br>
-                            <h4><br><br>VERIFIQUE SUS DATOS ANTES DE IMPRIMIR</h4>
+                            <h4><br><br>VERIFIQUE SUS data ANTES DE IMPRIMIR</h4>
                             <br>
                             <table id="keywords2" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -243,9 +243,9 @@
                         <!--inicio de la informacion -->
                         <form action="../../../../pdf/Constanciatrabajo.php" method="post" class="contact-constancia" target="_blank">
                             <br><br>
-                            <h4><br><br>VERIFIQUE SUS DATOS ANTES DE IMPRIMIR</h4>
+                            <h4><br><br>VERIFIQUE SUS data ANTES DE IMPRIMIR</h4>
                             <br>
-                            <h2>DATOS PERSONALES:</h2>
+                            <h2>data PERSONALES:</h2>
                             <br>
                             <table id="keywords2" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -284,7 +284,7 @@
                             </table>
 
                             <br>
-                            <h2>DATOS LABORALES:</h2>
+                            <h2>data LABORALES:</h2>
                             <br>
                             <table id="keywords2" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -410,7 +410,7 @@
                         <!--inicio de la informacion -->
                         <form action="../../../../pdf/IPP.php" method="post" class="contact-constancia" target="_blank">
                             <br><br>
-                            <h4><br><br>VERIFIQUE SUS DATOS ANTES DE IMPRIMIR</h4>
+                            <h4><br><br>VERIFIQUE SUS data ANTES DE IMPRIMIR</h4>
                             <br>
                             <table id="keywords2" cellspacing="0" cellpadding="0">
                                 <tr>

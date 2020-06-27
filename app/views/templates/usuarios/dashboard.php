@@ -17,11 +17,11 @@ if (empty($_SESSION['SESSION_USER'])) {
 <header class="fondo-gradiente">
     <nav id="nav">
         <div class="logo">
-            <a href="#" style="text-transform:uppercase;"><strong id="t_user"><?php echo $datos['t_user']; ?></strong></a>
+            <a href="#" style="text-transform:uppercase;"><strong id="t_user"><?php echo $data['t_user']; ?></strong></a>
         </div>
         <div class="enlaces" id="enlaces">
             <a href="<?php echo RUTA_URL; ?>/"><i class="fa fa-home"></i> INICIO</a>
-            <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR DATOS</a>
+            <a href="#data-update"><i class="fa fa-user"></i> ACTUALIZAR data</a>
             <a href="#data-base" id="enlace_BuscarUsuario"><i class="fas fa-search"></i></i> BUSCAR USUARIO</a>
             <a href="#personal-card"><i class="fa fa-link"></i> FICHA PERSONAL</a></<a>
             <a href="<?php echo RUTA_URL; ?>/noticias"><i class="fa fa-link"></i> NOTICIAS</a></<a>
@@ -120,14 +120,14 @@ if (empty($_SESSION['SESSION_USER'])) {
                             <i class="fas fa-user"></i>
                             <!-- <h3 id="h3-nombre">Nombre</h3> -->
                         </div>
-                        <input type="text" name="nombre" id="nombre" class="input" placeholder="Nombre" value="<?php echo $datos['nombre']; ?>" autocomplete="off">
+                        <input type="text" name="nombre" id="nombre" class="input" placeholder="Nombre" value="<?php echo $data['nombre']; ?>" autocomplete="off">
                     </div>
                     <div class="input-div">
                         <div class="head-input">
                             <i class="fas fa-user"></i>
                             <!-- <h3 id="h3-apellido">Apellido</h3> -->
                         </div>
-                        <input type="text" name="apellido" id="apellido" class="input" placeholder="Apellido" value="<?php echo $datos['apellido']; ?>" autocomplete="off">
+                        <input type="text" name="apellido" id="apellido" class="input" placeholder="Apellido" value="<?php echo $data['apellido']; ?>" autocomplete="off">
                     </div>
                     <div class="input-div">
                         <div class="head-input">
@@ -147,7 +147,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 
                     <div class="forgot-password">
                     </div>
-                    <button type="submit" value="Iniciar">Actualizar Datos</button>
+                    <button type="submit" value="Iniciar">Actualizar data</button>
                     <div class="warnings" id="warnings">
                         <h5>
 

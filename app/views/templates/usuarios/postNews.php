@@ -2,10 +2,10 @@
 if (empty($_SESSION['SESSION_USER'])) {
     $dataSession = " Iniciar Sesión";
     redireccionar("/usuarios/login");
-} else {
-    $dataSession = $_SESSION['SESSION_USER'];
-    $destino = RUTA_URL . "/Usuarios/dashboard/";
 }
+$dataSession = $_SESSION['SESSION_USER'];
+$destino = RUTA_URL . "/Usuarios/dashboard/";
+
 ?>
 
 <!DOCTYPE html>

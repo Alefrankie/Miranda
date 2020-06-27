@@ -1,3 +1,13 @@
+<?php
+
+if (empty($data["admi"])) {
+    $admi = "";
+} else {
+    $admi = $data["admi"];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,30 +30,31 @@
             <img src="<?php echo RUTA_URL ?>/img/usuarios/wave.png">
             <img src="<?php echo RUTA_URL ?>/img/usuarios/bg.svg">
         </div>
-        <div class="usuarios" >
+        <div class="usuarios">
             <img src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg">
             <form id="form">
                 <p>Bienvenido</p>
                 <div class="input-div">
                     <div class="head-input">
                         <i class="fas fa-user"></i>
-                        <h3 id="h3-usuario">Usuario</h3>
+                        <h3 class="labelInput" id="h3-usuario">Usuario</h3>
                     </div>
-                    <input type="text" name="user" id="user" class="input">
+                    <input type="text" name="user" id="user">
                 </div>
 
                 <div class="input-div">
                     <div class="head-input">
                         <i class="fas fa-lock"></i>
-                        <h3 id="h3-contraseña">Contraseña</h3>
+                        <h3 class="labelInput" id="h3-contraseña">Contraseña</h3>
                     </div>
-                    <input type="password" name="pass" id="password" class="input">
+                    <input type="password" name="pass" id="password">
                 </div>
 
                 <div class="forgot-password">
-                    <a href="#">¿Olvidaste Tu Contraseña?</a>
+                    <a id="forgotPassword" href="#">¿Olvidaste Tu Contraseña?</a>
                 </div>
                 <button type="submit" value="Iniciar">Iniciar Sesión</button>
+                <a href="#" style="color:gray;"><?php echo $admi ?></a>
                 <div class="warnings" id="warnings">
                     <h5>
                     </h5>

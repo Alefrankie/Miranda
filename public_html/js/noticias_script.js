@@ -4,28 +4,28 @@ class NewsInterface {
     const seccionPrincipal = document.getElementById("sección-principal");
     const buttons_Delete = document.getElementsByClassName("buttonDelete")
     const myRequest = location.origin + "/Miranda/noticias/deleteNews/";
-    for (let valor of table) {
+    Array.from(table).reverse().forEach((valor) => {
       seccionPrincipal.innerHTML += `
       <article class="articulo">
-			    <div class="cabecera-articulo">
-			          <div class="thumbnail">
-			              <img loading="lazy" src="data:image/png;base64,${valor.photoPerfil}" alt="X">
-			          </div>
+          <div class="cabecera-articulo">
+                <div class="thumbnail">
+                    <img loading="lazy" src="data:image/png;base64,${valor.photoPerfil}" alt="X">
+                </div>
                   <a hrtextef="">${valor.user}</a>
-			            <a class="buttonDelete" href="${myRequest + valor.id_noticia}" type="submit">Eliminar Noticia</a>
+                  <a class="buttonDelete" href="${myRequest + valor.id_noticia}" type="submit">Eliminar Noticia</a>
           </div>
 
-			    <div class="gallery">
-			          <img loading="lazy" src="data:image/png;base64,${valor.imagenNews}" alt="" class="imagen" />
-			    </div>
+          <div class="gallery">
+                <img loading="lazy" src="data:image/png;base64,${valor.imagenNews}" alt="" class="imagen" />
+          </div>
 
           <div class="footer-article">
-			          <p>"${valor.description_image}"</p>
+                <p>"${valor.description_image}"</p>
           </div>
 
-		  </article>
+      </article>
         `;
-    }
+    });
     for (const i of buttons_Delete) {
       i.onclick = function (e) {
         (async () => {
@@ -49,28 +49,7 @@ class NewsInterface {
 }
 
 //------ARRAY TURNED FOR SHOW NEWS
-// Array.from(table).reverse().forEach((valor) =>{
-//   seccionPrincipal.innerHTML += `
-//   <article class="articulo">
-//       <div class="cabecera-articulo">
-//             <div class="thumbnail">
-//                 <img loading="lazy" src="data:image/png;base64,${valor.photoPerfil}" alt="X">
-//             </div>
-//               <a hrtextef="">${valor.user}</a>
-//               <a class="buttonDelete" href="${myRequest + valor.id_noticia}" type="submit">Eliminar Noticia</a>
-//       </div>
 
-//       <div class="gallery">
-//             <img loading="lazy" src="data:image/png;base64,${valor.imagenNews}" alt="" class="imagen" />
-//       </div>
-
-//       <div class="footer-article">
-//             <p>"${valor.description_image}"</p>
-//       </div>
-
-//   </article>
-//     `;
-// });
 
 
 //DOM EVENTS

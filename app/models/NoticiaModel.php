@@ -24,23 +24,19 @@ class NoticiaModel
         return $fila;
     }
 
-    public function uploadNews($datos)
+    public function uploadNews($data)
     {
         $this->db->query('INSERT INTO imagesnews (id_usuario, nameUser, imagenNews, description_image) values (:id_usuario, :nameUser, :imagenNews, :description_image)');
 
-        //Vincular valores
-        $this->db->bind(':id_usuario', $datos['id_usuario']);
-        $this->db->bind(':nameUser', $datos['nameUser']);
-        $this->db->bind(':imagenNews', $datos['imagenNews']);
-        $this->db->bind(':description_image', $datos['description_image']);
-
-        //Ejecutar inserción
+        $this->db->bind(':id_usuario', $data['id_usuario']);
+        $this->db->bind(':nameUser', $data['nameUser']);
+        $this->db->bind(':imagenNews', $data['imagenNews']);
+        $this->db->bind(':description_image', $data['description_image']);
 
         if ($this->db->execute()) {
             return true;
-        } else {
-            return true;
         }
+        return false;
     }
 
     public function deleteNews($id_noticia)
@@ -53,9 +49,8 @@ class NoticiaModel
         //Ejecutar inserción
         if ($this->db->execute()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function GetUser($user)

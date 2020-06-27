@@ -26,7 +26,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<div class="anuncio-container">
 		<div class="anuncio-abierto">
 			<!-- <img id="announcement" loading="lazy" src="img/anuncios/anuncio.jpg"> -->
-			<img id="announcement" loading="lazy" >
+			<img id="announcement" loading="lazy">
 		</div>
 	</div>
 	<!--===== NAVEGACIÓN ==================================================-->

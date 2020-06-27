@@ -168,8 +168,8 @@ window.addEventListener("load", (e) => {
     })();
 
     (showPhotoPerfil = async (e) => {
+        const myRequest = new Request(location.origin + "/Miranda/usuarios/PhotoPerfil");
         try {
-            const myRequest = new Request(location.origin + "/Miranda/usuarios/PhotoPerfil");
             const response = await fetch(myRequest);
             if (!response.ok) {
                 throw new error(response.statusText);

@@ -3,11 +3,11 @@ if (empty($_SESSION['SESSION_USER'])) {
 	$dataSession = " Iniciar Sesión";
 	$destino = RUTA_URL . "/Usuarios/login/";
 	$tipoUser = "RIF G-20000169-0";
-} else {
-	$dataSession = $_SESSION['SESSION_USER'];
-	$destino = RUTA_URL . "/Usuarios/dashboard/";
-	$tipoUser = $datos["t_user"];
 }
+$dataSession = $_SESSION['SESSION_USER'];
+$destino = RUTA_URL . "/Usuarios/dashboard/";
+$tipoUser = $data["t_user"];
+
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +32,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 			<div class="enlaces" id="enlaces">
 				<a href="/Miranda"><i class="fa fa-home page-scroll"></i> Inicio</a>
 				<a href="<?php echo RUTA_URL ?>/noticias/postNews/"><i class="fas fa-cloud-upload-alt"></i> Publicar Noticia</a>
-				<!-- <a href="#footer" class="page-scroll">Contact us</a> -->
 				<a href="<?php echo $destino ?>" class="page-scroll"><i class="fa fa-user"></i> <?php echo ($dataSession) ?></a>
-
 			</div>
 
 			<div class="icon-burger" id="icon-burger">
@@ -55,13 +53,13 @@ if (empty($_SESSION['SESSION_USER'])) {
 		<!-- <article class="articulo">
 			<div class="cabecera-articulo">
 				<div class="thumbnail">
-					<img loading="lazy" src="<?php echo RUTA_URL ?>/img/usuarios/avatar.svg" alt="X">
+					<img loading="lazy" src="</img/usuarios/avatar.svg" alt="X">
 				</div>
 				<a href="#">Admin</a>
 
 			</div>
 			<div class="gallery">
-				<img loading="lazy" src="<?php echo RUTA_URL ?>/img/anuncios/anuncio23042020_1.png" alt="" class="imagen" />
+				<img loading="lazy" src="/img/anuncios/anuncio23042020_1.png" alt="" class="imagen" />
 			</div>
 			<div class="footer-article">
 				<p>"Reparación y Mantenimiento de la Red de Semáforos de la Ciudad de SANTA ANA DE CORO.".</p>
