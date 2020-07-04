@@ -1,73 +1,88 @@
 <?php
 
-class Noticias extends AppController
+class Noticias
 {
+	//TRAITS
+	use ChargeModel;
+	use ChargeView;
+
+	//Variables
+	private $tableUsers = 'usuarios';
+	private $tableNews = 'imagesnews';
 
 	public function __construct()
 	{
 		session_start();
-		$this->noticiaModelo = $this->model('NoticiaModel');
-		$this->usuarioModelo = $this->model('UsuarioModel');
+		$this->userModel= $this->chargeModel('UsuarioModel');
+		$this->newsModel = $this->chargeModel('NoticiaModel');
 	}
 
 	public function index()
 	{
 		if (empty($_SESSION['SESSION_USER'])) {
-			return $this->view('templates/noticias');
+			return $this->chargeView('templates/noticias');
 		}
-		$currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-		$data = [
-			"t_user" => $currentUser->t_user
-		];
-		$this->view('templates/noticias', $data);
+
+		$search = new Querys($this->tableUsers, 'name_user', $_SESSION['SESSION_USER']);
+		$Result = $search->typeQuery('SEARCH');
+
+		$this->chargeView('templates/noticias', $Result);
 	}
 
 	public function updateNews()
 	{
-		#CHARGE JSON'S DATA TO VIEW
-		$json = file_get_contents(RUTA_ORIGIN . '/public_html/json/all_news.json');
-		return printf($json);
-	}
+		$search = new Querys($this->tableNews);
+		$search->table;
+		$news = $search->typeQuery('SEARCH_ALL');
 
-	public function PostNews()
-	{
-
-		if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
-			return $this->view('templates/usuarios/postNews');
-		}
-		$currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-		$image = base64_encode(file_get_contents($_FILES['news']['tmp_name']));
-		$data = [
-			'id_usuario' => $currentUser->id,
-			'name_user' => $_SESSION['SESSION_USER'],
-			'image_news' => $image,
-			'description_image' => $_POST['description']
-		];
-		$this->noticiaModelo->uploadNews($data);
-
-		$news = $this->noticiaModelo->getNewsImages();
 		foreach ($news as $key => $value) {
-			$photo = $this->noticiaModelo->getNewsImagesPerfil($value->name_user);
+			$search = new Querys($this->tableUsers, 'name_user', $value->name_user);
 			$news[$key] = [
-				"id_noticia" => $value->id_noticia,
-				"name_user" => $value->name_user,
-				"description_image" => $value->description_image,
-				"image_news" => ($value->image_news),
-				"photo_perfil" => ($photo->photo_perfil),
+				'id_noticia' => $value->id_noticia,
+				'name_user' => $value->name_user,
+				'description_image' => $value->description_image,
+				'image_news' => ($value->image_news),
+				'photo_perfil' => ($search->typeQuery('SEARCH')->photo_perfil),
 			];
 		}
+
 		#CHARGE DATA INTO JSON
 		$file = RUTA_ORIGIN . '/public_html/json/all_news.json';
 		$json_string = json_encode($news);
 		file_put_contents($file, $json_string);
 
+		#CHARGE JSON'S DATA TO VIEW
+		$json = file_get_contents(RUTA_ORIGIN . '/public_html/json/all_news.json');
+		printf($json);
+	}
+
+	public function PostNews()
+	{
+		if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+			return $this->chargeView('templates/usuarios/postNews');
+		}
+
+		$image = base64_encode(file_get_contents($_FILES['news']['tmp_name']));
+
+		$search = new Querys($this->tableUsers, 'name_user', $_SESSION['SESSION_USER']);
+		$Result = $search->typeQuery('SEARCH');
+
+		$data = [
+			'id_usuario' => $Result->id,
+			'name_user' => $Result->name_user,
+			'image_news' => $image,
+			'description_image' => $_POST['description']
+		];
+
+		$this->newsModel->uploadNews($data);
 		return printf(json_encode($image));
 	}
 
-
-	public function deleteNews($id_noticia)
+	public function deleteNews($id_news)
 	{
-		$this->noticiaModelo->deleteNews($id_noticia);
-		return printf(json_encode("Noticia Eliminada"));
+		$Querys = new Querys($this->tableNews, 'id_noticia', $id_news);
+		$Result = $Querys->typeQuery('DELETE');
+
+		return printf(json_encode($Result));
 	}
 }

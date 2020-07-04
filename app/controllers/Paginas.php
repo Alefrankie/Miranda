@@ -1,17 +1,19 @@
 <?php
 
-class Paginas extends AppController
+class Paginas
 {
+	use ChargeModel;
+	use ChargeView;
 	public function __construct()
 	{
 		session_start();
-		$this->usuarioModelo = $this->model('UsuarioModel');
+		 $this->userModel = $this->chargeModel('UsuarioModel');
 	}
 
 	public function index()
 	{
 		//Obtener los usuarios
-		$usuarios = $this->usuarioModelo->obtenerUsuarios();
+		$usuarios = $this->userModel->obtenerUsuarios();
 
 		$data = [
 			'titulo' => "The Parametrization it is works",
@@ -23,6 +25,6 @@ class Paginas extends AppController
 		file_put_contents($file, $json_string);
 
 		//Redireccion hacia Index
-		$this->view('templates/inicio', $data);
+		$this->chargeView('templates/inicio', $data);
 	}
 }

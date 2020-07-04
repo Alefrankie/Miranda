@@ -24,7 +24,8 @@ form.addEventListener("submit", (e) => {
     const ui = new InterfaceRegister();
 
     if (a_name == "" || a_lastName == "" || an_user == "" || a_pass == "") {
-        return alert("Debe Rellenar Los Campos Faltantes.");
+        throw (alert.error
+            ("Debe Rellenar Los Campos Faltantes."));
     }
     if (a_name.length <= 6 || a_lastName.length <= 6 || an_user.length <= 6 || a_pass.length <= 6) {
         return alert("data No Válidos (Debe contener más de 6 caracteres).");
@@ -44,7 +45,7 @@ form.addEventListener("submit", (e) => {
             if (!response.ok) {
                 throw new error(response.statusText);
             }
-            const respuesta = await response.json();
+            const respuesta = await response.text();
             alert(respuesta);
         } catch (error) {
             alert("Error al enviar el formulario: " + error.message);
@@ -53,20 +54,3 @@ form.addEventListener("submit", (e) => {
 
 });
 
-
-/*===== MENU DE NAVEGACIÓN RESPONSIVE */
-
-const openMenu = document.getElementById("icon-burger")
-const menu = document.getElementById("enlaces");
-let close = true;
-
-openMenu.addEventListener("click", () => {
-  if (close) {
-    menu.style.width = "100%";
-    close = false;
-  } else {
-    menu.style.width = "0%";
-    menu.style.overflow = "hidden";
-    close = true;
-  }
-});

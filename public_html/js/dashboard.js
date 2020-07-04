@@ -10,6 +10,15 @@ if (t_User == "Usuario") {
     enlace_BuscarUsuario.style.display = 'none';
     managementHomePage.style.display = 'none';
 };
+class Usuarios {
+    constructor(user, password) {
+        this.user = user
+        this.password = password
+    }
+}
+
+const Users = new Usuarios()
+
 
 
 // POO
@@ -46,6 +55,7 @@ class Interfaz {
             </tr>
                 `;
         }
+
         for (const i of buttons_Delete) {
             i.onclick = function (e) {
                 (async () => {
@@ -61,7 +71,6 @@ class Interfaz {
                     }
                 })();
                 e.preventDefault()
-
             }
         }
     }
@@ -294,3 +303,4 @@ const labels = [h3nombre, h3apellido, h3usuario, h3contraseña]
 // player1.f = shoot
 
 // player1.f()
+

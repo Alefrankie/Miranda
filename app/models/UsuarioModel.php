@@ -68,20 +68,6 @@ class UsuarioModel
         return false;
     }
 
-    public function deleteUser($id)
-    {
-        $this->db->query('DELETE FROM usuarios WHERE id = :id');
-
-        //Vincular valores
-        $this->db->bind(':id', $id);
-
-        //Ejecutar
-        if ($this->db->execute()) {
-            return true;
-        }
-        return false;
-    }
-
     public function updateStatus($data)
     {
         $this->db->query('UPDATE usuarios SET status_user = :status_user WHERE id = :id');

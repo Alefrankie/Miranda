@@ -49,9 +49,11 @@ document.getElementById("form").addEventListener("submit", (e) => {
     if (user == "" || password == "") {
         return ui.showMessage("Debe rellenar los campos faltantes.")
     }
+
     if (user.length <= 6 || password.length <= 6) {
         return ui.showMessage("Usuario/Contraseña No válido (Debe contener más de 6 caracteres).")
     }
+
     (async () => {
         try {
             const myRequest = new Request(location.origin + "/Miranda/usuarios/login")

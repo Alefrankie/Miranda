@@ -1,22 +1,24 @@
 <?php
 
-class Usuarios extends AppController
+class Usuarios
 {
+    use ChargeView;
+    use ChargeModel;
     public function __construct()
     {
         session_start();
-        $this->usuarioModelo = $this->model('UsuarioModel');
+        $this->userModel = $this->chargeModel('UsuarioModel');
     }
 
     public function index()
     {
-        $this->view('templates/usuarios/login');
+        $this->chargeView('templates/usuarios/login');
     }
 
     public function login()
     {
         if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
-            $admi = $this->usuarioModelo->ValidateAdmin("Administrador");
+            $admi = $this->userModel->ValidateAdmin("Administrador");
             if (empty($admi)) {
                 $admi = "";
             } else {
@@ -25,11 +27,11 @@ class Usuarios extends AppController
             $data = [
                 "admi" => $admi
             ];
-            return $this->view('templates/usuarios/login', $data);
+            return $this->chargeView('templates/usuarios/login', $data);
         }
 
         $dataPOST = json_decode(file_get_contents('php://input'));
-        $dataDB = $this->usuarioModelo->GetUser($dataPOST->user);
+        $dataDB = $this->userModel->GetUser($dataPOST->user);
         if (empty($dataPOST) || empty($dataDB)) {
             return printf(json_encode("Usuario no encontrado."));
         }
@@ -45,26 +47,21 @@ class Usuarios extends AppController
     public function register()
     {
         if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
-            return $this->view('templates/usuarios/register');
+            return $this->chargeView('templates/usuarios/register');
         }
-        $dataPOST = json_decode(file_get_contents('php://input'));
-        $hashPass = password_hash($dataPOST->a_pass, PASSWORD_DEFAULT, ['cost' => 10]);
-        $data = [
-            'a_name' => $dataPOST->a_name,
-            'a_lastName' => $dataPOST->a_lastName,
-            'an_user' => $dataPOST->an_user,
-            'a_pass' => $hashPass,
-        ];
 
-        if (!($this->usuarioModelo->registerUser($data))) {
-            echo json_encode("Registro Fallido");
-        }
-        echo json_encode("Registro Exitoso");
+        $dataPOST = json_decode(file_get_contents('php://input'));
+
+        $this->register = $this->service('RegisterNewUserCase');
+        $this->register = new RegisterNewUserCase($dataPOST->a_name, $dataPOST->a_lastName, $dataPOST->an_user, $dataPOST->a_pass);
+        $this->register->__invoke();
+
+        return printf(json_encode($this->register->__invoke()));
     }
 
     public function editar($id)
     {
-        $userDB = $this->usuarioModelo->obtenerUsuarioID($id);
+        $userDB = $this->userModel->obtenerUsuarioID($id);
 
         if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
             $data = [
@@ -75,7 +72,7 @@ class Usuarios extends AppController
                 'a_pass' => $userDB->pass,
             ];
 
-            return $this->view('templates/usuarios/editar', $data);
+            return $this->chargeView('templates/usuarios/editar', $data);
         }
 
         $dataPOST = json_decode(file_get_contents('php://input'));
@@ -87,23 +84,23 @@ class Usuarios extends AppController
             'an_user' => $dataPOST->an_user,
             'a_pass' => $hashPass,
         ];
-        $this->usuarioModelo->updateUser($data);
+        $this->userModel->updateUser($data);
         echo json_encode("Registro Modificado Exitosamente");
     }
 
     public function delete($id)
     {
-        if (!($this->usuarioModelo->deleteUser($id))) {
-            echo json_encode("No se ha Eliminado el Usuario");
-        }
-        echo json_encode("Usuario Eliminado con Éxito");
+        $delete = new Querys('usuarios', 'id', $id);
+		$Result = $delete->typeQuery('DELETE');
+
+		return printf(json_encode($Result));
     }
 
     public function dashboard()
     {
-        $usuarios = $this->usuarioModelo->obtenerUsuarios();
-        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
-        $currentUserImage = $this->usuarioModelo->showImage($currentUser->id);
+        $usuarios = $this->userModel->obtenerUsuarios();
+        $currentUser = $this->userModel->GetUser($_SESSION['SESSION_USER']);
+        $currentUserImage = $this->userModel->showImage($currentUser->id);
         $data = [
             'usuarios' => $usuarios,
             'id' => $currentUser->id,
@@ -115,18 +112,18 @@ class Usuarios extends AppController
             't_user' => $currentUser->t_user,
             'status_user' => "Online"
         ];
-        $this->usuarioModelo->updateStatus($data);
-        $this->view('templates/usuarios/dashboard', $data);
+        $this->userModel->updateStatus($data);
+        $this->chargeView('templates/usuarios/dashboard', $data);
     }
 
     public function closeSession()
     {
-        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
+        $currentUser = $this->userModel->GetUser($_SESSION['SESSION_USER']);
         $data = [
             'id' => $currentUser->id,
             'status_user' => "Offline"
         ];
-        $this->usuarioModelo->updateStatus($data);
+        $this->userModel->updateStatus($data);
         unset($_SESSION['SESSION_USER']);
         session_destroy();
         redireccionar("/usuarios/login");
@@ -134,7 +131,7 @@ class Usuarios extends AppController
 
     public function PhotoPerfil()
     {
-        $currentUser = $this->usuarioModelo->GetUser($_SESSION['SESSION_USER']);
+        $currentUser = $this->userModel->GetUser($_SESSION['SESSION_USER']);
         if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
             $photo = $currentUser->photo_perfil;
             return printf(json_encode($photo));
@@ -144,13 +141,13 @@ class Usuarios extends AppController
             'id' => $currentUser->id,
             'photo_perfil' => $photo
         ];
-        $this->usuarioModelo->updateImage($data);
+        $this->userModel->updateImage($data);
         return printf(json_encode($photo));
     }
 
     public function chargeTableUsers()
     {
-        $usuarios = $this->usuarioModelo->obtenerUsuarios();
+        $usuarios = $this->userModel->obtenerUsuarios();
         echo json_encode($usuarios);
     }
 
@@ -210,14 +207,9 @@ class Usuarios extends AppController
     public function TEST()
     {
         $json = file_get_contents(RUTA_ORIGIN . '/public_html/json/data.json');
-
         $data = json_decode($json);
 
         foreach ($data as $obj) {
-            $Id = $obj->Id;
-            $Username = $obj->Username;
-            $FatherName = $obj->FatherName;
-
             if ($obj->Id == "2") {
                 $obj->Username = "José";
             }

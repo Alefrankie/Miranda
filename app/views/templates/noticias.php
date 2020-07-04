@@ -6,7 +6,7 @@ if (empty($_SESSION['SESSION_USER'])) {
 }else{
 	$dataSession = $_SESSION['SESSION_USER'];
 	$destino = RUTA_URL . "/Usuarios/dashboard/";
-	$tipoUser = $data["t_user"];
+	$tipoUser = $data->t_user;
 }
 
 ?>
@@ -41,15 +41,14 @@ if (empty($_SESSION['SESSION_USER'])) {
 			</div>
 		</nav>
 	</header>
-	<!--===== INICIO =====-->
+	<!--===== START =====-->
 	<div class="inicio-noticias">
-
 		<div class="svg-bottom" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
 				<path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
 			</svg></div>
 	</div>
 
-	<!--===== SECCIÓN PRINCIPAL =============-->
+	<!--===== SECTION MAIN =============-->
 	<section class="main-section" id="sección-principal">
 		<!-- <article class="articulo">
 			<div class="cabecera-articulo">
@@ -75,7 +74,6 @@ if (empty($_SESSION['SESSION_USER'])) {
 	<?php require RUTA_APP . '/views/inc/footer-institutos.php'; ?>
 
 	<!--===== Javascript ===================================== -->
-	<!-- <script src="https://platform-api.sharethis.com/js/sharethis.js#property=5cc87df64b94860012b42e5b&product=custom-share-buttons"></script> -->
 	<script src="<?php echo RUTA_URL ?>/js/noticias_script.js"></script>
 	<script src="<?php echo RUTA_URL ?>/js/all.min.js"></script>
 </body>

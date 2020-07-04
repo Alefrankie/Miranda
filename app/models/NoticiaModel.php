@@ -9,21 +9,6 @@ class NoticiaModel
         $this->db = new Db;
     }
 
-    public function getNewsImages()
-    {
-        $this->db->query('SELECT * FROM imagesnews');
-        $resultado = $this->db->registros();
-        return $resultado;
-    }
-
-    public function getNewsImagesPerfil($name_user)
-    {
-        $this->db->query('SELECT photo_perfil FROM usuarios WHERE name_user = :name_user');
-        $this->db->bind(':name_user', $name_user);
-        $fila = $this->db->registro();
-        return $fila;
-    }
-
     public function uploadNews($data)
     {
         $this->db->query('INSERT INTO imagesnews (id_usuario, name_user, image_news, description_image) values (:id_usuario, :name_user, :image_news, :description_image)');
@@ -36,28 +21,83 @@ class NoticiaModel
         if ($this->db->execute()) {
             return true;
         }
-        return false;
+        throw new Exception("Error Processing Request");
+    }
+}
+
+class Querys
+{
+    private $table;
+    private $column;
+    private $value;
+    private $db;
+
+    public function __construct(string $table, string $column = NULL, $value = NULL)
+    {
+        $this->db = new Db;
+        $this->table = $table;
+        $this->column = $column;
+        $this->value = $value;
     }
 
-    public function deleteNews($id_noticia)
+    public function typeQuery($type)
     {
-        $this->db->query('DELETE FROM imagesnews WHERE id_noticia = :id_noticia');
+        switch ($type) {
+            case 'DELETE':
+                return $this->delete();
+                break;
+            case 'SEARCH':
+                return $this->search();
+                break;
+            case 'SEARCH_ALL':
+                return $this->searchALL();
+                break;
 
-        //Vincular valores
-        $this->db->bind(':id_noticia', $id_noticia);
-
-        //Ejecutar inserción
-        if ($this->db->execute()) {
-            return true;
+            default:
+                throw new Exception("Query Invalid");
+                break;
         }
-        return false;
     }
 
-    public function GetUser($name_user)
+    public function delete()
     {
-        $this->db->query('SELECT * FROM usuarios WHERE name_user = :name_user');
-        $this->db->bind(':name_user', $name_user);
+        $query = ('DELETE FROM ' . $this->table . ' WHERE ' . $this->column . ' = :' . $this->column);
+
+        $this->db->query($query);
+        $this->db->bind(':' . $this->column, $this->value);
+
+        if ($this->db->execute()) {
+            return "Query Successful";
+        }
+        throw new Exception("Query Failed");
+    }
+
+    public function search()
+    {
+        $query = ('SELECT * FROM ' . $this->table . ' WHERE ' . $this->column . ' = :' . $this->column);
+        $this->db->query($query);
+        $this->db->bind(':' . $this->column, $this->value);
         $fila = $this->db->registro();
         return $fila;
     }
+    public function searchALL()
+    {
+        $this->db->query('SELECT * FROM ' . $this->table);
+        $resultado = $this->db->registros();
+        return $resultado;
+    }
+
+    // public function search()
+    // {
+    // $this->db->query("DELETE FROM imagesnews WHERE id_noticia = :id_noticia");
+
+    // foreach ($this->data as $index => $value) {
+    // $this->db->bind(':' . $index, $value);
+    // }
+
+    // if ($this->db->execute()) {
+    // return "Query Successful";
+    // }
+    // throw new Exception("Query Failed");
+    // }
 }

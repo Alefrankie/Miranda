@@ -1,14 +1,15 @@
 <?php
 
-class Institutos extends AppController
+class Institutos
 {
+    use ChargeView;
     public function bomberos()
     {
-        $this->view('templates/institutos/bomberos');
+        $this->chargeView('templates/institutos/bomberos');
     }
 
     public function matadero()
     {
-        $this->view('templates/institutos/matadero-municipal');
+        $this->chargeView('templates/institutos/matadero-municipal');
     }
 }

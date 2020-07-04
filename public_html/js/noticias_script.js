@@ -34,7 +34,7 @@ class NewsInterface {
             if (!response.ok) {
               throw new error(response.statusText);
             }
-            const a_news = await response.json();
+            const a_news = await response.text();
             alert(a_news)
             window.location.reload(true)
           } catch (error) {
